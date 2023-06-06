@@ -1,13 +1,12 @@
-<h1>Products#show</h1>
-<p><%= link_to "Back", root_path%></p>
-<p><%= link_to "Edit", edit_product_path(@product)%></p>
-
-<h2><%= @product.name %></h2>
-<ul>
-  <li><strong>Name:</strong> <%= @product.name %></li>
-  <li><strong>Description:</strong> <%= @product.description %></li>
-  <li><strong>Expiration:</strong> <%= @product.expiration %></li>
-  <li><strong>Location:</strong><%= @product.location %></li>
-</ul>
-<p><%= link_to "Back", root_path%></p>
-<p><%= link_to "Edit", edit_product_path(@product)%></p>
+<div class="container p-5 mt-5">
+  <h1>Details</h1>
+  <h2><%= @product.name %></h2>
+  <ul>
+    <li><strong>Name:</strong> <%= @product.name %></li>
+    <li><strong>Description:</strong> <%= @product.description %></li>
+    <li><strong>Expiration:</strong> <%= @product.expiration %></li>
+    <li><strong>Location:</strong><%= @product.location %></li>
+  </ul>
+  <p><%= link_to "Back", root_path%></p>
+  <p><%= link_to "Edit", edit_product_path(@product)%></p>
+</div>
