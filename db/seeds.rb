@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+# Create 10 users
 10.times do
   user = User.create!(
     email: Faker::Internet.email,
@@ -14,6 +17,7 @@
     address: Faker::Address.street_address,
     phone: Faker::PhoneNumber.phone_number
   )
+
   # Create 2 products for each user
   2.times do
     product = Product.create!(
@@ -23,6 +27,7 @@
       expiration: Faker::Date.forward(days: 365),
       location: Faker::Address.city
     )
+
     Stock.create!(
       user_id: user.id,
       product_id: product.id,
