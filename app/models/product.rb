@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
+
     has_many :stocks
     has_many :users, through: :stocks
+    has_one_attached :photo
     accepts_nested_attributes_for :stocks
 
     validate :expiration_date_cannot_be_in_the_past
@@ -10,4 +12,7 @@ class Product < ApplicationRecord
         errors.add(:expiration, "Can't be less than a month from now")
       end
     end
+
+
+
 end
