@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_06_153228) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_201030) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,41 +44,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_153228) do
 
   create_table "offers", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "transaction_id", null: false
-    t.bigint "stock_id", null: false
-    t.integer "amount"
-    t.text "message"
+    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["stock_id"], name: "index_offers_on_stock_id"
-    t.index ["transaction_id"], name: "index_offers_on_transaction_id"
+    t.index ["product_id"], name: "index_offers_on_product_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "category"
     t.string "name"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.string "category"
+    t.integer "quantity"
     t.date "expiration"
     t.string "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "stocks", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "trades", force: :cascade do |t|
+    t.bigint "offer_id", null: false
     t.bigint "product_id", null: false
-    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_stocks_on_product_id"
-    t.index ["user_id"], name: "index_stocks_on_user_id"
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.boolean "valid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["offer_id"], name: "index_trades_on_offer_id"
+    t.index ["product_id"], name: "index_trades_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,9 +91,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_153228) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "offers", "stocks"
-  add_foreign_key "offers", "transactions"
+  add_foreign_key "offers", "products"
   add_foreign_key "offers", "users"
-  add_foreign_key "stocks", "products"
-  add_foreign_key "stocks", "users"
+  add_foreign_key "products", "users"
+  add_foreign_key "trades", "offers"
+  add_foreign_key "trades", "products"
 end
