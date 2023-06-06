@@ -1,2 +1,15 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<!-- app/views/products/new.html.erb -->
+<%= simple_form_for @product do |f| %>
+  <%= f.input :category, collection: ['Frutas', 'Legumes', 'Carnes', 'Peixes', 'Laticínios', 'Pães', 'Bebidas', 'Congelados', 'Doces', 'Salgadinhos', 'Cereais', 'Condimentos', 'Higiene pessoal', 'Limpeza', 'Pet', 'Outros'], prompt: "Selecione uma categoria" %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :expiration %>
+  <%= f.input :location %>
+  
+  <%= f.simple_fields_for :stocks do |stock| %>
+    <%= stock.input :quantity %>
+    <%= stock.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+  <% end %>
+
+  <%= f.button :submit %>
+<% end %>
