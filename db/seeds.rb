@@ -24,13 +24,23 @@
       category: Faker::Commerce.department,
       name: Faker::Commerce.product_name,
       description: Faker::Lorem.sentence(word_count: 10),
+<<<<<<< HEAD
       # expiration: Faker::Date.forward(days: 365),
+=======
+<<<<<<< HEAD
+      expiration: Faker::Date.forward(days: 365),
+>>>>>>> master
       location: Faker::Address.city
     )
 
     Stock.create!(
       user_id: user.id,
       product_id: product.id,
+=======
+      expiration: Date.today + rand(40..50), 
+      user: user,
+      location: Faker::Address.city,
+>>>>>>> 598601102aa907b1289d3702cdcee70634393afc
       quantity: Faker::Number.between(from: 1, to: 10)
     )
   end
