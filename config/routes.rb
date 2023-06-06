@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # resources :transactions
   # resources :stocks
   # resources :products
-  # devise_for :users
+  devise_for :users
   # root to: "pages#home"
   root to: "products#index"
   resources :products do

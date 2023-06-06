@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def my_products
-    @products = Product.where(user: current_user)
+    @products = current_user.products
   end
 
   def destroy
