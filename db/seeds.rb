@@ -20,7 +20,7 @@
       category: Faker::Commerce.department,
       name: Faker::Commerce.product_name,
       description: Faker::Lorem.sentence(word_count: 10),
-      expiration: Faker::Date.forward(days: 365),
+      # expiration: Faker::Date.forward(days: 365),
       location: Faker::Address.city
     )
     Stock.create!(
