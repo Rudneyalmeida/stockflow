@@ -3,8 +3,9 @@
   <%= f.input :category, collection: ['Frutas', 'Legumes', 'Carnes', 'Peixes', 'Laticínios', 'Pães', 'Bebidas', 'Congelados', 'Doces', 'Salgadinhos', 'Cereais', 'Condimentos', 'Higiene pessoal', 'Limpeza', 'Pet', 'Outros'], prompt: "Selecione uma categoria" %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :expiration %>
+  <%= f.date_field :expiration, min: 1.month.from_now %>
   <%= f.input :location %>
+  <%= f.input :photo, as: :file %>
   
   <%= f.simple_fields_for :stocks do |stock| %>
     <%= stock.input :quantity %>
