@@ -59,10 +59,10 @@
   <%= link_to products_path do%>
     <li class="nav-item">HOME</li>
   <% end %>
-  <%= link_to products_path do%>
+  <%= link_to my_products_products_path do%>
     <li class="nav-item">YOUR PRODUCTS</li>
   <% end %>
-  <%= link_to products_path do%>
+  <%= link_to new_product_path do%>
     <li class="nav-item">ADD PRODUCT</li>
   <% end %>
   <%= link_to products_path do%>
@@ -76,6 +76,3 @@
   <% end %>
   </ul>
 </div>
-      <%= link_to my_products_products_path, class: "navbar-brand" do %>
-        <i class="fa-regular fa-bell fa-xl" style="color: #ffffff;"></i>
-      <% end %>
