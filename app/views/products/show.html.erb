@@ -1,17 +1,38 @@
-<div class="container p-5 mt-5">
-  <h1>DETAILS</h1>
 
-  <h2><%= @product.name %></h2>
+
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2023/05/14/10/53/beetle-7992520_1280.jpg)">
+  DETAILS
+</div>
+<div class="container mt-5">
+
+    <h2><%= @product.name %></h2>
   <ul>
     <% if @product.photo.present? %>
       <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
     <% else %>
       <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill %>
     <% end %>
-    <li><strong>Name:</strong> <%= @product.name %></li>
-    <li><strong>Description:</strong> <%= @product.description %></li>
-    <li><strong>Expiration:</strong> <%= @product.expiration %></li>
-    <li><strong>Location:</strong><%= @product.location %></li>
+    <li><strong>Name: </strong> <%= @product.name %></li>
+    <li><strong>Description: </strong> <%= @product.description %></li>
+    <li><strong>Expiration: </strong> <%= @product.expiration %></li>
+    <li><strong>Location: </strong><%= @product.location %></li>
   </ul>
-   <p class="btn-blue"><%= link_to "Back", "javascript:history.back()", class: "btn-blue" %></p>
+
+  <div class="card mt-5">
+    <div class="card-header">
+      <h3>User Information</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @product.user.name %></h5>
+      <p class="card-text"><strong>CNPJ:</strong> <%= @product.user.cpnj %></p>
+      <p class="card-text"><strong>Address:</strong> <%= @product.user.address %></p>
+      <p class="card-text"><strong>Phone:</strong> <%= @product.user.phone %></p>
+    </div>
+  </div>
+
+  <% if current_user != @product.user %>
+    <%= link_to "Make Offer", new_product_offer_path(@product), class: "btn-blue" %>
+  <% end %>
+  <p class="btn-blue"><%= link_to "Back", :back, class: "btn-blue" %></p>
 </div>
