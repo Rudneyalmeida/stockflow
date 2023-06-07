@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :offers
-  resources :transactions
   resources :trades
   resources :products do
     collection do
