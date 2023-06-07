@@ -1,27 +1,28 @@
-<h1>Products</h1>
-
 <div class="container mt-5 mb-5 bg-cards-home">
+  <h1>Products</h1>
   <div class="cards-wrapper">
     <% @products.each do |product| %>
       <%= link_to product_path(product), class: "card-listing" do %>
-        <div class="card-product">
+        <div class="card-product avatar-father">
           <% if product.photo.present? %>
             <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
           <% else %>
             <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill %>
           <% end %>
-        </div>
-        <div class="d-flex justify-content-between align-items-center position-relative">
-          <div class="card-product-infos">
-            <h2><%= product.name %></h2>
-            <span class="price">Quantidade <%= product.quantity %></span>
+          <div class="d-flex justify-content-between align-items-center position-relative">
+            <div class="card-product-infos">
+              <h2><%= product.name %></h2>
+              <span class="Qtd">Quantidade <%= product.quantity %></span>
+            </div>
           </div>
-          <% if product.user.photo.attached? %>
-            <%= cl_image_tag product.user.photo.key, class: "avatar-card avatar", alt: "avatar-large" %>
-          <% else %>
-            <img class="avatar-card avatar" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-          <% end %>
-        </div>
+          <div>
+              <% if product.user.photo.attached? %>
+                <%= cl_image_tag product.user.photo.key, class: "avatar-card avatar", alt: "avatar-large" %>
+              <% else %>
+                <img class="avatar-card avatar" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+              <% end %>
+            </div>
+          </div>
       <% end %>
     <% end %>
   </div>

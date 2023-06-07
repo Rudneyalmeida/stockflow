@@ -1,0 +1,40 @@
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+.card-product{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.card-listing {
+  transition: 0.4s;
+  border-radius: 4px;
+  border: 1px solid black;
+  padding: 14px;
+  width: 400px;
+}
+.card-product > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-product-infos {
+  width: 100%;
+  background: transparent;
+  padding: 16px;
+  display: flex;
+  color: black;
+  justify-content: space-between;
+
+    h2 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 14px;
+    opacity: .7;
+  }
+}
