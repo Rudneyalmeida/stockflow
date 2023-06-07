@@ -31,6 +31,10 @@ class ProductsController < ApplicationController
   def destroy
   end
 
+  def my_products
+    @products = Product.where(user: current_user)
+  end
+
   private
   def product_params
     params.require(:product).permit(:name, :description, :category, :quantity, :expiration, :location, :photo)
