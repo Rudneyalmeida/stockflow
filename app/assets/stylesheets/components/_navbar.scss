@@ -10,3 +10,73 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-van {
+  --bs-nav-link-padding-x: 0;
+  --bs-nav-link-padding-y: 0;
+  --bs-nav-link-font-weight: ;
+  --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+  --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  flex-direction: row;
+
+  height: 100%;
+  width: 100%;
+}
+
+.navbar-van2 {
+  --bs-nav-link-padding-x: 0;
+  --bs-nav-link-padding-y: 0;
+  --bs-nav-link-font-weight: ;
+  --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+  --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.nav-item {
+  padding-left: 50px;
+  padding-right: 50px;
+  font-family: 'Catamaran', sans-serif;
+}
+
+li p {
+  margin-bottom: 0px;
+}
+
+.fa-regular {
+  font-size: 40px;
+}
+
+.navbar-search {
+  background-color: #212A3E;
+  height: 70px;
+  padding: 0px
+}
+
+.navbar-list {
+  height: 110px;
+}
+
+.fa-bell {
+  padding-right: 15px;
+  font-size: 35px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-size: 24px;
+}
