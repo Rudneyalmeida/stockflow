@@ -13,5 +13,21 @@
     <li><strong>Expiration:</strong> <%= @product.expiration %></li>
     <li><strong>Location:</strong><%= @product.location %></li>
   </ul>
-   <p class="btn-blue"><%= link_to "Back", "javascript:history.back()", class: "btn-blue" %></p>
+
+  <div class="card mt-5">
+    <div class="card-header">
+      <h3>User Information</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @product.user.name %></h5>
+      <p class="card-text"><strong>CNPJ:</strong> <%= @product.user.cpnj %></p>
+      <p class="card-text"><strong>Address:</strong> <%= @product.user.address %></p>
+      <p class="card-text"><strong>Phone:</strong> <%= @product.user.phone %></p>
+    </div>
+  </div>
+
+  <% if current_user != @product.user %>
+    <%= link_to "Make Offer", new_offer_path(product_id: @product.id), class: "btn-blue" %>
+  <% end %>
+  <p class="btn-blue"><%= link_to "Back", :back, class: "btn-blue" %></p>
 </div>
