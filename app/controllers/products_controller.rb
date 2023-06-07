@@ -30,6 +30,10 @@ class ProductsController < ApplicationController
   def destroy
   end
 
+  def my_products
+    @products = Product.where(user: current_user)
+  end
+
   private
   
   def product_params
