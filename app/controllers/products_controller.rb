@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
+    @products = Product.all
   end
 
   def show
@@ -8,14 +9,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.stocks.build
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.build(product_params)
 
     if @product.save
-      redirect_to @product
+      redirect_to @product, notice: 'Product was successfully created.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:category, :name, :description, :expiration, :location, :photo, stocks_attributes: [:quantity, :user_id])
+    params.require(:product).permit(:name, :description, :category, :quantity, :expiration, :location, :photo)
   end
 
   def set_product
