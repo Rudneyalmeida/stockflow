@@ -1,10 +1,30 @@
-<!-- app/views/products/new.html.erb -->
 <%= simple_form_for @product do |f| %>
   <%= f.input :category, collection: ['Frutas', 'Legumes', 'Carnes', 'Peixes', 'Laticínios', 'Pães', 'Bebidas', 'Congelados', 'Doces', 'Salgadinhos', 'Cereais', 'Condimentos', 'Higiene pessoal', 'Limpeza', 'Pet', 'Outros'], prompt: "Selecione uma categoria" %>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.date_field :expiration, min: 1.month.from_now %>
   <%= f.input :quantity %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photo, as: :file, input_html: { onchange: "previewFile(this);" } %>
+  <img id="preview" src="#" alt="Preview" style="display: none; max-width: 100%; max-height: 300px;">
   <%= f.button :submit %>
 <% end %>
+
+<script>
+function previewFile(input) {
+  var preview = document.getElementById('preview');
+  var file = input.files[0];
+  var reader = new FileReader();
+
+  reader.onloadend = function() {
+    preview.src = reader.result;
+    preview.style.display = 'block';
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = '';
+    preview.style.display = 'none';
+  }
+}
+</script>
