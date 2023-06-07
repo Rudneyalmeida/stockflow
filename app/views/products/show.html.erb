@@ -27,7 +27,7 @@
   </div>
 
   <% if current_user != @product.user %>
-    <%= link_to "Make Offer", new_offer_path(product_id: @product.id), class: "btn-blue" %>
+    <%= link_to "Make Offer", new_product_offer_path(@product), class: "btn-blue" %>
   <% end %>
   <p class="btn-blue"><%= link_to "Back", :back, class: "btn-blue" %></p>
 </div>

@@ -1,2 +1,20 @@
-<h1>Offers#show</h1>
-<p>Find me in app/views/offers/show.html.erb</p>
+<!-- app/views/offers/show.html.erb -->
+
+<h1>Offer details</h1>
+
+<p>
+  <strong>User:</strong>
+  <%= @offer.user.name %>
+</p>
+
+<p>
+  <strong>Product to offer for:</strong>
+  <%= @offer.product.name %>
+</p>
+
+<h2>Products offered:</h2>
+<% @offer.products.each do |product| %>
+  <p><%= product.name %></p>
+<% end %>
+
+<%= link_to 'Back to Offers', offers_path %>

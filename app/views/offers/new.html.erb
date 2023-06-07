@@ -1,2 +1,7 @@
-<h1>Offers#new</h1>
-<p>Find me in app/views/offers/new.html.erb</p>
+<%= simple_form_for [@product, @offer] do |f| %>
+
+  <%= f.label :products, "Products to Offer" %>
+  <%= f.input_field :product_ids, collection: @products, as: :check_boxes %>
+
+  <%= f.button :submit, "Create Offer" %>
+<% end %>

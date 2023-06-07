@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :offers
+
   resources :trades
   resources :products do
+    resources :offers, only: [:new, :create]
     collection do
       get :my_products
     end
