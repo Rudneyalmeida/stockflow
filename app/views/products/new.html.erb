@@ -1,10 +1,46 @@
-<!-- app/views/products/new.html.erb -->
-<%= simple_form_for @product do |f| %>
-  <%= f.input :category, collection: ['Frutas', 'Legumes', 'Carnes', 'Peixes', 'Laticínios', 'Pães', 'Bebidas', 'Congelados', 'Doces', 'Salgadinhos', 'Cereais', 'Condimentos', 'Higiene pessoal', 'Limpeza', 'Pet', 'Outros'], prompt: "Selecione uma categoria" %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.date_field :expiration, min: 1.month.from_now %>
-  <%= f.input :quantity %>
-  <%= f.input :photo, as: :file %>
+<div class="container p-5 mt-5">
+
+  <%= simple_form_for @product do |f| %>
+  <div class="form-new">
+    <div class="form-field">
+      <div>
+        <%= f.input :category, collection: ['Frutas', 'Legumes', 'Carnes', 'Peixes', 'Laticínios', 'Pães', 'Bebidas', 'Congelados', 'Doces', 'Salgadinhos', 'Cereais', 'Condimentos', 'Higiene pessoal', 'Limpeza', 'Pet', 'Outros'], prompt: "Selecione uma categoria" %>
+        <%= f.input :name %>
+      </div>
+      <div>
+        <%= f.input :description %>
+      </div>
+      <div>
+        <div class="form-qtd">
+          <%= f.date_field :expiration, min: 1.month.from_now %>
+          <%= f.input :quantity %>
+        </div>
+      </div>
+    </div>
+    <div class="photo-new">
+        <img id="preview" src="#" alt="Preview" style="display: none; max-width: 100%; max-height: 300px;">
+        <%= f.input :photo, as: :file, input_html: { onchange: "previewFile(this);" } %>
+    </div>
+  </div>
   <%= f.button :submit %>
+</div>
 <% end %>
+
+
+<script>
+function previewFile(input) {
+  var preview = document.getElementById('preview');
+  var file = input.files[0];
+  var reader = new FileReader();
+  reader.onloadend = function() {
+    preview.src = reader.result;
+    preview.style.display = 'block';
+  }
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = '';
+    preview.style.display = 'none';
+  }
+}
+</script>
