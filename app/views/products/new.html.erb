@@ -4,13 +4,7 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.date_field :expiration, min: 1.month.from_now %>
-  <%= f.input :location %>
+  <%= f.input :quantity %>
   <%= f.input :photo, as: :file %>
-  
-  <%= f.simple_fields_for :stocks do |stock| %>
-    <%= stock.input :quantity %>
-    <%= stock.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-  <% end %>
-
   <%= f.button :submit %>
 <% end %>

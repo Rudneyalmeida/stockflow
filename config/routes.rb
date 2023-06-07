@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :offers
   resources :transactions
-  resources :stocks
+  resources :trades
   resources :products
   devise_for :users
   root to: "pages#home"
