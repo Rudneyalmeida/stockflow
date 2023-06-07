@@ -3,20 +3,39 @@ class OffersController < ApplicationController
   end
 
   def show
+    @offer = Offer.find(params[:id])
   end
 
   def new
+    @offer = Offer.new
+    @product = Product.find(params[:product_id])
+    @products = current_user.products 
+  end
+
+  def create
+    @offer = Offer.new
+    @product = Product.find(params[:product_id])
+    @offer.product = @product
+    @offer.user = current_user
+    if @offer.save
+      params[:offer][:product_ids].uniq.reject(&:blank?).each do |product_id|
+        Trade.create!(offer: @offer, product_id: product_id)
+      end
+      redirect_to product_path(@product)
+    else
+      render 'new'
+    end
   end
 
   def edit
   end
 
-  def create
-  end
 
   def update
   end
 
   def destroy
   end
+
 end
+
