@@ -1,3 +1,4 @@
+
 <div class="container p-5 mt-5">
 
   <%= simple_form_for @product do |f| %>
@@ -22,6 +23,7 @@
         <%= f.input :photo, as: :file, input_html: { onchange: "previewFile(this);" } %>
     </div>
   </div>
+
   <%= f.button :submit %>
 </div>
 <% end %>
@@ -32,10 +34,12 @@ function previewFile(input) {
   var preview = document.getElementById('preview');
   var file = input.files[0];
   var reader = new FileReader();
+
   reader.onloadend = function() {
     preview.src = reader.result;
     preview.style.display = 'block';
   }
+
   if (file) {
     reader.readAsDataURL(file);
   } else {

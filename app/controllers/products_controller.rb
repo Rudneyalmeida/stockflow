@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
+    @products = Product.all
   end
 
   def show
@@ -27,6 +28,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def my_products
+    @products = Product.where(user: current_user)
   end
 
   private
