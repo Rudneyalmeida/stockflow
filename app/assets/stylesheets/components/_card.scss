@@ -1,3 +1,12 @@
+.card {
+  list-style-type: none;
+  justify-content: center;
+  width: 30%;
+  border-radius: 1.5rem;
+}
+.card-user-info {
+  width: 80%;
+}
 .card-product{
   display: flex;
   align-items: center;
@@ -22,16 +31,14 @@
 
 
   h2 {
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: bold;
   }
   .qtd {
-    font-size: 24px;
+    font-size: 1.2rem;
     font-weight: bold;
   }
 }
-
-
   .avatar-card{
     position: absolute;
     width: 80px;
