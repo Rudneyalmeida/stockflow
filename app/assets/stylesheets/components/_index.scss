@@ -8,6 +8,8 @@
 @import "form";
 @import "card";
 @import "footer";
+@import "image";
+@import "subtitle";
 
 .container {
   flex-grow: 1;
@@ -18,4 +20,5 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  
 }

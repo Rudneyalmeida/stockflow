@@ -1,21 +1,14 @@
-.btn {
-  color: white;
-  border-radius: 4px;
-  padding: 4px 15px;
-  border-radius: 24px;
-  background: #5d8299;
-  transition: background 0.3s ease;
-}
 
-.btn:hover {
-  background: #1c0bd8;
-  color: white;
-}
-.btn-blue{
+.btn-blue, .btn {
   border: 1px solid black;
   color: black;
   text-decoration: none;
-  font-size: 1.3rem;
-  padding: 0.5rem 2rem;
-  border-radius: 1rem;
+  font-size: 1rem;
+  padding: 0.3rem 2rem;
+  border-radius: 2rem;
+}
+
+.btn-blue, .btn:hover {
+  background: #27262e;
+  color: white;
 }
