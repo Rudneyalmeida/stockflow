@@ -3,12 +3,25 @@
     <% if user_signed_in? %>
       <div class="nav-item dropdown">
         <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa-regular fa-circle-user fa-2xl" style="color: #ffffff;" alt="dropdown menu"></i>
+          <i class="fa-regular fa-circle-user fa-2xl mb-4" style="color: #ffffff;" alt="dropdown menu"></i>
         </a>
         <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Action", "#", class: "dropdown-item" %>
           <%= link_to "Another action", "#", class: "dropdown-item" %>
           <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mb-2">
+        <div class="col-sm-8 my-3 search-bar">
+          <%= form_with url: products_path, method: :get, class: "d-flex search-form" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control-mine mr-5 input-search",
+                  placeholder: "Type a name or category"
+            %>
+            <%= submit_tag "Search", name: "", class: "search" %>
+          <% end %>
         </div>
       </div>
 
@@ -24,9 +37,6 @@
     <%# <%= link_to my_products_products_path, class: "navbar-brand" do %>
       <%# <i class="fa-regular fa-heart fa-xl"></i> %>
     <%# <% end %>
-
-
-
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
