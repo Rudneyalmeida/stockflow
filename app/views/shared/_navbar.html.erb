@@ -79,32 +79,24 @@
 </div>
 
 <div class="navbar navbar-expand-sm navbar-light bg-light navbar-list">
-  <% if user_signed_in? %>
-    <ul class="navbar-van2 me-auto">
-    <%= link_to products_path do%>
-      <li class="nav-item">HOME</li>
-    <% end %>
-    <%= link_to my_products_products_path do%>
-      <li class="nav-item">YOUR PRODUCTS</li>
-    <% end %>
-    <%= link_to new_product_path do%>
-      <li class="nav-item">ADD PRODUCT</li>
-    <% end %>
-    <%= link_to offers_path do%>
-      <li class="nav-item">OFFERS</li>
-    <% end %>
-    <%= link_to products_path do%>
-      <li class="nav-item">TRADES</li>
-    <% end %>
-    <%= link_to products_path do%>
-      <li class="nav-item">CHAT</li>
-    <% end %>
-    </ul>
-  <% else %>
-    <ul class="navbar-van2 me-auto">
-    <%= link_to products_path do%>
-      <li class="nav-item">HOME</li>
-    <% end %>
-    </ul>
+  <ul class="navbar-van2 me-auto">
+  <%= link_to products_path do%>
+    <li class="nav-item">HOME</li>
   <% end %>
+  <%= link_to my_products_products_path do%>
+    <li class="nav-item">YOUR PRODUCTS</li>
+  <% end %>
+  <%= link_to new_product_path do%>
+    <li class="nav-item">ADD PRODUCT</li>
+  <% end %>
+  <%= link_to offers_path do%>
+    <li class="nav-item">OFFERS</li>
+  <% end %>
+  <%= link_to products_path do%>
+    <li class="nav-item">TRADES</li>
+  <% end %>
+  <%= link_to products_path do%>
+    <li class="nav-item">CHAT</li>
+  <% end %>
+  </ul>
 </div>
