@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :offers, only: [:index] 
   resources :trades
   resources :products do
     resources :offers, only: [:new, :create]
