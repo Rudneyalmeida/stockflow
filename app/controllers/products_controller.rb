@@ -1,7 +1,23 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
-    @products = Product.all
+    if params[:query].present?
+      # sql_query = <<~SQL
+      #   products.name @@ :query
+      #   OR products.category @@ :query
+      #   OR products.description @@ :query
+      #   OR products.location @@ :query
+      #   OR users.name @@ :query
+      #   OR users.cpnj @@ :query
+      #   OR users.email @@ :query
+      # SQL
+      @products = Product.search_by_name_and_category(params[:query])
+
+      # @products = Product.joins(:user).where(sql_query, query:
+      #                                       "%#{params[:query]}%")
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -31,9 +47,9 @@ class ProductsController < ApplicationController
   def destroy
   end
 
-  def my_products
-    @products = Product.where(user: current_user)
-  end
+  # def my_products
+  #   @products = Product.where(user: current_user)
+  # end
 
   private
   def product_params

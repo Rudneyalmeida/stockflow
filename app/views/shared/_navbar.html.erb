@@ -12,6 +12,19 @@
         </div>
       </div>
 
+      <div class="row justify-content-center">
+        <div class="col-sm-8 my-3 search-bar">
+          <%= form_with url: products_path, method: :get, class: "d-flex search-form" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control-mine mr-5 input-search",
+                  placeholder: "Type a keyword"
+            %>
+            <%= submit_tag "Search", name: "", class: "search" %>
+          <% end %>
+        </div>
+      </div>
+
       <%= link_to my_products_products_path, class: "navbar-brand" do %>
         <i class="fa-regular fa-bell fa-xl" style="color: #ffffff;"></i>
       <% end %>
@@ -24,9 +37,6 @@
     <%# <%= link_to my_products_products_path, class: "navbar-brand" do %>
       <%# <i class="fa-regular fa-heart fa-xl"></i> %>
     <%# <% end %>
-
-
-
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
