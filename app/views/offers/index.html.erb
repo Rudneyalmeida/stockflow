@@ -1,20 +1,42 @@
-<h1>My Offers</h1>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Offers</title>
+    <style>
+      .card-deck {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -15px;
+      }
 
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>quantity</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @offers.each do |offer| %>
-      <tr>
-        <td><%= offer.product.name %></td>
-        <td><%= offer.product.quantity %></td>
-        <td><%=  %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      .card {
+        width: 33.33%;
+        margin: 15px;
+      }
+
+      .card:not(:last-child) {
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Offers</h1>
+
+    <div class="card-deck">
+      <% @offers.each do |offer| %>
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Offer for <%= offer.product.name %></h5>
+          </div>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
+            <ul>
+              <% offer.trades.each do |trade| %>
+                <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
+              <% end %>
+            </ul>
+            <p class="card-text">Status: <%= offer.status.capitalize %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </body>
