@@ -82,3 +82,82 @@ a {
   text-decoration: none;
   font-size: 24px;
 }
+
+.form-control-mine {
+  display: block;
+  width: 1000px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 20px;
+    background: white;
+  height: 40px
+}
+
+.search-form {
+  .input-search {
+    background-image: url(https://cdn.icon-icons.com/icons2/621/PNG/512/magnifier-1_icon-icons.com_56924.png);
+    background-size: 25px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: left center;
+    text-indent: 40px;
+  }
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search {
+  position: absolute;
+  right: 17px;
+  top: 4px;
+  font-family: 'Catamaran', sans-serif;
+  background: #212A3E;
+  color: white;
+  border-radius: 4px;
+  padding: 4px 15px;
+  border-radius: 24px;
+  transition: background 0.3s ease;
+  border-style: hidden;
+}
+
+.fa-magnifying-glass {
+  position: absolute;
+  font-size: 27px;
+  color: #212A3E;
+  left: 20px;
+  top: 6px;
+}
+
+.bocc {
+  display: block;
+  width: 1000px;
+  padding: 0.375rem 0.75rem;
+
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 20px;
+    background: white;
+  height: 40px
+
+}
