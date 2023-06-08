@@ -32,12 +32,13 @@
             <p class="card-text"><strong>Phone:</strong> <%= @product.user.phone %></p>
           </div>
         </div>
-      <div class="btns d-flex mt-5 justify-content-around">
-        <p><%= link_to "Back", :back, class: "btn-blue" %></p>
-        <div>
-          <% if current_user != @product.user %>
+        <div class="btns d-flex mt-5 justify-content-around">
+          <p><%= link_to "Back", :back, class: "btn-blue" %></p>
+          <div>
+            <% if current_user != @product.user %>
               <%= link_to "Make Offer", new_product_offer_path(@product), class: "btn-blue" %>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

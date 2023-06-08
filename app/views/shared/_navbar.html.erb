@@ -8,7 +8,7 @@
         <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Action", "#", class: "dropdown-item" %>
           <%= link_to "Another action", "#", class: "dropdown-item" %>
-          <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"%>
         </div>
       </div>
 
@@ -29,9 +29,22 @@
         <i class="fa-regular fa-bell fa-xl" style="color: #ffffff;"></i>
       <% end %>
     <% else %>
-      <li class="nav-item">
+      <li class="nav-item login-click">
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
       </li>
+      <div class="row justify-content-center mb-2">
+        <div class="col-sm-8 my-3 search-bar2">
+          <%= form_with url: products_path, method: :get, class: "d-flex search-form" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control-mine input-search",
+                  placeholder: "Type a product or category"
+            %>
+            <%= submit_tag "Search", name: "", class: "search" %>
+          <% end %>
+        </div>
+      </div>
+      <div></div>
     <% end %>
 
     <%# <%= link_to my_products_products_path, class: "navbar-brand" do %>
@@ -64,25 +77,34 @@
     <%# </div> %>
   </div>
 </div>
+
 <div class="navbar navbar-expand-sm navbar-light bg-light navbar-list">
-  <ul class="navbar-van2 me-auto">
-  <%= link_to products_path do%>
-    <li class="nav-item">HOME</li>
+  <% if user_signed_in? %>
+    <ul class="navbar-van2 me-auto">
+    <%= link_to products_path do%>
+      <li class="nav-item">HOME</li>
+    <% end %>
+    <%= link_to my_products_products_path do%>
+      <li class="nav-item">YOUR PRODUCTS</li>
+    <% end %>
+    <%= link_to new_product_path do%>
+      <li class="nav-item">ADD PRODUCT</li>
+    <% end %>
+    <%= link_to offers_path do%>
+      <li class="nav-item">OFFERS</li>
+    <% end %>
+    <%= link_to products_path do%>
+      <li class="nav-item">TRADES</li>
+    <% end %>
+    <%= link_to products_path do%>
+      <li class="nav-item">CHAT</li>
+    <% end %>
+    </ul>
+  <% else %>
+    <ul class="navbar-van2 me-auto">
+    <%= link_to products_path do%>
+      <li class="nav-item">HOME</li>
+    <% end %>
+    </ul>
   <% end %>
-  <%= link_to my_products_products_path do%>
-    <li class="nav-item">YOUR PRODUCTS</li>
-  <% end %>
-  <%= link_to new_product_path do%>
-    <li class="nav-item">ADD PRODUCT</li>
-  <% end %>
-  <%= link_to offers_path do%>
-    <li class="nav-item">OFFERS</li>
-  <% end %>
-  <%= link_to products_path do%>
-    <li class="nav-item">TRADES</li>
-  <% end %>
-  <%= link_to products_path do%>
-    <li class="nav-item">CHAT</li>
-  <% end %>
-  </ul>
 </div>
