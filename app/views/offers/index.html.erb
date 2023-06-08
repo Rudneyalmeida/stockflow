@@ -1,20 +1,98 @@
-<h1>My Offers</h1>
+<head>
+  <meta charset="UTF-8">
+  <title>Offers</title>
+  <style>
+    .card-deck {
+      display: none;
+      flex-wrap: wrap;
+      margin: -15px;
+    }
 
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>quantity</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
+    .card {
+      width: 33.33%;
+      margin: 15px;
+    }
+
+    .card:not(:last-child) {
+      margin-right: 0;
+    }
+
+    .active {
+      display: flex;
+    }
+    h1 {
+  text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="mt-3">Offers</h1>
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="#" data-target="#my-offers">My Offers</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" data-target="#offers-received">Offers Received</a>
+    </li>
+  </ul>
+
+  <div id="my-offers" class="card-deck active">
     <% @offers.each do |offer| %>
-      <tr>
-        <td><%= offer.product.name %></td>
-        <td><%= offer.product.quantity %></td>
-        <td><%=  %></td>
-      </tr>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Offer for <%= offer.product.name %></h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
+          <ul>
+            <% offer.trades.each do |trade| %>
+              <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
+            <% end %>
+          </ul>
+          <p class="card-text">Status: <%= offer.status.capitalize %></p>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+
+  <div id="offers-received" class="card-deck">
+    <% @received_offers.each do |offer| %>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Offer from <%= offer.user.name %> for <%= offer.product.name %></h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
+          <ul>
+            <% offer.trades.each do |trade| %>
+              <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
+            <% end %>
+          </ul>
+          <p class="card-text">Status: <%= offer.status.capitalize %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<script>
+  function attachEventHandlers() {
+    const links = document.querySelectorAll('.nav-link:not([data-events-attached])');
+    const cardDecks = document.querySelectorAll('.card-deck');
+
+    links.forEach((link, index) => {
+      link.dataset.eventsAttached = 'true'; // Mark this element as having events attached
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        document.querySelectorAll('.nav-link').forEach((link) => link.classList.remove('active'));
+        document.querySelectorAll('.card-deck').forEach((cardDeck) => cardDeck.classList.remove('active'));
+        link.classList.add('active');
+        cardDecks[index].classList.add('active');
+      });
+    });
+  }
+
+  attachEventHandlers();
+</script>
+
+</body>

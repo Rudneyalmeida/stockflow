@@ -44,9 +44,11 @@
   align-items: center;
   height: 100%;
   width: 100%;
+
 }
 
 .nav-item {
+  font-size: 1rem;
   padding-left: 50px;
   padding-right: 50px;
   font-family: 'Catamaran', sans-serif;
@@ -67,7 +69,7 @@ li p {
 }
 
 .navbar-list {
-  height: 110px;
+  height: 3em;
 }
 
 .fa-bell {

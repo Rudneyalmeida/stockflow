@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   def index
     @offers = current_user.offers
+    @received_offers = Offer.where(product: current_user.products)
   end
 
   def show
@@ -18,6 +19,7 @@ class OffersController < ApplicationController
     @product = Product.find(params[:product_id])
     @offer.product = @product
     @offer.user = current_user
+    @offer.status = "pending"
     if @offer.save
       params[:offer][:product_ids].uniq.reject(&:blank?).each do |product_id|
         Trade.create!(offer: @offer, product_id: product_id)
