@@ -24,7 +24,8 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  def update
+  def my_products
+    @products = current_user.products
   end
 
   def destroy
@@ -35,7 +36,6 @@ class ProductsController < ApplicationController
   end
 
   private
-  
   def product_params
     params.require(:product).permit(:name, :description, :category, :quantity, :expiration, :location, :photo)
   end

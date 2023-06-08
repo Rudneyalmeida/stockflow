@@ -1,0 +1,15 @@
+.footer {
+  background: #212A3E;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px; /* increase the height */
+  padding: 0px 100px; /* add more padding to the sides */
+  color: rgb(255, 255, 255);
+  margin-top: auto;
+}
+.text-logo {
+  font-size: 24px;
+  color: #fff;
+  font-family: 'Catamaran', sans-serif;
+}

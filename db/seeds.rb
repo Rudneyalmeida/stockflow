@@ -13,8 +13,8 @@
     email: Faker::Internet.email,
     password: 'password',
     name: Faker::Name.name,
-    cpnj: Faker::Number.number(digits: 14), 
-    address: Faker::Address.street_address, 
+    cpnj: Faker::Number.number(digits: 14),
+    address: Faker::Address.street_address,
     phone: Faker::PhoneNumber.phone_number
   )
 
@@ -24,8 +24,18 @@
       category: Faker::Commerce.department,
       name: Faker::Commerce.product_name,
       description: Faker::Lorem.sentence(word_count: 10),
-      expiration: Date.today + rand(40..50), 
-      user: user,
+
+      # expiration: Faker::Date.forward(days: 365),
+
+      expiration: Faker::Date.forward(days: 365),
+
+      location: Faker::Address.city
+    )
+
+    Stock.create!(
+      user_id: user.id,
+      product_id: product.id,
+      expiration: Date.today + rand(40..50),
       location: Faker::Address.city,
       quantity: Faker::Number.between(from: 1, to: 10)
     )
