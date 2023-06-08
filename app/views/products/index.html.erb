@@ -2,10 +2,10 @@
   HOME
 </div>
 <div class="container mt-5">
-  <div class="row">
+  <div class="row justify-content-center">
       <% @products.each do |product| %>
-        <div class="col-md-2 col-5">
-            <%= link_to product_path(product), class: "card-listing p-5" do %>
+        <div class="col-md-2 col-5 border-card">
+            <%= link_to product_path(product), class: "card-listing " do %>
               <div class="card-product avatar_father">
                 <% if product.photo.present? %>
                   <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>

@@ -1,8 +1,8 @@
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(	https://cdn.pixabay.com/photo/2020/12/10/20/40/color-5821297_1280.jpg)">
   DETAILS
 </div>
-<div class="container mt-5">
-  <h2><%= @product.name %></h2>
+<div class="container mt-3">
+  <h2 class="subtitle"><%= @product.name %></h2>
   <div class="details d-flex flex-column">
     <div >
       <ul class="d-flex justify-content-around">
@@ -10,19 +10,21 @@
           <% if @product.photo.present? %>
             <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
           <% else %>
-            <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill %>
+            <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill, class: "image shadow-lg" %>
           <% end %>
         </div >
-        <div class="card p-4">
+        <div class="card shadow p-4">
           <li><strong>Description: </strong> <%= @product.description %></li>
           <li><strong>Expiration: </strong> <%= @product.expiration %></li>
           <li><strong>Location: </strong><%= @product.location %></li>
         </div>
       </ul>
     </div>
-      <div class="d-flex mt-5 p-4 flex-column justify-content-around">
+    <div>
+      <div class="d-flex mt-5 p-4 flex-column justify-content-center">
+
         <div>
-          <div class="card p-4 card-user-info">
+          <div class="card shadow p-4 card-user-info">
             <h3>User Information</h3>
             <h5 class="card-title"><%= @product.user.name %></h5>
             <p class="card-text"><strong>CNPJ:</strong> <%= @product.user.cpnj %></p>
@@ -30,13 +32,13 @@
             <p class="card-text"><strong>Phone:</strong> <%= @product.user.phone %></p>
           </div>
         </div>
-      <div class="btns d-flex mt-5 justify-content-center">
+      <div class="btns d-flex mt-5 justify-content-around">
+        <p><%= link_to "Back", :back, class: "btn-blue" %></p>
         <div>
           <% if current_user != @product.user %>
               <%= link_to "Make Offer", new_product_offer_path(@product), class: "btn-blue" %>
           <% end %>
         </div>
-        <p><%= link_to "Back", :back, class: "btn-blue" %></p>
       </div>
     </div>
   </div>
