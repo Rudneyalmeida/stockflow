@@ -11,7 +11,7 @@
     </li>
   </ul>
 
-  <div id="my-offers" class="card-deck active">
+  <div id="my-offers" class="card-deck">
     <% @offers.each do |offer| %>
       <div class="card">
         <div class="card-header">
@@ -30,7 +30,7 @@
     <% end %>
   </div>
 
-  <div id="offers-received" class="card-deck">
+  <div id="offers-received" class="card-deck d-none">
     <% @received_offers.each do |offer| %>
       <div class="card">
         <div class="card-header">
@@ -49,6 +49,10 @@
     <% end %>
   </div>
 </div>
+
+
+
+
 <script>
   function attachEventHandlers() {
     const links = document.querySelectorAll('.nav-link:not([data-events-attached])');
@@ -59,9 +63,9 @@
       link.addEventListener('click', (event) => {
         event.preventDefault();
         document.querySelectorAll('.nav-link').forEach((link) => link.classList.remove('active'));
-        document.querySelectorAll('.card-deck').forEach((cardDeck) => cardDeck.classList.remove('active'));
+        document.querySelectorAll('.card-deck').forEach((cardDeck) => cardDeck.classList.add('d-none'));
         link.classList.add('active');
-        cardDecks[index].classList.add('active');
+        cardDecks[index].classList.remove('d-none');
       });
     });
   }
