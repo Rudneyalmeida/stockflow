@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :offers, only: [:index] do
+  resources :offers, only: [:index, :show] do
     collection do
       get :received
     end
