@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  resources :offers, only: [:index] do
+  resources :offers, only: [:index, :show] do
     collection do
       get :received
     end
+    member do
+      patch :accept
+      patch :reject
+    end
+    
   end
 
   resources :trades
