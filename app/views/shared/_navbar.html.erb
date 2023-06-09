@@ -17,7 +17,7 @@
           <%= form_with url: products_path, method: :get, class: "d-flex search-form" do %>
             <%= text_field_tag :query,
                   params[:query],
-                  class: "form-control-mine mr-5 input-search",
+                  class: "form-control-mine input-search",
                   placeholder: "Type a product or category"
             %>
             <%= submit_tag "Search", name: "", class: "search" %>
@@ -33,7 +33,7 @@
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
       </li>
       <div class="row justify-content-center mb-2">
-        <div class="col-sm-8 my-3 search-bar2">
+        <div class="col-sm-8 my-3 search-bar">
           <%= form_with url: products_path, method: :get, class: "d-flex search-form" do %>
             <%= text_field_tag :query,
                   params[:query],
@@ -44,8 +44,8 @@
           <% end %>
         </div>
       </div>
-      <div></div>
-    <% end %>
+        <i class="fa-regular fa-bell fa-xl navbar-brand mb-1" style="color: #212A3E;"></i>
+      <% end %>
 
     <%# <%= link_to my_products_products_path, class: "navbar-brand" do %>
       <%# <i class="fa-regular fa-heart fa-xl"></i> %>
