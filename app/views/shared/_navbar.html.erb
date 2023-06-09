@@ -2,9 +2,13 @@
   <div class="container-fluid">
     <% if user_signed_in? %>
       <div class="nav-item dropdown">
-        <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa-regular fa-circle-user fa-2xl mb-4" style="color: #ffffff;" alt="dropdown menu"></i>
-        </a>
+       
+        <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <% if current_user.photo.present? %>
+              <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% else %>
+             <i class="fa-regular fa-circle-user fa-2xl mb-4" style="color: #ffffff;" alt="dropdown menu"></i>
+            <% end %>
         <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Action", "#", class: "dropdown-item" %>
           <%= link_to "Another action", "#", class: "dropdown-item" %>
