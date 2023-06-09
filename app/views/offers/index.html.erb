@@ -11,24 +11,26 @@
     </li>
   </ul>
 
-  <div id="my-offers" class="card-deck">
-    <% @offers.each do |offer| %>
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-title">Offer for <%= offer.product.name %></h5>
+
+    <div id="my-offers" class="card-deck">
+      <% @offers.each do |offer| %>
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Offer for <%= offer.product.name %></h5>
+          </div>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
+            <ul>
+              <% offer.trades.each do |trade| %>
+                <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
+              <% end %>
+            </ul>
+            <p class="card-text">Status: <%= offer.status.capitalize %></p>
+          </div>
         </div>
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
-          <ul>
-            <% offer.trades.each do |trade| %>
-              <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
-            <% end %>
-          </ul>
-          <p class="card-text">Status: <%= offer.status.capitalize %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+
 
   <div id="offers-received" class="card-deck d-none">
     <% @received_offers.each do |offer|%>
