@@ -20,6 +20,11 @@
                       autofocus: true,
                       input_html: { autocomplete: "email" } %>
 
+          <%= f.input :cpnj,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "off" } %>
+
           <%= f.input :phone,
                       required: true,
                       autofocus: true,
