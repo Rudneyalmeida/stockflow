@@ -13,6 +13,18 @@ class OffersController < ApplicationController
     @product = Product.find(params[:product_id])
     @products = current_user.products 
   end
+  
+  def accept
+    @offer = Offer.find(params[:id])
+    @offer.accepted!
+    redirect_to offers_path
+  end
+
+  def reject
+    @offer = Offer.find(params[:id])
+    @offer.rejected!
+    redirect_to offers_path
+  end
 
   def create
     @offer = Offer.new

@@ -3,22 +3,13 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
+    accepted_offers_product_ids = Offer.accepted.pluck(:product_id)
+    
     if params[:query].present?
-      # sql_query = <<~SQL
-      #   products.name @@ :query
-      #   OR products.category @@ :query
-      #   OR products.description @@ :query
-      #   OR products.location @@ :query
-      #   OR users.name @@ :query
-      #   OR users.cpnj @@ :query
-      #   OR users.email @@ :query
-      # SQL
       @products = Product.search_by_name_and_category(params[:query])
-
-      # @products = Product.joins(:user).where(sql_query, query:
-      #                                       "%#{params[:query]}%")
+      @products = @products.where.not(id: accepted_offers_product_ids)
     else
-      @products = Product.all
+      @products = Product.all.where.not(id: accepted_offers_product_ids)
     end
   end
 

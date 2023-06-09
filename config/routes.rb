@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     collection do
       get :received
     end
+    member do
+      patch :accept
+      patch :reject
+    end
+    
   end
 
   resources :trades

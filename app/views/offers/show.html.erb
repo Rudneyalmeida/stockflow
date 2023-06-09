@@ -42,5 +42,16 @@
     <% end %>
   </div>
 
+  <div class="actions">
+    <% if @offer.status == "pending" %>
+      <%= button_to 'Accept', accept_offer_path(@offer), method: :patch %>
+      <%= button_to 'Reject', reject_offer_path(@offer), method: :patch %>
+    <% elsif @offer.status == 'accepted' %>
+      <p class="accepted">Accepted</p>
+    <% else %>
+      <p class="rejected">Rejected</p>
+    <% end %>
+  </div>
+
   <%= link_to 'Back to Offers', offers_path %>
 </div>
