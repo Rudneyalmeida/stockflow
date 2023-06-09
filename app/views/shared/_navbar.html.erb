@@ -2,13 +2,14 @@
   <div class="container-fluid">
     <% if user_signed_in? %>
       <div class="nav-item dropdown">
-       
+
         <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if current_user.photo.present? %>
+             <% if current_user.photo.present? %>
               <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
             <% else %>
-             <i class="fa-regular fa-circle-user fa-2xl mb-4" style="color: #ffffff;" alt="dropdown menu"></i>
+              <%= image_tag 'stock_flow.png', crop: :fill, class: "avatar", alt: "dropdown menu" %>
             <% end %>
+            </a>
         <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Action", "#", class: "dropdown-item" %>
           <%= link_to "Another action", "#", class: "dropdown-item" %>
@@ -95,12 +96,6 @@
   <% end %>
   <%= link_to offers_path do%>
     <li class="nav-item">OFFERS</li>
-  <% end %>
-  <%= link_to products_path do%>
-    <li class="nav-item">TRADES</li>
-  <% end %>
-  <%= link_to products_path do%>
-    <li class="nav-item">CHAT</li>
   <% end %>
   </ul>
 </div>
