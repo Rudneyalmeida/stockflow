@@ -11,9 +11,9 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
     @product = Product.find(params[:product_id])
-    @products = current_user.products 
+    @products = current_user.products
   end
-  
+
   def accept
     @offer = Offer.find(params[:id])
     @offer.accepted!
@@ -53,4 +53,3 @@ class OffersController < ApplicationController
   end
 
 end
-

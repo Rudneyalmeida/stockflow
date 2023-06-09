@@ -31,7 +31,7 @@
   </div>
 
   <div id="offers-received" class="card-deck d-none">
-    <% @received_offers.each do |offer| %>
+    <% @received_offers.each do |offer|%>
       <a href="<%= offer_path(offer) %>" class="card">
         <div class="card-header">
           <h5 class="card-title">Offer from <%= offer.user.name %> for <%= offer.product.name %></h5>
@@ -72,4 +72,3 @@
 
   attachEventHandlers();
 </script>
-
