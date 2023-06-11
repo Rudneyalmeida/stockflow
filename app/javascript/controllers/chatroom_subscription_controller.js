@@ -9,8 +9,24 @@ export default class extends Controller {
   }
   connect() {
     console.log(this.chatroomIdValue)
-    createConsumer().subscriptions.create(
-      { channel: "ChatroomChannel", id: this.chatroomIdValue }
+    this.channel = createConsumer().subscriptions.create(
+      { channel: "ChatroomChannel", id: this.chatroomIdValue },
+      { received: (data) => { this.#insertMessage(data) } }
     )
+  }
+
+  disconnect() {
+    console.log("Disconnected form channel.")
+    this.channel.unsubscribe()
+  }
+
+  resetForm(event) {
+    const form = event.target
+    form.reset()
+  }
+
+  #insertMessage(data) {
+    this.messagesTarget.insertAdjacentHTML("beforeEnd", data)
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 }
