@@ -32,6 +32,10 @@
 
       <%= link_to offers_path, class: "navbar-brand" do %>
         <i class="fa-regular fa-bell fa-xl" style="color: #ffffff;"></i>
+        <a href="#" class="nav-link">
+          <i class="fa fa-bell"></i>
+          <span id="num-offers-badge" class="badge badge-pill badge-danger">0</span>
+        </a>
       <% end %>
     <% else %>
       <li class="nav-item login-click">

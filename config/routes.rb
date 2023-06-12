@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'get_company_data', to: 'application#get_company_data'
   resources :offers, only: [:index, :show] do
     collection do
       get :received
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
       patch :accept
       patch :reject
     end
-    
+
   end
 
   resources :trades
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
       get :my_products
     end
   end
+
+  get "/offers/num_received", to: "offers#num_received"
 
   devise_for :users
   root to: "products#index"
