@@ -42,6 +42,11 @@ class OffersController < ApplicationController
     end
   end
 
+  def num_received
+    num_received = current_user.offers.received.count
+    render json: { num_received: num_received }
+  end
+
   def edit
   end
 

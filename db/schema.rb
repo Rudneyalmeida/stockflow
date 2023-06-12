@@ -48,6 +48,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_153025) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_comments_on_created_at"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
@@ -58,6 +68,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_153025) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "message"
+    t.boolean "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "offers", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
@@ -66,6 +85,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_153025) do
     t.integer "status", default: 0
     t.index ["product_id"], name: "index_offers_on_product_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_posts_on_title"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -110,10 +139,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_153025) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "offers", "products"
   add_foreign_key "offers", "users"
+  add_foreign_key "posts", "users"
   add_foreign_key "products", "users"
   add_foreign_key "trades", "offers"
   add_foreign_key "trades", "products"

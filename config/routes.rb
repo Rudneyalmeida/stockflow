@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       patch :accept
       patch :reject
     end
-    
+
   end
 
   resources :trades
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       get :my_products
     end
   end
+
+  get "/offers/num_received", to: "offers#num_received"
 
   devise_for :users
   root to: "products#index"
