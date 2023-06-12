@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'get_company_data', to: 'application#get_company_data'
   resources :offers, only: [:index, :show] do
     collection do
       get :received
