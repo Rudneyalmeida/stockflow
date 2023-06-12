@@ -54,6 +54,34 @@
   font-family: 'Catamaran', sans-serif;
 }
 
+.nav-item-li{
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+.nav-item-li{
+  color: #180158;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+.nav-item-li::after{
+  content: '';
+  width: 0;
+  height: 3px;
+  background: #180158;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+}
+
+.nav-item-li:hover::after{
+  width: 100%;
+}
+
 li p {
   margin-bottom: 0px;
 }
@@ -139,6 +167,15 @@ a {
   border-radius: 24px;
   transition: background 0.3s ease;
   border-style: hidden;
+  &:hover {
+    background: #012574;
+    color: white;
+    border-radius: 4px;
+    padding: 4px 15px;
+    border-radius: 24px;
+    transition: background 0.3s ease;
+    border-style: hidden;
+  }
 }
 
 .login-click {
