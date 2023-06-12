@@ -30,8 +30,12 @@
         </div>
       </div>
 
-      <%= link_to my_products_products_path, class: "navbar-brand" do %>
+      <%= link_to offers_path, class: "navbar-brand" do %>
         <i class="fa-regular fa-bell fa-xl" style="color: #ffffff;"></i>
+        <a href="#" class="nav-link">
+          <i class="fa fa-bell"></i>
+          <span id="num-offers-badge" class="badge badge-pill badge-danger">0</span>
+        </a>
       <% end %>
     <% else %>
       <li class="nav-item login-click">
@@ -51,51 +55,61 @@
       </div>
       <div></div>
     <% end %>
-
-    <%# <%= link_to my_products_products_path, class: "navbar-brand" do %>
-      <%# <i class="fa-regular fa-heart fa-xl"></i> %>
-    <%# <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <%# <div class="collapse navbar-collapse" id="navbarSupportedContent"> %>
-      <%# <ul class="navbar-van me-auto"> %>
-        <%# <% if user_signed_in? %>
-          <%# <li class="nav-item active"> %>
-            <%# <%= link_to "#", class: "nav-link text-center" do %>
-              <%# <i class="fa-regular fa-handshake fa-2xl"></i> %>
-            <%# <% end %>
-          <%# </li> %>
-          <%# <li class="nav-item"> %>
-            <%# <%= link_to "#", class: "nav-link text-center" do %>
-              <%# <i class="fa-regular fa-comments fa-2xl"></i> %>
-            <%# <% end %>
-          <%# </li> %>
-        <%# <% else %>
-          <%# <li class="nav-item"> %>
-            <%# <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%# </li> %>
-        <%# <% end %>
-      <%# </ul> %>
-    <%# </div> %>
   </div>
 </div>
 
 <div class="navbar navbar-expand-sm navbar-light bg-light navbar-list">
   <ul class="navbar-van2 me-auto">
-  <%= link_to products_path do%>
-    <li class="nav-item">HOME</li>
-  <% end %>
-  <%= link_to my_products_products_path do%>
-    <li class="nav-item">YOUR PRODUCTS</li>
-  <% end %>
-  <%= link_to new_product_path do%>
-    <li class="nav-item">ADD PRODUCT</li>
-  <% end %>
-  <%= link_to offers_path do%>
-    <li class="nav-item">OFFERS</li>
+  <% if user_signed_in? %>
+    <%= link_to products_path do%>
+      <li class="nav-item nav-item-li">HOME</li>
+    <% end %>
+    <%= link_to my_products_products_path do%>
+      <li class="nav-item nav-item-li">YOUR PRODUCTS</li>
+    <% end %>
+    <%= link_to new_product_path do%>
+      <li class="nav-item nav-item-li">ADD PRODUCT</li>
+    <% end %>
+    <%= link_to offers_path do%>
+      <li class="nav-item nav-item-li">OFFERS</li>
+    <% end %>
+  <% else %>
+    <%= link_to products_path do%>
+      <li class="nav-item nav-item-li">HOME</li>
+    <% end %>
+    <%= link_to new_user_session_path do%>
+      <li class="nav-item nav-item-li">YOUR PRODUCTS</li>
+    <% end %>
+    <%= link_to new_user_session_path do%>
+      <li class="nav-item nav-item-li">ADD PRODUCT</li>
+    <% end %>
+    <%= link_to new_user_session_path do%>
+      <li class="nav-item nav-item-li">OFFERS</li>
+    <% end %>
   <% end %>
   </ul>
 </div>
+
+<script>
+  function updateNumOffersBadge() {
+    $.ajax({
+      url: "/offers/num_received",
+      type: "GET",
+      dataType: "json",
+      success: function(data) {
+        $("#num-offers-badge").text(data.num_received);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log("Error fetching number of offers received: " + errorThrown);
+      }
+    });
+  }
+
+  $(document).ready(function() {
+    // Update the number of offers received every 30 seconds
+    setInterval(updateNumOffersBadge, 30000);
+  });
+</script>
