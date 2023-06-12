@@ -1,48 +1,74 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(	https://cdn.pixabay.com/photo/2018/10/01/13/53/droplet-3716288_1280.jpg)">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2018/10/01/13/53/droplet-3716288_1280.jpg)">
   STOCKFLOW
 </div>
 <div class="container mt-5 p-5">
   <h2 class="text-center">Sign up</h2>
-    <div class="d-flex flex-column align-items-center">
-      <div class="sigup">
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-          <%= f.error_notification %>
+  <div class="d-flex flex-column align-items-center">
+    <div class="signup">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+        <%= f.error_notification %>
 
         <div class="form-inputs">
+          <%= f.input :cpnj,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "off", id: "cpnj" } %>
           <%= f.input :name,
                       required: true,
                       autofocus: true,
-                      label: "Name",
-                      input_html: { class: "form-control" } %>
+                      label: "Razão Social",
+                      input_html: { class: "form-control", id: "name" } %>
 
           <%= f.input :email,
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "email" } %>
+                      input_html: { autocomplete: "email", id: "email" } %>
 
-          <%= f.input :cpnj,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "off" } %>
 
           <%= f.input :phone,
                       required: true,
                       autofocus: true,
-                      input_html: { type: "phone", autocomplete: "tel" } %>
+                      input_html: { type: "phone", autocomplete: "tel", id: "phone" } %>
+
+          <%= f.input :address,
+                      required: true,
+                      autofocus: true,
+                      input_html: { type: "text", autocomplete: "address", id: "address" } %>
 
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                       input_html: { autocomplete: "new-password" } %>
+
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
+
           <%= f.input :photo, as: :file %>
         </div>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
-      </div>
-    <% end %>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+
+      <% end %>
+    </div>
   </div>
 </div>
+
+<script>
+  document.getElementById('cpnj').addEventListener('blur', function() {
+    fetch('/get_company_data?cnpj=' + this.value)
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'OK') {
+          document.getElementById('name').value = data.nome;
+          document.getElementById('phone').value = data.telefone;
+          document.getElementById('email').value = data.email;
+          document.getElementById('address').value = data.logradouro + ', ' + data.numero + ', ' + data.bairro + ', ' + data.municipio + ', ' + data.uf;
+        } else {
+          alert('Erro ao buscar dados da empresa: ' + data.message);
+        }
+      });
+  });
+</script>
