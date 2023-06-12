@@ -4,7 +4,7 @@
 <div class="container mt-5">
   <h2 class="subtitle"><%= @product.name %></h2>
   <div class="details d-flex flex-column mt-4">
-    <div >
+    <div>
       <ul class="d-flex justify-content-evenly p-0">
         <div>
           <% if @product.photo.present? %>
@@ -36,7 +36,13 @@
           <p><%= link_to "Back", :back, class: "btn-blue" %></p>
           <div>
             <% if current_user != @product.user %>
-                <%= link_to "Make Offer", new_product_offer_path(@product), class: "btn-blue" %>
+              <%= link_to "Make Offer", new_product_offer_path(@product), class: "btn-blue" %>
+              <% if Chatroom.exists?(user: current_user, user_two: @product.user) %>
+                <% chatroom = Chatroom.find_by(user: current_user, user_two: @product.user) %>
+                <%= link_to "Chat", chatroom_path(chatroom), class: "btn-blue" %>
+              <% else %>
+                <%= link_to "Chat", product_chatrooms_path(@product), data: {turbo_method: :post}, class: "btn-blue" %>
+              <% end %>
             <% end %>
           </div>
         </div>
