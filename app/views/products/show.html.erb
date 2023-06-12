@@ -3,44 +3,37 @@
 </div>
 <div class="container mt-5">
   <h2 class="subtitle"><%= @product.name %></h2>
-  <div class="details d-flex flex-column mt-4">
-    <div >
-      <ul class="d-flex justify-content-evenly p-0">
-        <div>
-          <% if @product.photo.present? %>
-            <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill, class: "image" %>
-          <% end %>
-        </div >
-        <div class="card description">
-          <li><strong>Description: </strong> <%= @product.description %></li>
-          <li><strong>Expiration: </strong> <%= @product.expiration %></li>
-          <li><strong>Quantity: </strong> <%= @product.quantity %></li>
-        </div>
-      </ul>
-    </div>
-    <div>
-      <div class="d-flex mt-4 p-4 flex-column justify-content-center">
+  <div class="details d-flex justify-content-center align-items-center mt-4">
 
-        <div class="d-flex justify-content-center">
-          <div class="card p-4 card-user-info justify-content-center">
-            <h3>User Information</h3>
-            <h5 class="card-title"><%= @product.user.name %></h5>
-            <p class="card-text"><strong>CNPJ:</strong> <%= @product.user.cpnj %></p>
-            <p class="card-text"><strong>Address:</strong> <%= @product.user.address %></p>
-            <p class="card-text"><strong>Phone:</strong> <%= @product.user.phone %></p>
-          </div>
-        </div>
-        <div class="btns d-flex mt-5 justify-content-around">
-          <p><%= link_to "Back", :back, class: "btn-blue" %></p>
-          <div>
-            <% if current_user != @product.user %>
-                <%= link_to "Make Offer", new_product_offer_path(@product), class: "btn-blue" %>
-            <% end %>
-          </div>
-        </div>
+    <ul class=" card-img-desc d-flex">
+      <% if @product.photo.present? %>
+        <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill, class: "image" %>
+      <% end %>
+      <div class="card description">
+        <li><strong>Description: </strong> <%= @product.description %></li>
+        <li><strong>Expiration: </strong> <%= @product.expiration %></li>
+        <li><strong>Quantity: </strong> <%= @product.quantity %></li>
       </div>
+    </ul>
+
+
+    <div class="card p-4 card-user-info justify-content-center">
+      <h2>Owner information:</h2>
+      <h3 class="card-title"><%= @product.user.name %></h3>
+      <p class="card-text"><strong>CNPJ:</strong> <%= @product.user.cpnj %></p>
+      <p class="card-text"><strong>Address:</strong> <%= @product.user.address %></p>
+      <p class="card-text"><strong>Phone:</strong> <%= @product.user.phone %></p>
+    </div>
+
+  </div>
+  <div class="btns d-flex mt-5 mb-4 justify-content-center gap-3">
+    <p><%= link_to "Back", :back, class: "btn-blue" %></p>
+    <div>
+      <% if current_user != @product.user %>
+          <%= link_to "Make Offer", new_product_offer_path(@product), class: "btn-blue" %>
+      <% end %>
     </div>
   </div>
 </div>
