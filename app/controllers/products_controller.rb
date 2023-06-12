@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
   end
 
   def my_products
-    @products = current_user.products
+    @products = current_user.products.where.not(offered: true)
   end
 
   def destroy
