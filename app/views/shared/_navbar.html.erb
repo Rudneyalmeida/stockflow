@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <%= link_to my_products_products_path, class: "navbar-brand" do %>
+      <%= link_to offers_path, class: "navbar-brand" do %>
         <i class="fa-regular fa-bell fa-xl" style="color: #ffffff;"></i>
         <a href="#" class="nav-link">
           <i class="fa fa-bell"></i>
@@ -55,7 +55,6 @@
       </div>
       <div></div>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -64,32 +63,32 @@
 
 <div class="navbar navbar-expand-sm navbar-light bg-light navbar-list">
   <ul class="navbar-van2 me-auto">
-    <% if user_signed_in? %>
-    <li class="nav-item nav-item-li">
-      <%= link_to "Home", products_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item nav-item-li">
-      <%= link_to "Your Products", my_products_products_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item nav-item-li">
-      <%= link_to "Add Product", new_product_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item nav-item-li">
-      <%= link_to "Offers", offers_path, class: "nav-link" %>
-    </li>
+  <% if user_signed_in? %>
+    <%= link_to products_path do%>
+      <li class="nav-item nav-item-li">HOME</li>
+    <% end %>
+    <%= link_to my_products_products_path do%>
+      <li class="nav-item nav-item-li">YOUR PRODUCTS</li>
+    <% end %>
+    <%= link_to new_product_path do%>
+      <li class="nav-item nav-item-li">ADD PRODUCT</li>
+    <% end %>
+    <%= link_to offers_path do%>
+      <li class="nav-item nav-item-li">OFFERS</li>
+    <% end %>
   <% else %>
-    <li class="nav-item nav-item-li">
-      <%= link_to "Home", products_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item nav-item-li">
-      <%= link_to "Your Products", new_user_session_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item nav-item-li">
-      <%= link_to "Add Product", new_user_session_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item nav-item-li">
-      <%= link_to "Offers", new_user_session_path, class: "nav-link" %>
-    </li>
+    <%= link_to products_path do%>
+      <li class="nav-item nav-item-li">HOME</li>
+    <% end %>
+    <%= link_to new_user_session_path do%>
+      <li class="nav-item nav-item-li">YOUR PRODUCTS</li>
+    <% end %>
+    <%= link_to new_user_session_path do%>
+      <li class="nav-item nav-item-li">ADD PRODUCT</li>
+    <% end %>
+    <%= link_to new_user_session_path do%>
+      <li class="nav-item nav-item-li">OFFERS</li>
+    <% end %>
   <% end %>
   </ul>
 </div>

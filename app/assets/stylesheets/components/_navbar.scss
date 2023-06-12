@@ -163,8 +163,13 @@ a {
   transition: background 0.3s ease;
   border-style: hidden;
   &:hover {
-    background: #010058;
-    size: 150%;
+    background: #012574;
+    color: white;
+    border-radius: 4px;
+    padding: 4px 15px;
+    border-radius: 24px;
+    transition: background 0.3s ease;
+    border-style: hidden;
   }
 }
 
