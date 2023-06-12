@@ -4,7 +4,6 @@
 <div class="container mt-5">
   <h2 class="subtitle"><%= @product.name %></h2>
   <div class="details d-flex justify-content-center align-items-center mt-4">
-
     <ul class=" card-img-desc d-flex">
       <% if @product.photo.present? %>
         <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
@@ -17,8 +16,6 @@
         <li><strong>Quantity: </strong> <%= @product.quantity %></li>
       </div>
     </ul>
-
-
     <div class="card p-4 card-user-info justify-content-center">
       <h2>Owner information:</h2>
       <h3 class="card-title"><%= @product.user.name %></h3>
@@ -26,7 +23,6 @@
       <p class="card-text"><strong>Address:</strong> <%= @product.user.address %></p>
       <p class="card-text"><strong>Phone:</strong> <%= @product.user.phone %></p>
     </div>
-
   </div>
   <div class="btns d-flex mt-5 mb-4 justify-content-center gap-3">
     <p><%= link_to "Back", :back, class: "btn-blue" %></p>
