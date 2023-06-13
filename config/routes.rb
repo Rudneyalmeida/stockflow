@@ -11,9 +11,12 @@ Rails.application.routes.draw do
 
   end
 
+  resources :chatrooms, only: [:index, :show]
+
   resources :trades
   resources :products do
     resources :offers, only: [:new, :create]
+    resources :chatrooms, only: [:create]
     collection do
       get :my_products
     end
