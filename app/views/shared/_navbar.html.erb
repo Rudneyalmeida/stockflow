@@ -30,13 +30,13 @@
         </div>
       </div>
 
-      <%= link_to offers_path, class: "navbar-brand" do %>
-        <i class="fa-regular fa-bell fa-xl" style="color: #ffffff;"></i>
-        <a href="#" class="nav-link">
-          <i class="fa fa-bell"></i>
-          <span id="num-offers-badge" class="badge badge-pill badge-danger">0</span>
-        </a>
-      <% end %>
+      <li class="nav-item">
+        <%= link_to offers_path, class: "nav-link" do %>
+          <i class="fa-regular fa-bell fa-xl" style="color: #ffffff;"></i>
+          <span class="offer-count"><%= current_user_offer_count %></span>
+        <% end %>
+      </li>
+      
     <% else %>
       <li class="nav-item login-click">
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
