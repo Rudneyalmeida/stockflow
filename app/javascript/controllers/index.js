@@ -10,5 +10,5 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import OffersController from "./offers_controller"
-application.register("offers", OffersController)
+import SortableController from "./sortable_controller"
+application.register("sortable", SortableController)

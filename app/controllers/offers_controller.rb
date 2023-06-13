@@ -11,7 +11,7 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
     @product = Product.find(params[:product_id])
-    @products = current_user.products
+    @products = current_user.products.where.not(offered: true)
   end
 
   def accept
