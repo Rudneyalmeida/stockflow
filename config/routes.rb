@@ -11,9 +11,12 @@ Rails.application.routes.draw do
 
   end
 
+  resources :chatrooms, only: [:index, :show]
+
   resources :trades
   resources :products do
     resources :offers, only: [:new, :create]
+    resources :chatrooms, only: [:create]
     collection do
       get :my_products
     end
@@ -28,6 +31,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  get 'landpage', to: 'pages#landpage'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -145,11 +145,6 @@ a {
 
 }
 
-.search-bar2 {
-  position: relative;
-  margin-right: 117px;
-}
-
 .search {
   position: absolute;
   right: 17px;
@@ -183,4 +178,9 @@ a {
 .dropdown-item {
   font-family: 'Catamaran', sans-serif;
   font-size: 19px;
+}
+
+.offer-count {
+  color: #ffffff;
+  background-color: red;
 }

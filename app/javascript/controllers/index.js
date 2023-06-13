@@ -4,8 +4,16 @@
 
 import { application } from "./application"
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+<<<<<<< HEAD
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
+=======
+import OffersController from "./offers_controller"
+application.register("offers", OffersController)
+>>>>>>> master
