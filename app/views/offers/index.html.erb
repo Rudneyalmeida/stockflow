@@ -50,24 +50,3 @@
     <% end %>
   </div>
 </div>
-
-
-<%# <script>
-  function attachEventHandlers() {
-    const links = document.querySelectorAll('.nav-link:not([data-events-attached])');
-    const cardDecks = document.querySelectorAll('.card-deck');
-
-    links.forEach((link, index) => {
-      link.dataset.eventsAttached = 'true'; // Mark this element as having events attached
-      link.addEventListener('click', (event) => {
-        event.preventDefault();
-        document.querySelectorAll('.nav-link').forEach((link) => link.classList.remove('active'));
-        document.querySelectorAll('.card-deck').forEach((cardDeck) => cardDeck.classList.add('d-none'));
-        link.classList.add('active');
-        cardDecks.classList.remove('d-none');
-      });
-    });
-  }
-
-  attachEventHandlers();
-</script> %>
