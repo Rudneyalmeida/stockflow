@@ -31,7 +31,7 @@
   </div>
 
 
-  <div id="offers-received" class="card-deck" data-offers-target="receivedCardDeck">
+  <div id="offers-received" class="card-deck d-none" data-offers-target="receivedCardDeck">
     <% @received_offers.each do |offer|%>
       <a href="<%= offer_path(offer) %>" class="card">
         <div class="card-header">
