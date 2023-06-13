@@ -46,8 +46,11 @@
 </div>
 
 
-<%= simple_form_for [@product, @offer], html: { class: "offer-form" } do |f| %>
+<%= simple_form_for [@product, @offer] do |f| %>
   <%= f.label :products, "Products to Offer" %>
   <%= f.input_field :product_ids, collection: @products, as: :check_boxes %>
   <%= f.button :submit, "Create Offer" %>
 <% end %>
+
+
+
