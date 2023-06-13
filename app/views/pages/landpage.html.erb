@@ -1,25 +1,27 @@
-
-<div class="container mt-5">
-    <%= image_tag 'stock_flow_withe.png', class: "logo-land" %>
-  <div class="d-flex mt-5 mb-5">
-    <%= image_tag 'caixas_img.png', class: "box-land" %>
-    <h2 class="text-center">Simplify inventory management and avoid unnecessary losses with our revolutionary platform for goods exchange between small businesses.</h2>
-  </div>
-  <div class="d-flex mt-6 mb-5 align-items-center justify-content-around">
-    <p class="h3">Connect with other entrepreneurs in the same industry.</p>
-    <%= image_tag 'network.png', class: "network-land" %>
-  </div>
-  <div class="d-flex align-items-center justify-content-around land-text mb-5">
-    <%= image_tag 'setas_caixa.png', class: "arrow-box-land" %>
-    <p class="h3">Exchange surplus products and enjoy the benefits of efficient inventory management.</p>
-  </div>
-  <h2 class="text-center participate">How to participate?</h2>
-  <div class="d-flex justify-content-around tex-center align-items-center gap-4">
-    <p class="h3">Simply create an account, list the products you want to exchange, and explore the available options. Our advanced search tools ensure that you find the best trade combinations that meet your specific needs.</p>
-    <%= image_tag 'handshake.png', class: "handshake" %>
-  </div>
-  <div class="text-center mb-5">
-    <p>Register right now and transform your business experience.</p>
-    <%= link_to "Register", new_user_registration_path, class: "btn-blue " %>
+<div class="bg-landing-page">
+  <div class="container mt-5">
+      <%= image_tag 'stock_flow_withe.png', class: "logo-land" %>
+    <div class="d-flex mt-5 mb-5">
+      <%= image_tag 'caixas_img.png', class: "box-land" %>
+      <h2 class="text-center land-text">Simplify inventory management and avoid unnecessary losses with our revolutionary platform for goods exchange between small businesses.</h2>
+    </div>
+    <div class="d-flex mt-6 mb-5 align-items-center justify-content-around">
+      <p class="text-way">Connect with other entrepreneurs in the same industry.</p>
+      <%= image_tag 'network.png', class: "network-land" %>
+    </div>
+    <div class="d-flex align-items-center justify-content-around land-text mb-5">
+      <%= image_tag 'setas_caixa.png', class: "arrow-box-land" %>
+      <p class="text-way">Exchange surplus products and enjoy the benefits of efficient inventory management.</p>
+    </div>
+    <h2 class="text-center participate">How to participate?</h2>
+    <div class="d-flex justify-content-around tex-center align-items-center gap-4">
+      <p class="text-way">Simply create an account, list the products you want to exchange, and explore the available options. Our advanced search tools ensure that you find the best trade combinations that meet your specific needs.</p>
+      <%= image_tag 'handshake.png', class: "handshake" %>
+    </div>
+    <div class="text-center mb-5">
+      <p>Register right now and transform your business experience.</p>
+      <%= link_to "Register", new_user_registration_path, class: "btn-blue " %>
+      <%= link_to "Back", :back, class: "btn-blue" %>
+    </div>
   </div>
 </div>
