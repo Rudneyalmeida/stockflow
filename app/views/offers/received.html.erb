@@ -1,0 +1,11 @@
+<h1>Offers Received</h1>
+
+<% if @notifications.any? %>
+  <% @notifications.each do |notification| %>
+    <div class="notification">
+      <%= notification.message %>
+    </div>
+  <% end %>
+<% else %>
+  <p>No notifications.</p>
+<% end %>

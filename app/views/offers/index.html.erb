@@ -1,38 +1,39 @@
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2016/12/06/01/26/colour-1885352_1280.jpg)">
   OFFERS
 </div>
-<div class="container mt-5">
-   <ul class="nav nav-tabs">
+<div class="container mt-5" data-controller="offers">
+  <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" href="#" data-target="#my-offers">My Offers</a>
+      <a class="nav-link active" href="#" data-action="click->offers#updateCards" data-offers-target="myOffers">My Offers</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" data-target="#offers-received">Offers Received</a>
+      <a class="nav-link" href="#" data-action="click->offers#updateCards" data-offers-target="offersReceived">Offers Received</a>
     </li>
   </ul>
 
-  <div id="my-offers" class="card-deck">
-    <% @offers.each do |offer| %>
+  <div id="my-offers" class="card-deck" data-offers-target="myCardDeck">
+    <% @offers.each do |my_offer| %>
       <div class="card">
         <div class="card-header">
-          <h5 class="card-title">Offer for <%= offer.product.name %></h5>
+          <h5 class="card-title">Offer for <%= my_offer.product.name %></h5>
         </div>
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
           <ul>
-            <% offer.trades.each do |trade| %>
+            <% my_offer.trades.each do |trade| %>
               <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
             <% end %>
           </ul>
-          <p class="card-text">Status: <%= offer.status.capitalize %></p>
+          <p class="card-text">Status: <%= my_offer.status.capitalize %></p>
         </div>
       </div>
     <% end %>
   </div>
 
-  <div id="offers-received" class="card-deck d-none">
-    <% @received_offers.each do |offer| %>
-      <div class="card">
+
+  <div id="offers-received" class="card-deck" data-offers-target="receivedCardDeck">
+    <% @received_offers.each do |offer|%>
+      <a href="<%= offer_path(offer) %>" class="card">
         <div class="card-header">
           <h5 class="card-title">Offer from <%= offer.user.name %> for <%= offer.product.name %></h5>
         </div>
@@ -45,15 +46,13 @@
           </ul>
           <p class="card-text">Status: <%= offer.status.capitalize %></p>
         </div>
-      </div>
+      </a>
     <% end %>
   </div>
 </div>
 
 
-
-
-<script>
+<%# <script>
   function attachEventHandlers() {
     const links = document.querySelectorAll('.nav-link:not([data-events-attached])');
     const cardDecks = document.querySelectorAll('.card-deck');
@@ -65,11 +64,10 @@
         document.querySelectorAll('.nav-link').forEach((link) => link.classList.remove('active'));
         document.querySelectorAll('.card-deck').forEach((cardDeck) => cardDeck.classList.add('d-none'));
         link.classList.add('active');
-        cardDecks[index].classList.remove('d-none');
+        cardDecks.classList.remove('d-none');
       });
     });
   }
 
   attachEventHandlers();
-</script>
-
+</script> %>

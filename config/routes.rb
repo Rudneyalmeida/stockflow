@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  resources :offers, only: [:index] do
+  get 'get_company_data', to: 'application#get_company_data'
+  resources :offers, only: [:index, :show] do
     collection do
       get :received
     end
+    member do
+      patch :accept
+      patch :reject
+    end
+
   end
 
   resources :chatrooms, only: [:index, :show]
@@ -16,6 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/offers/num_received", to: "offers#num_received"
+
   devise_for :users
   root to: "products#index"
 
@@ -23,6 +31,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  get 'landpage', to: 'pages#landpage'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

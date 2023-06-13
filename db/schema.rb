@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_12_145034) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_130342) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_145034) do
     t.index ["user_two_id"], name: "index_chatrooms_on_user_two_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_comments_on_created_at"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
@@ -62,14 +72,34 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_145034) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "message"
+    t.boolean "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "offers", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
+    t.integer "recipient_id"
     t.index ["product_id"], name: "index_offers_on_product_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_posts_on_title"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -82,6 +112,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_145034) do
     t.integer "quantity"
     t.date "expiration"
     t.string "location"
+    t.boolean "offered", default: false
+    t.boolean "want_to_offer"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -114,10 +146,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_145034) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chatrooms", "users"
   add_foreign_key "chatrooms", "users", column: "user_two_id"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "offers", "products"
   add_foreign_key "offers", "users"
+  add_foreign_key "posts", "users"
   add_foreign_key "products", "users"
   add_foreign_key "trades", "offers"
   add_foreign_key "trades", "products"

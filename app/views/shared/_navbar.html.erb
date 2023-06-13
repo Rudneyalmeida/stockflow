@@ -1,10 +1,15 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-search pt-2">
+<div class="navbar navbar-expand-sm navbar-light navbar-search pt-2" style="position: fixed; top: 0px; left: 0; right: 0; z-index: 9999;">
   <div class="container-fluid">
     <% if user_signed_in? %>
       <div class="nav-item dropdown">
-        <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa-regular fa-circle-user fa-2xl mb-4" style="color: #ffffff;" alt="dropdown menu"></i>
-        </a>
+
+        <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <% if current_user.photo.present? %>
+              <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% else %>
+              <%= image_tag 'stock_flow.png', crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% end %>
+            </a>
         <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Action", "#", class: "dropdown-item" %>
           <%= link_to "Another action", "#", class: "dropdown-item" %>
@@ -25,9 +30,13 @@
         </div>
       </div>
 
-      <%= link_to my_products_products_path, class: "navbar-brand" do %>
-        <i class="fa-regular fa-bell fa-xl" style="color: #ffffff;"></i>
-      <% end %>
+      <li class="nav-item">
+        <%= link_to offers_path, class: "nav-link" do %>
+          <i class="fa-regular fa-bell fa-xl" style="color: #ffffff;"></i>
+          <span class="offer-count"><%= current_user_offer_count %></span>
+        <% end %>
+      </li>
+
     <% else %>
       <li class="nav-item login-click">
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -44,59 +53,69 @@
           <% end %>
         </div>
       </div>
-        <i class="fa-regular fa-bell fa-xl navbar-brand mb-1" style="color: #212A3E;"></i>
-      <% end %>
-
-    <%# <%= link_to my_products_products_path, class: "navbar-brand" do %>
-      <%# <i class="fa-regular fa-heart fa-xl"></i> %>
-    <%# <% end %>
-
+      <div></div>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <%# <div class="collapse navbar-collapse" id="navbarSupportedContent"> %>
-      <%# <ul class="navbar-van me-auto"> %>
-        <%# <% if user_signed_in? %>
-          <%# <li class="nav-item active"> %>
-            <%# <%= link_to "#", class: "nav-link text-center" do %>
-              <%# <i class="fa-regular fa-handshake fa-2xl"></i> %>
-            <%# <% end %>
-          <%# </li> %>
-          <%# <li class="nav-item"> %>
-            <%# <%= link_to "#", class: "nav-link text-center" do %>
-              <%# <i class="fa-regular fa-comments fa-2xl"></i> %>
-            <%# <% end %>
-          <%# </li> %>
-        <%# <% else %>
-          <%# <li class="nav-item"> %>
-            <%# <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%# </li> %>
-        <%# <% end %>
-      <%# </ul> %>
-    <%# </div> %>
   </div>
 </div>
 
-<div class="navbar navbar-expand-sm navbar-light bg-light navbar-list">
+<div class="navbar navbar-expand-sm navbar-light bg-light navbar-list" style="position: fixed; top: 70px; left: 0; right: 0; z-index: 9999;">
   <ul class="navbar-van2 me-auto">
-  <%= link_to products_path do%>
-    <li class="nav-item">HOME</li>
-  <% end %>
-  <%= link_to my_products_products_path do%>
-    <li class="nav-item">YOUR PRODUCTS</li>
-  <% end %>
-  <%= link_to new_product_path do%>
-    <li class="nav-item">ADD PRODUCT</li>
-  <% end %>
-  <%= link_to offers_path do%>
-    <li class="nav-item">OFFERS</li>
-  <% end %>
-  <%= link_to products_path do%>
-    <li class="nav-item">TRADES</li>
-  <% end %>
-  <%= link_to products_path do%>
-    <li class="nav-item">CHAT</li>
+  <% if user_signed_in? %>
+    <%= link_to products_path do%>
+      <li class="nav-item nav-item-li">HOME</li>
+    <% end %>
+    <%= link_to my_products_products_path do%>
+      <li class="nav-item nav-item-li">YOUR PRODUCTS</li>
+    <% end %>
+    <%= link_to new_product_path do%>
+      <li class="nav-item nav-item-li">ADD PRODUCT</li>
+    <% end %>
+    <%= link_to offers_path do%>
+      <li class="nav-item nav-item-li">OFFERS</li>
+    <% end %>
+    <%= link_to landpage_path do%>
+      <li class="nav-item nav-item-li">ABOUT</li>
+    <% end %>
+  <% else %>
+    <%= link_to products_path do%>
+      <li class="nav-item nav-item-li">HOME</li>
+    <% end %>
+    <%= link_to new_user_session_path do%>
+      <li class="nav-item nav-item-li">YOUR PRODUCTS</li>
+    <% end %>
+    <%= link_to new_user_session_path do%>
+      <li class="nav-item nav-item-li">ADD PRODUCT</li>
+    <% end %>
+    <%= link_to new_user_session_path do%>
+      <li class="nav-item nav-item-li">OFFERS</li>
+    <% end %>
+     <%= link_to landpage_path do%>
+      <li class="nav-item nav-item-li">ABOUT</li>
+    <% end %>
   <% end %>
   </ul>
 </div>
+
+<%# <script>
+  function updateNumOffersBadge() {
+    $.ajax({
+      url: "/offers/num_received",
+      type: "GET",
+      dataType: "json",
+      success: function(data) {
+        $("#num-offers-badge").text(data.num_received);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log("Error fetching number of offers received: " + errorThrown);
+      }
+    });
+  }
+
+  $(document).ready(function() {
+    // Update the number of offers received every 30 seconds
+    setInterval(updateNumOffersBadge, 30000);
+  });
+</script> %>

@@ -1,20 +1,63 @@
-<!-- app/views/offers/show.html.erb -->
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/08/17/16/11/art-4412523_1280.jpg)">
+  OFFERS DETAILS
+</div>
+<div class="container mt-5">
+  <h2>Offer details</h2>
+  <div class="offer-details">
+    <div class="d-flex">
+      <div class="user-details">
+        <strong>User:</strong>
+        <%= @offer.user.name %>
+      </div>
+      <div class="product-details">
+      <strong>Product to offer for:</strong>
+        <div class="product-image">
+          <% if @offer.product.photo.present? %>
+            <%= cl_image_tag @offer.product.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill %>
+          <% end %>
+        </div>
+        <div class="product-info">
+          <p><strong>Name:</strong> <%= @offer.product.name %></p>
+          <p><strong>Quantity:</strong> <%= @offer.product.quantity %></p>
+        </div>
+      </div>
+    </div>
 
-<h1>Offer details</h1>
+    <div>
+      <h2>Products offered:</h2>
+      <div class="products-offered d-flex flex-wrap gap-3 justify-content-betwenn">
+        <% @offer.trades.each do |trade| %>
+          <div class="product-offered">
+            <div class="product-image">
+              <% if trade.product.photo.present? %>
+                <%= cl_image_tag trade.product.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill %>
+              <% end %>
+            </div>
+            <div class="product-info">
+              <p><strong>Name:</strong> <%= trade.product.name %></p>
+              <p><strong>Quantity:</strong> <%= trade.product.quantity %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @offer.user.name %>
-</p>
-
-<p>
-  <strong>Product to offer for:</strong>
-  <%= @offer.product.name %>
-</p>
-
-<h2>Products offered:</h2>
-<% @offer.products.each do |product| %>
-  <p><%= product.name %></p>
-<% end %>
-
-<%= link_to 'Back to Offers', offers_path %>
+  <div class="actions">
+    <% if @offer.status == "pending" %>
+    <div class="d-flex justify-content-center gap-3">
+      <%= button_to 'Accept', accept_offer_path(@offer), method: :patch, class: 'btn-blue' %>
+      <%= button_to 'Reject', reject_offer_path(@offer), method: :patch, class: 'btn-blue' %>
+    <% elsif @offer.status == 'accepted' %>
+      <p class="accepted">Accepted</p>
+    <% else %>
+      <p class="rejected">Rejected</p>
+    <% end %>
+  <%= link_to 'Back to Offers', offers_path, class: 'btn-blue' %>
+  </div>
+</div>
+<h1></h1>

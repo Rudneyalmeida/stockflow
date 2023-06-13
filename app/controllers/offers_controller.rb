@@ -11,7 +11,22 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
     @product = Product.find(params[:product_id])
-    @products = current_user.products 
+    @products = current_user.products
+  end
+
+  def accept
+    @offer = Offer.find(params[:id])
+    @offer.accepted!
+    @offer.product.update(offered: true)
+    # Reject all other offers for the same product
+    Offer.where(product: @offer.product).where.not(id: @offer.id).update_all(status: "rejected")
+    redirect_to offers_path
+  end
+
+  def reject
+    @offer = Offer.find(params[:id])
+    @offer.rejected!
+    redirect_to offers_path
   end
 
   def create
@@ -30,6 +45,11 @@ class OffersController < ApplicationController
     end
   end
 
+  def num_received
+    num_received = current_user.offers.received.count
+    render json: { num_received: num_received }
+  end
+
   def edit
   end
 
@@ -41,4 +61,3 @@ class OffersController < ApplicationController
   end
 
 end
-
