@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_offer_count
-    current_user.offers.count
+    if request.path == offers_path
+      0
+    else
+      current_user.offers.count + Offer.where(product: current_user.products).count
+    end
   end
 
   protected

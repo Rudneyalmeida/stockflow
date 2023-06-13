@@ -1,0 +1,57 @@
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.offer-form {
+    display: none;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .image {
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 10px;
+  }
+  
+  .sortable-ignore {
+    cursor: default;
+  }
+  
+  .card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card {
+    width: calc(33.33% - 10px);
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+    padding: 10px;
+  }
+  
+  .card-title {
+    margin-bottom: 0;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .card-subtitle {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    margin-bottom: 0;
+  }

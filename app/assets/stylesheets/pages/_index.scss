@@ -1,6 +1,12 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "show";
+@import "index_products";
+@import "../components/banner";
+@import "landpage";
+@import "login";
 @import "new";
 @import "sigup";
 @import "login";
+@import "new_offer";
+@import "bg_landing_page";
+

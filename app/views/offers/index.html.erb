@@ -13,7 +13,7 @@
 
   <div id="my-offers" class="card-deck" data-offers-target="myCardDeck">
     <% @offers.each do |my_offer| %>
-      <div class="card">
+      <div class="card card-offerted">
         <div class="card-header">
           <h5 class="card-title">Offer for <%= my_offer.product.name %></h5>
         </div>
@@ -31,7 +31,7 @@
   </div>
 
 
-  <div id="offers-received" class="card-deck" data-offers-target="receivedCardDeck">
+  <div id="offers-received" class="card-deck d-none" data-offers-target="receivedCardDeck">
     <% @received_offers.each do |offer|%>
       <a href="<%= offer_path(offer) %>" class="card">
         <div class="card-header">
@@ -50,24 +50,3 @@
     <% end %>
   </div>
 </div>
-
-
-<%# <script>
-  function attachEventHandlers() {
-    const links = document.querySelectorAll('.nav-link:not([data-events-attached])');
-    const cardDecks = document.querySelectorAll('.card-deck');
-
-    links.forEach((link, index) => {
-      link.dataset.eventsAttached = 'true'; // Mark this element as having events attached
-      link.addEventListener('click', (event) => {
-        event.preventDefault();
-        document.querySelectorAll('.nav-link').forEach((link) => link.classList.remove('active'));
-        document.querySelectorAll('.card-deck').forEach((cardDeck) => cardDeck.classList.add('d-none'));
-        link.classList.add('active');
-        cardDecks.classList.remove('d-none');
-      });
-    });
-  }
-
-  attachEventHandlers();
-</script> %>
