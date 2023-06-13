@@ -12,15 +12,6 @@
 @import "chatroom";
 @import "message";
 @import "images";
+@import "card_offers";
 
-.container {
-  flex-grow: 1;
-}
 
-body {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-}
