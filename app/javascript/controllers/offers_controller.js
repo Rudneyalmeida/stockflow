@@ -9,30 +9,31 @@ export default class extends Controller {
   }
 
   init() {
-    const url = window.location.href;
     const myOffersButton = this.myOffersTarget;
-    const offersReceivedButton = this.offersReceivedTarget;
-
-    if (url.includes("my_offers")) {
-      myOffersButton.classList.add("active");
-      this.myCardDeckTarget.classList.remove("d-none");
-      this.receivedCardDeckTarget.classList.add("d-none");
-    } else if (url.includes("offers_received")) {
-      offersReceivedButton.classList.add("active");
-      this.receivedCardDeckTarget.classList.remove("d-none");
-      this.myCardDeckTarget.classList.add("d-none");
-    }
+    myOffersButton.classList.add("active");
   }
 
   updateCards(e) {
-    if (e.currentTarget.innerHTML === "My Offers") {
-      e.currentTarget.classList.add("active");
-      this.myCardDeckTarget.classList.remove("d-none");
-      this.receivedCardDeckTarget.classList.add("d-none");
-    } else if (e.currentTarget.innerHTML === "Offers Received") {
-      e.currentTarget.classList.add("active");
-      this.receivedCardDeckTarget.classList.remove("d-none");
-      this.myCardDeckTarget.classList.add("d-none");
+    e.preventDefault(); // Prevent the default action
+  
+    const myOffersButton = this.myOffersTarget;
+    const offersReceivedButton = this.offersReceivedTarget;
+  
+    // Remove active class from both buttons
+    myOffersButton.classList.remove("active");
+    offersReceivedButton.classList.remove("active");
+  
+    // Add d-none class to both cardDecks
+    this.myCardDeckTarget.classList.add("d-none");
+    this.receivedCardDeckTarget.classList.add("d-none");
+  
+    if (e.currentTarget.id === "myOffersLink") {
+      myOffersButton.classList.add("active"); // Add active class to clicked button
+      this.myCardDeckTarget.classList.remove("d-none"); // Remove d-none from corresponding cardDeck
+    } else if (e.currentTarget.id === "offersReceivedLink") {
+      offersReceivedButton.classList.add("active"); // Add active class to clicked button
+      this.receivedCardDeckTarget.classList.remove("d-none"); // Remove d-none from corresponding cardDeck
     }
   }
+
 }
