@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  get 'landpage', to: 'pages#landpage'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
