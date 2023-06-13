@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-search pt-2">
+<div class="navbar navbar-expand-sm navbar-light navbar-search pt-2" style="position: fixed; top: 0px; left: 0; right: 0; z-index: 9999;">
   <div class="container-fluid">
     <% if user_signed_in? %>
       <div class="nav-item dropdown">
@@ -36,7 +36,7 @@
           <span class="offer-count"><%= current_user_offer_count %></span>
         <% end %>
       </li>
-      
+
     <% else %>
       <li class="nav-item login-click">
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -61,7 +61,7 @@
   </div>
 </div>
 
-<div class="navbar navbar-expand-sm navbar-light bg-light navbar-list">
+<div class="navbar navbar-expand-sm navbar-light bg-light navbar-list" style="position: fixed; top: 70px; left: 0; right: 0; z-index: 9999;">
   <ul class="navbar-van2 me-auto">
   <% if user_signed_in? %>
     <%= link_to products_path do%>
