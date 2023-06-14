@@ -41,10 +41,15 @@
   width: 100%;
   background-size: cover;
 }
+.bg-trade {
+  background-image: image-url('banner_trade.png');
+  width: 100%;
+  background-size: cover;
+}
 
 .logo-card-category {
   width: 36%;
-  background: #ffffff7d;
+
   padding: 1rem;
   border-radius: 1rem;
 }
