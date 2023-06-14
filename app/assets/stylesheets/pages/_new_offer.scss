@@ -11,8 +11,8 @@
 }
 
 .offer-form {
-   display: none;
- }
+    display: none;
+  }
 
   .card {
     border: 1px solid #ccc;
@@ -37,10 +37,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
-    a {
-      margin-top: 1rem;
-    }
   }
 
   .card {
@@ -52,25 +48,17 @@
   }
 
   .card-header {
-    background-color: #212A3E;
+    background-color: #f8f9fa;
     padding: 10px;
-    color:white;
-    border-radius: 1rem;
   }
 
   .card-title {
     margin-bottom: 0;
-    padding: 0 1rem;
   }
 
   .card-body {
-    padding: 1rem;
-
-    li, p {
-      font-size: 1rem;
-    }
+    padding: 10px;
   }
-
 
   .card-subtitle {
     margin-bottom: 5px;
@@ -79,6 +67,7 @@
 
   .card-text {
     margin-bottom: 0;
+
   }
 
   .my-prod {
@@ -95,3 +84,6 @@
   .soarteable-btn {
     margin-bottom: 3rem;
   }
+
+  
+
