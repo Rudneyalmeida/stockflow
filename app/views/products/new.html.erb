@@ -19,16 +19,25 @@
           <%= f.input :quantity %>
         </div>
       </div>
-      <div class="photo-new">
-          <img id="preview" src="#" alt="Preview" style="display: none; max-width: 100%; max-height: 300px;">
-          <%= f.input :photo, as: :file, input_html: { onchange: "previewFile(this);" } %>
+      <div>
+        <%= f.input :description %>
+      </div>
+      <div>
+        <div class="form-qtd">
+          <%= f.date_field :expiration, min: 1.month.from_now %>
+          <%= f.input :quantity %>
+        </div>
       </div>
     </div>
-    <%= f.button :submit %>
-    <%= link_to "Back", :back, class: "btn-blue" %>
+    <div class="photo-new">
+        <img id="preview" src="#" alt="Preview" style="display: none; max-width: 100%; max-height: 300px;">
+        <%= f.input :photo, as: :file, input_html: { onchange: "previewFile(this);" } %>
+    </div>
   </div>
-  <% end %>
+  <%= f.button :submit %>
+  <%= link_to "Back", :back, class: "btn-blue" %>
 </div>
+<% end %>
 
 
 <script>

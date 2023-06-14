@@ -3,27 +3,27 @@
   <%= image_tag 'stock_flow_blue.png', class: "logo-card-category" %>
     <i class="fa-solid fa-boxes-packing"></i>
   </div>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <% @products.each do |product| %>
-        <div class="col-md-2 col-5 border-card">
-          <%= link_to product_path(product), class: "card-listing" do %>
-            <div class="card-product">
-              <% if product.photo.present? %>
-                <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
-              <% else %>
-                <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill %>
-              <% end %>
+</div>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <% @products.each do |product| %>
+       <div class="col-md-2 col-5 border-card">
+        <%= link_to product_path(product), class: "card-listing" do %>
+          <div class="card-product">
+            <% if product.photo.present? %>
+              <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill %>
+            <% end %>
+          </div>
+          <div class="d-flex justify-content-between align-items-center position-relative">
+            <div class="card-product-infos">
+              <h2 class="ellipsis"><%= product.name %></h2>
+              <span class="qtd">Qty <%= product.quantity %></span>
             </div>
-            <div class="d-flex justify-content-between align-items-center position-relative">
-              <div class="card-product-infos">
-                <h2 class="ellipsis"><%= product.name %></h2>
-                <span class="qtd">Qty <%= product.quantity %></span>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
