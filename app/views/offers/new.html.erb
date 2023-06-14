@@ -1,65 +1,67 @@
-<div class="card-category bg-offerted" >
-  <div  class="int-banner d-flex justify-content-around">
-  <%= image_tag 'stock_flow_blue.png', class: "logo-card-category" %>
-    TRADES
+<div class="bg-landing-page">
+  <div class="card-category bg-offerted" >
+    <div  class="int-banner d-flex justify-content-around">
+    <%= image_tag 'stock_flow_blue.png', class: "logo-card-category" %>
+      TRADES
+    </div>
   </div>
-</div>
-<div class="container mt-5">
-  <div class="products-grid" data-controller="sortable">
-    <%# Producs to Offer %>
-    <div class="my-prod">
-      <h2 >Products to Offer</h2>
-      <div data-sortable-target="container">
-        <% @products.each do |product| %>
-          <div class="card mt-2" data-sortable-target="card" data-product-id="<%= product.id %>">
-            <% if product.photo.present? %>
-              <%= cl_image_tag product.photo.key, height: 100, width: 133, crop: :fill %>
-            <% else %>
-              <%= image_tag 'stock_flow.png', height: 100, width: 133, crop: :fill, class: "image" %>
-            <% end %>
-            <div><strong>Name:</strong> <%= product.name %></div>
-            <div><strong>Expiration:</strong> <%= product.expiration %></div>
-            <div><strong>Quantity:</strong> <%= product.quantity %></div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-
-    <%# Products Offered %>
-    <div class="my-prod">
-      <h2 class="sortable-ignore">Products Offered</h2>
-      <div class="products-offered" data-sortable-target="container">
-      </div>
-    </div>
-
-    <%# Product %>
-    <div class="my-prod">
-      <h2>Product</h2>
-      <ul class="product-soarteable">
-        <div>
-          <% if @product.photo.present? %>
-            <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill, class: "image" %>
+  <div class="container mt-5">
+    <div class="products-grid" data-controller="sortable">
+      <%# Producs to Offer %>
+      <div class="my-prod">
+        <h2 >Products to Offer</h2>
+        <div data-sortable-target="container">
+          <% @products.each do |product| %>
+            <div class="card mt-2" data-sortable-target="card" data-product-id="<%= product.id %>">
+              <% if product.photo.present? %>
+                <%= cl_image_tag product.photo.key, height: 100, width: 133, crop: :fill %>
+              <% else %>
+                <%= image_tag 'stock_flow.png', height: 100, width: 133, crop: :fill, class: "image" %>
+              <% end %>
+              <div><strong>Name:</strong> <%= product.name %></div>
+              <div><strong>Expiration:</strong> <%= product.expiration %></div>
+              <div><strong>Quantity:</strong> <%= product.quantity %></div>
+            </div>
           <% end %>
         </div>
-        <div class="card description">
-          <li><strong>Name: </strong> <%= @product.name %></li>
-          <li><strong>Expiration: </strong> <%= @product.expiration %></li>
-          <li><strong>Quantity: </strong> <%= @product.quantity %></li>
-        </div>
-      </ul>
-    </div>
-  </div>
-
-
-  <div class="row text-center">
-    <%= simple_form_for [@product, @offer] do |f| %>
-      <div class="d-none">
-        <%= f.label :products, "Products to Offer" %>
-        <%= f.input_field :product_ids, collection: @products, as: :check_boxes %>
       </div>
-      <%= f.button :submit, "Create Offer" %>
-    <% end %>
+
+      <%# Products Offered %>
+      <div class="my-prod">
+        <h2 class="sortable-ignore">Products Offered</h2>
+        <div class="products-offered" data-sortable-target="container">
+        </div>
+      </div>
+
+      <%# Product %>
+      <div class="my-prod">
+        <h2>Product</h2>
+        <ul class="product-soarteable">
+          <div>
+            <% if @product.photo.present? %>
+              <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill, class: "image" %>
+            <% end %>
+          </div>
+          <div class="card description">
+            <li><strong>Name: </strong> <%= @product.name %></li>
+            <li><strong>Expiration: </strong> <%= @product.expiration %></li>
+            <li><strong>Quantity: </strong> <%= @product.quantity %></li>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row text-center">
+      <%= simple_form_for [@product, @offer] do |f| %>
+        <div class="d-none">
+          <%= f.label :products, "Products to Offer" %>
+          <%= f.input_field :product_ids, collection: @products, as: :check_boxes %>
+        </div>
+        <%= f.button :submit, "Create Offer" %>
+      <% end %>
+    </div>
   </div>
 </div>
