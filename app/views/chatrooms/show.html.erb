@@ -1,43 +1,49 @@
-<div class="d-flex">
+<div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/08/17/16/11/art-4412523_1280.jpg)">
+  CHATROOMS
+</div>
+
+<div class="container mt-5">
+  <div class="d-flex">
     <div class="d-flex flex-column">
       <% @chatrooms.each do |chat| %>
-        <% if @chatroom.user_two_id == current_user.id %>
-          <%= link_to @chatroom.name2, chatroom_path(chat) %>
+        <% if chat.user_two_id == current_user.id %>
+          <%= link_to chat.name2, chatroom_path(chat) %>
         <% else %>
-          <%= link_to @chatroom.name, chatroom_path(chat) %>
+          <%= link_to chat.name, chatroom_path(chat) %>
         <% end %>
       <% end %>
     </div>
 
-  <div class="container chatroom"
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
-  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-    <% if @chatroom.user_two_id == current_user.id %>
-      <h1>#<%= @chatroom.name2 %></h1>
-    <% else %>
-      <h1>#<%= @chatroom.name %></h1>
-    <% end %>
-
-
-    <div class="messages" data-chatroom-subscription-target="messages">
-      <% @chatroom.messages.each do |message| %>
-        <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-          <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-            <%= render "messages/message", message: message %>
-          </div>
-        </div>
+    <div class="container chatroom"
+    data-controller="chatroom-subscription"
+    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+    data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+      <% if @chatroom.user_two_id == current_user.id %>
+        <h1>#<%= @chatroom.name2 %></h1>
+      <% else %>
+        <h1>#<%= @chatroom.name %></h1>
       <% end %>
-    </div>
-    <%= simple_form_for [@chatroom, @message],
-    html: {class: "d-flex", data: { action: "turbo:submit-end->chatroom-subscription#resetForm"}} do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message ##{@chatroom.name}",
-      wrapper_html: {class: "flex-grow-1"}
+
+
+      <div class="messages" data-chatroom-subscription-target="messages">
+        <% @chatroom.messages.each do |message| %>
+          <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+            <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+              <%= render "messages/message", message: message %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= simple_form_for [@chatroom, @message],
+      html: {class: "d-flex", data: { action: "turbo:submit-end->chatroom-subscription#resetForm"}} do |f|
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message ##{@chatroom.name}",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
+      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <% end %>
+    </div>
   </div>
 </div>

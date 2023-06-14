@@ -1,11 +1,15 @@
-<div class="d-flex">
-  <div class="d-flex flex-column">
-    <% @chatrooms.each do |chat| %>
-      <% if chat.user_two_id == current_user.id %>
-        <%= link_to chat.name2, chatroom_path(chat) %>
-      <% else %>
-        <%= link_to chat.name, chatroom_path(chat) %>
+<div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/08/17/16/11/art-4412523_1280.jpg)">
+</div>
+<div class="container mt-5">
+  <div class="d-flex">
+    <div class="d-flex flex-column">
+      <% @chatrooms.each do |chat| %>
+        <% if chat.user_two_id == current_user.id %>
+          <%= link_to chat.name2, chatroom_path(chat) %>
+        <% else %>
+          <%= link_to chat.name, chatroom_path(chat) %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

@@ -34,8 +34,11 @@
           <div>
             <% if current_user != @product.user %>
               <%= link_to "Make Offer", new_product_offer_path(@product), class: "btn-blue" %>
-              <% if Chatroom.exists?(user: current_user, user_two: @product.user) %>
+              <% if Chatroom.exists?(user: current_user, user_two: @product.user)%>
                 <% chatroom = Chatroom.find_by(user: current_user, user_two: @product.user) %>
+                <%= link_to "Chat", chatroom_path(chatroom), class: "btn-blue" %>
+              <% elsif Chatroom.exists?(user: @product.user, user_two: current_user)%>
+                <% chatroom = Chatroom.find_by(user: @product.user, user_two: current_user) %>
                 <%= link_to "Chat", chatroom_path(chatroom), class: "btn-blue" %>
               <% else %>
                 <%= link_to "Chat", product_chatrooms_path(@product), data: {turbo_method: :post}, class: "btn-blue" %>
