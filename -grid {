@@ -1,0 +1,1616 @@
+[1mdiff --git a/app/assets/images/smoke1.png b/app/assets/images/smoke1.png[m
+[1mdeleted file mode 100644[m
+[1mindex 0a6a772..0000000[m
+Binary files a/app/assets/images/smoke1.png and /dev/null differ
+[1mdiff --git a/app/assets/images/smoke2.png b/app/assets/images/smoke2.png[m
+[1mdeleted file mode 100644[m
+[1mindex 4d48492..0000000[m
+Binary files a/app/assets/images/smoke2.png and /dev/null differ
+[1mdiff --git a/app/assets/images/stock_flow_blue.png b/app/assets/images/stock_flow_blue.png[m
+[1mdeleted file mode 100644[m
+[1mindex 89271de..0000000[m
+Binary files a/app/assets/images/stock_flow_blue.png and /dev/null differ
+[1mdiff --git a/app/assets/images/stock_flow_border.png b/app/assets/images/stock_flow_border.png[m
+[1mdeleted file mode 100644[m
+[1mindex 58381b3..0000000[m
+Binary files a/app/assets/images/stock_flow_border.png and /dev/null differ
+[1mdiff --git a/app/assets/stylesheets/application.scss b/app/assets/stylesheets/application.scss[m
+[1mindex 297abb4..b239ce0 100755[m
+[1m--- a/app/assets/stylesheets/application.scss[m
+[1m+++ b/app/assets/stylesheets/application.scss[m
+[36m@@ -11,6 +11,3 @@[m
+ // Your CSS partials[m
+ @import "components/index";[m
+ @import "pages/index";[m
+[31m-[m
+[31m-[m
+[31m-[m
+[1mdiff --git a/app/assets/stylesheets/components/_avatar.scss b/app/assets/stylesheets/components/_avatar.scss[m
+[1mindex 62de3ad..3a2fd4d 100644[m
+[1m--- a/app/assets/stylesheets/components/_avatar.scss[m
+[1m+++ b/app/assets/stylesheets/components/_avatar.scss[m
+[36m@@ -5,25 +5,3 @@[m
+ .avatar_father{[m
+   position: relative;[m
+ }[m
+[31m-.avatar {[m
+[31m-  border: 2px solid white;[m
+[31m-  width: 55px;[m
+[31m-  border-radius: 50%;[m
+[31m-}[m
+[31m-[m
+[31m-.avatar-large {[m
+[31m-  width: 56px;[m
+[31m-  border-radius: 50%;[m
+[31m-}[m
+[31m-.avatar-bordered {[m
+[31m-  width: 40px;[m
+[31m-  border-radius: 50%;[m
+[31m-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);[m
+[31m-  border: white 1px solid;[m
+[31m-}[m
+[31m-.avatar-square {[m
+[31m-  width: 40px;[m
+[31m-  border-radius: 0px;[m
+[31m-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);[m
+[31m-  border: white 1px solid;[m
+[31m-}[m
+[1mdiff --git a/app/assets/stylesheets/components/_banner.scss b/app/assets/stylesheets/components/_banner.scss[m
+[1mindex 5fa1bcf..0d5e2f7 100644[m
+[1m--- a/app/assets/stylesheets/components/_banner.scss[m
+[1m+++ b/app/assets/stylesheets/components/_banner.scss[m
+[36m@@ -6,50 +6,3 @@[m
+   height: 400px;[m
+   background-image: linear-gradient(black 0%, rgba(0,0,0,0.1)),url(https://images.pexels.com/photos/2749481/pexels-photo-2749481.jpeg)[m
+ }[m
+[31m-.banner {[m
+[31m-  background-size: cover;[m
+[31m-  background-position: center;[m
+[31m-  padding: 150px 0;[m
+[31m-  height: 700px;[m
+[31m-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 0) 5%), linear-gradient(to top, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 0) 5%), url('background_2.png');[m
+[31m-[m
+[31m-}[m
+[31m-[m
+[31m-.banner h1 {[m
+[31m-  margin: 0;[m
+[31m-  color: white;[m
+[31m-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);[m
+[31m-  font-size: 40px;[m
+[31m-  font-weight: bold;[m
+[31m-}[m
+[31m-[m
+[31m-.banner p {[m
+[31m-  font-size: 28px;[m
+[31m-  color: white;[m
+[31m-  opacity: .7;[m
+[31m-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);[m
+[31m-  padding-top: 60px;[m
+[31m-  font-weight: bold;[m
+[31m-}[m
+[31m-[m
+[31m-.banner a{[m
+[31m-  color: #fff;[m
+[31m-  border: 1px solid rgb(0, 21, 88);[m
+[31m-  background-color: rgb(0, 21, 88);[m
+[31m-  transition: 0.6s;[m
+[31m-  border-radius: 5px;[m
+[31m-  margin-top: 50px;[m
+[31m-}[m
+[31m-[m
+[31m-.banner a:hover{[m
+[31m-  color: rgb(0, 21, 88);[m
+[31m-  border: 1px solid #fff;[m
+[31m-  background-color: #fff;[m
+[31m-  border-radius: 5px;[m
+[31m-  margin-top: 60px;[m
+[31m-}[m
+[31m-[m
+[31m-.text-space{[m
+[31m-  font-family: 'Monomaniac One', cursive;[m
+[31m-  font-size: 60px;[m
+[31m-}[m
+[1mdiff --git a/app/assets/stylesheets/components/_button.scss b/app/assets/stylesheets/components/_button.scss[m
+[1mindex b334af3..e56e742 100644[m
+[1m--- a/app/assets/stylesheets/components/_button.scss[m
+[1m+++ b/app/assets/stylesheets/components/_button.scss[m
+[36m@@ -11,22 +11,5 @@[m
+ .btn-blue:hover, .btn:hover {[m
+   background: #27262e;[m
+   color: white;[m
+[31m-[m
+[31m-}[m
+[31m-[m
+[31m-.btn-page{[m
+[31m-  width: 100%;[m
+[31m-  color: white;[m
+[31m-  border-radius: 10px;[m
+[31m-  padding: 3px 33px;[m
+[31m-  text-align: center;[m
+[31m-  box-shadow: 0 0 5px #21b92a;[m
+[31m-  border: 1px solid #51d80c;[m
+[31m-  text-decoration: none;[m
+[31m-  font-size: 18px;[m
+[31m-}[m
+[31m-[m
+[31m-.btn-page:hover{[m
+[31m-  background:#0bcd0f ;[m
+[31m-  color:black[m
+[32m+[m[41m  [m
+ }[m
+[1mdiff --git a/app/assets/stylesheets/components/_card.scss b/app/assets/stylesheets/components/_card.scss[m
+[1mindex 21bc4a2..2e0ecab 100644[m
+[1m--- a/app/assets/stylesheets/components/_card.scss[m
+[1m+++ b/app/assets/stylesheets/components/_card.scss[m
+[36m@@ -61,8 +61,8 @@[m
+   font-size: 44px;[m
+   font-weight: bold;[m
+   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);[m
+[32m+[m[32m  border-radius: 5px;[m
+   box-shadow: 0 0 15px rgba(0,0,0,0.2);[m
+[31m-  margin-top: 7.5rem;[m
+ }[m
+ [m
+ .border-card{[m
+[36m@@ -102,6 +102,8 @@[m
+   border-radius: 1rem;[m
+   background-color: white;[m
+   box-shadow: 0 0 2rem #b3b2b2[m
+[32m+[m
+[32m+[m
+ }[m
+ [m
+ .card-user-info {[m
+[1mdiff --git a/app/assets/stylesheets/components/_card_offers.scss b/app/assets/stylesheets/components/_card_offers.scss[m
+[1mdeleted file mode 100644[m
+[1mindex c9715ad..0000000[m
+[1m--- a/app/assets/stylesheets/components/_card_offers.scss[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-.card-offerted {[m
+[31m-  border: 3px solid blue;[m
+[31m-  padding: 5px;[m
+[31m-  margin: 1rem 0;[m
+[31m-  width: 50%;[m
+[31m-  border-radius: 0.5rem;[m
+[31m-}[m
+[1mdiff --git a/app/assets/stylesheets/components/_card_sorteble.scss b/app/assets/stylesheets/components/_card_sorteble.scss[m
+[1mdeleted file mode 100644[m
+[1mindex 8940f40..0000000[m
+[1m--- a/app/assets/stylesheets/components/_card_sorteble.scss[m
+[1m+++ /dev/null[m
+[36m@@ -1,16 +0,0 @@[m
+[31m-[m
+[31m-.card-sorteble {[m
+[31m-  border: 1px solid black;[m
+[31m-  margin: 1rem;[m
+[31m-  border-radius: 1rem;[m
+[31m-  padding: 1rem;[m
+[31m-  text-align: center;[m
+[31m-}[m
+[31m-[m
+[31m-.mini-card {[m
+[31m-  border: 1px solid black;[m
+[31m-  margin: 1rem;[m
+[31m-  border-radius: 1rem;[m
+[31m-  padding: 1rem;[m
+[31m-  text-align: center;[m
+[31m-}[m
+[1mdiff --git a/app/assets/stylesheets/components/_images.scss b/app/assets/stylesheets/components/_images.scss[m
+[1mindex 09086a4..eaf8782 100644[m
+[1m--- a/app/assets/stylesheets/components/_images.scss[m
+[1m+++ b/app/assets/stylesheets/components/_images.scss[m
+[36m@@ -1,19 +1,14 @@[m
+ .box-land {[m
+[31m-  width: 120%;[m
+[32m+[m[32m  width: 50%;[m
+[32m+[m
+ }[m
+ [m
+ .network-land {[m
+   width: 38%;[m
+[31m-[m
+ }[m
+ [m
+ .logo-land {[m
+[31m-  width: 100%;[m
+[31m-  padding-top: 3rem;[m
+[31m-  margin-top: 2rem;[m
+[31m-  padding: 1rem;[m
+[31m-  border-radius: 1rem;[m
+[31m-  background: #ffffff00;[m
+[32m+[m[32m  width: 50%;[m
+ }[m
+ [m
+ .handshake {[m
+[1mdiff --git a/app/assets/stylesheets/components/_index.scss b/app/assets/stylesheets/components/_index.scss[m
+[1mindex 9923d37..015a9a8 100644[m
+[1m--- a/app/assets/stylesheets/components/_index.scss[m
+[1m+++ b/app/assets/stylesheets/components/_index.scss[m
+[36m@@ -12,5 +12,15 @@[m
+ @import "chatroom";[m
+ @import "message";[m
+ @import "images";[m
+[31m-@import "card_offers";[m
+[31m-@import "card_sorteble";[m
+[32m+[m
+[32m+[m[32m.container {[m
+[32m+[m[32m  flex-grow: 1;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mbody {[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  min-height: 100vh;[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  flex-direction: column;[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/components/_navbar.scss b/app/assets/stylesheets/components/_navbar.scss[m
+[1mindex a8b2906..62f0df9 100644[m
+[1m--- a/app/assets/stylesheets/components/_navbar.scss[m
+[1m+++ b/app/assets/stylesheets/components/_navbar.scss[m
+[36m@@ -49,8 +49,8 @@[m
+ [m
+ .nav-item {[m
+   font-size: 1rem;[m
+[31m-  padding-left: 69px;[m
+[31m-  padding-right: 88px;[m
+[32m+[m[32m  padding-left: 50px;[m
+[32m+[m[32m  padding-right: 50px;[m
+   font-family: 'Catamaran', sans-serif;[m
+ }[m
+ [m
+[36m@@ -184,5 +184,3 @@[m [ma {[m
+   color: #ffffff;[m
+   background-color: red;[m
+ }[m
+[31m-[m
+[31m-[m
+[1mdiff --git a/app/assets/stylesheets/pages/_bg_landing_page.scss b/app/assets/stylesheets/pages/_bg_landing_page.scss[m
+[1mdeleted file mode 100644[m
+[1mindex b34519e..0000000[m
+[1m--- a/app/assets/stylesheets/pages/_bg_landing_page.scss[m
+[1m+++ /dev/null[m
+[36m@@ -1,6 +0,0 @@[m
+[31m-[m
+[31m- .bg-landing-page {[m
+[31m-  background-image: image-url('smoke.jpg');[m
+[31m-  width: 100%;[m
+[31m-  background-size: cover;[m
+[31m-}[m
+[1mdiff --git a/app/assets/stylesheets/pages/_home.scss b/app/assets/stylesheets/pages/_home.scss[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mindex d52ca6b..e69de29[m
+[1m--- a/app/assets/stylesheets/pages/_home.scss[m
+[1m+++ b/app/assets/stylesheets/pages/_home.scss[m
+[36m@@ -1,2 +0,0 @@[m
+[31m-// Specific CSS for your home-page[m
+[31m-[m
+[1mdiff --git a/app/assets/stylesheets/pages/_index.scss b/app/assets/stylesheets/pages/_index.scss[m
+[1mindex 9a1cdb8..e34b1b1 100644[m
+[1m--- a/app/assets/stylesheets/pages/_index.scss[m
+[1m+++ b/app/assets/stylesheets/pages/_index.scss[m
+[36m@@ -1,12 +1,7 @@[m
+ // Import page-specific CSS files here.[m
+ @import "home";[m
+[31m-@import "index_products";[m
+[31m-@import "../components/banner";[m
+[31m-@import "landpage";[m
+[31m-@import "login";[m
+[32m+[m[32m@import "show";[m
+ @import "new";[m
+ @import "sigup";[m
+ @import "login";[m
+[31m-@import "new_offer";[m
+[31m-@import "bg_landing_page";[m
+[31m-[m
+[32m+[m[32m@import "new_offer";[m
+\ No newline at end of file[m
+[1mdiff --git a/app/assets/stylesheets/pages/_landpage.scss b/app/assets/stylesheets/pages/_landpage.scss[m
+[1mdeleted file mode 100644[m
+[1mindex 0c129ac..0000000[m
+[1m--- a/app/assets/stylesheets/pages/_landpage.scss[m
+[1m+++ /dev/null[m
+[36m@@ -1,30 +0,0 @@[m
+[31m-.land-text {[m
+[31m-  font-size: 2rem;[m
+[31m-  font-weight: bold;[m
+[31m-[m
+[31m-}[m
+[31m-[m
+[31m-.text-way {[m
+[31m- font-size: 1.4rem;[m
+[31m- background: #ffffff7d;[m
+[31m- padding: 1rem;[m
+[31m- border-radius: 1rem;[m
+[31m-}[m
+[31m-[m
+[31m-.participate {[m
+[31m-  margin-top: 3rem;[m
+[31m-}[m
+[31m-[m
+[31m-[m
+[31m-.text-center {[m
+[31m-  text-align: center;[m
+[31m-  padding: 2rem;[m
+[31m-}[m
+[31m-[m
+[31m-.logo-land {[m
+[31m-  padding: 2rem;[m
+[31m-}[m
+[31m-[m
+[31m-.banner-land {[m
+[31m-  background-color: purple;[m
+[31m-}[m
+[1mdiff --git a/app/assets/stylesheets/pages/_show.scss b/app/assets/stylesheets/pages/_show.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/LICENSE b/app/assets/stylesheets/stylesheets/LICENSE[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e51d907[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/LICENSE[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m© 2023 La Loco SAS, head of Le Wagon Group - All rights reserved[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/application.scss b/app/assets/stylesheets/stylesheets/application.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a1142e9[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/application.scss[m
+[36m@@ -0,0 +1,26 @@[m
+[32m+[m[32m// Graphical variables[m[41m[m
+[32m+[m[32m@import "config/fonts";[m[41m[m
+[32m+[m[32m@import "config/colors";[m[41m[m
+[32m+[m[32m@import "config/bootstrap_variables";[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m// External libraries[m[41m[m
+[32m+[m[32m@import "bootstrap/scss/bootstrap";[m[41m[m
+[32m+[m[32m@import "font-awesome";[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m// Your CSS partials[m[41m[m
+[32m+[m[32m@import "components/index";[m[41m[m
+[32m+[m[32m@import "pages/index";[m[41m[m
+[32m+[m[32m@import "components/flash";[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mbody {[m[41m[m
+[32m+[m[32m  display: flex;[m[41m[m
+[32m+[m[32m  flex-direction: column;[m[41m[m
+[32m+[m[32m  min-height: 100vh;[m[41m[m
+[32m+[m[32m  background-image: linear-gradient(to top, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 0) 5%), image-url("background_5.jpg");[m[41m[m
+[32m+[m[32m  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m.btn-pages {[m[41m[m
+[32m+[m[32m  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/card.scss b/app/assets/stylesheets/stylesheets/card.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ec4d9ca[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/card.scss[m
+[36m@@ -0,0 +1,10 @@[m
+[32m+[m[32m.card-product {[m
+[32m+[m[32m  height: 300px;[m
+[32m+[m[32m  width: 400px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.card-image {[m
+[32m+[m[32m  img {[m
+[32m+[m[32m    height: 100%;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_alert.scss b/app/assets/stylesheets/stylesheets/components/_alert.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3bde679[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_alert.scss[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m.alert {[m
+[32m+[m[32m  position: fixed;[m
+[32m+[m[32m  bottom: 16px;[m
+[32m+[m[32m  right: 16px;[m
+[32m+[m[32m  z-index: 1000;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_avatar.scss b/app/assets/stylesheets/stylesheets/components/_avatar.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ab00509[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_avatar.scss[m
+[36m@@ -0,0 +1,20 @@[m
+[32m+[m[32m.avatar {[m
+[32m+[m[32m  width: 40px;[m
+[32m+[m[32m  border-radius: 50%;[m
+[32m+[m[32m}[m
+[32m+[m[32m.avatar-large {[m
+[32m+[m[32m  width: 56px;[m
+[32m+[m[32m  border-radius: 50%;[m
+[32m+[m[32m}[m
+[32m+[m[32m.avatar-bordered {[m
+[32m+[m[32m  width: 40px;[m
+[32m+[m[32m  border-radius: 50%;[m
+[32m+[m[32m  box-shadow: 0 1px 2px rgba(0,0,0,0.2);[m
+[32m+[m[32m  border: white 1px solid;[m
+[32m+[m[32m}[m
+[32m+[m[32m.avatar-square {[m
+[32m+[m[32m  width: 40px;[m
+[32m+[m[32m  border-radius: 0px;[m
+[32m+[m[32m  box-shadow: 0 1px 2px rgba(0,0,0,0.2);[m
+[32m+[m[32m  border: white 1px solid;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_banner.scss b/app/assets/stylesheets/stylesheets/components/_banner.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..93afbff[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_banner.scss[m
+[36m@@ -0,0 +1,47 @@[m
+[32m+[m[32m.banner {[m
+[32m+[m[32m  background-size: cover;[m
+[32m+[m[32m  background-position: center;[m
+[32m+[m[32m  padding: 150px 0;[m
+[32m+[m[32m  height: 700px;[m
+[32m+[m[32m  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 0) 5%), linear-gradient(to top, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 0) 5%), url('background_2.png');[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.banner h1 {[m
+[32m+[m[32m  margin: 0;[m
+[32m+[m[32m  color: white;[m
+[32m+[m[32m  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);[m
+[32m+[m[32m  font-size: 40px;[m
+[32m+[m[32m  font-weight: bold;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.banner p {[m
+[32m+[m[32m  font-size: 28px;[m
+[32m+[m[32m  color: white;[m
+[32m+[m[32m  opacity: .7;[m
+[32m+[m[32m  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);[m
+[32m+[m[32m  padding-top: 60px;[m
+[32m+[m[32m  font-weight: bold;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.banner a{[m
+[32m+[m[32m  color: #fff;[m
+[32m+[m[32m  border: 1px solid rgb(0, 21, 88);[m
+[32m+[m[32m  background-color: rgb(0, 21, 88);[m
+[32m+[m[32m  transition: 0.6s;[m
+[32m+[m[32m  border-radius: 5px;[m
+[32m+[m[32m  margin-top: 50px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.banner a:hover{[m
+[32m+[m[32m  color: rgb(0, 21, 88);[m
+[32m+[m[32m  border: 1px solid #fff;[m
+[32m+[m[32m  background-color: #fff;[m
+[32m+[m[32m  border-radius: 5px;[m
+[32m+[m[32m  margin-top: 60px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.text-space{[m
+[32m+[m[32m  font-family: 'Monomaniac One', cursive;[m
+[32m+[m[32m  font-size: 60px;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_botoes.scss b/app/assets/stylesheets/stylesheets/components/_botoes.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..bf023ee[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_botoes.scss[m
+[36m@@ -0,0 +1,16 @@[m
+[32m+[m[32m.btn-page{[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  color: white;[m
+[32m+[m[32m  border-radius: 10px;[m
+[32m+[m[32m  padding: 3px 33px;[m
+[32m+[m[32m  text-align: center;[m
+[32m+[m[32m  box-shadow: 0 0 5px #21b92a;[m
+[32m+[m[32m  border: 1px solid #51d80c;[m
+[32m+[m[32m  text-decoration: none;[m
+[32m+[m[32m  font-size: 18px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-page:hover{[m
+[32m+[m[32m  background:#0bcd0f ;[m
+[32m+[m[32m  color:black[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_card.scss b/app/assets/stylesheets/stylesheets/components/_card.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..389f71d[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_card.scss[m
+[36m@@ -0,0 +1,97 @@[m
+[32m+[m[32m.card-category {[m
+[32m+[m[32m  background-size: cover;[m
+[32m+[m[32m  background-position: center;[m
+[32m+[m[32m  height: 180px;[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  justify-content: center;[m
+[32m+[m[32m  align-items: center;[m
+[32m+[m[32m  color: white;[m
+[32m+[m[32m  font-size: 24px;[m
+[32m+[m[32m  font-weight: bold;[m
+[32m+[m[32m  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);[m
+[32m+[m[32m  border-radius: 5px;[m
+[32m+[m[32m  box-shadow: 0 0 15px rgba(0,0,0,0.2);[m
+[32m+[m[32m  position: relative;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.card-remove-link {[m
+[32m+[m[32m  color: white;[m
+[32m+[m[32m  border-radius: 50%;[m
+[32m+[m[32m  border: 1px solid white;[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  justify-content: center;[m
+[32m+[m[32m  align-items: center;[m
+[32m+[m[32m  height: 30px;[m
+[32m+[m[32m  width: 30px;[m
+[32m+[m[32m  position: absolute;[m
+[32m+[m[32m  right: 10px;[m
+[32m+[m[32m  top: 10px;[m
+[32m+[m[32m  opacity: 0.8;[m
+[32m+[m[32m  transform: rotate(45deg);[m
+[32m+[m[32m  font-weight: lighter;[m
+[32m+[m[32m  &:hover {[m
+[32m+[m[32m    color: white;[m
+[32m+[m[32m    text-decoration: none;[m
+[32m+[m[32m    opacity: 1;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.card-tags {[m
+[32m+[m[32m  position: absolute;[m
+[32m+[m[32m  bottom: 8px;[m
+[32m+[m[32m  left: 8px;[m
+[32m+[m[32m  width: 80%;[m
+[32m+[m[32m  span {[m
+[32m+[m[32m    background: $blue;[m
+[32m+[m[32m    font-size: .7em;[m
+[32m+[m[32m    padding: 2px 4px;[m
+[32m+[m[32m    border-radius: 3px;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  a {[m
+[32m+[m[32m    color: white;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.my-card-image {[m
+[32m+[m[32m  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("ezgif.com-resize.webp");[m
+[32m+[m[32m  background-size: cover;[m
+[32m+[m[32m  background-position: center;[m
+[32m+[m[32m  height: 200px;[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.my-card-image2 {[m
+[32m+[m[32m  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("1223604.jpg");[m
+[32m+[m[32m  background-size: cover;[m
+[32m+[m[32m  background-position: center;[m
+[32m+[m[32m  height: 200px;[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.my-card-image3 {[m
+[32m+[m[32m  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("ezgif.com-gif-maker.webp");[m
+[32m+[m[32m  background-size: cover;[m
+[32m+[m[32m  background-position-y: 30%;[m
+[32m+[m[32m  height: 200px;[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.card-show-size {[m
+[32m+[m[32m  size: cover;[m
+[32m+[m[32m  max-height: 100%;[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.text-white {[m
+[32m+[m[32m  padding-left: 100px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m[32m.card {[m
+[32m+[m[32m  border-radius: 13px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.table {[m
+[32m+[m[32m  border-radius: 5px;[m
+[32m+[m[32m  background-color: white;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_card_index.scss b/app/assets/stylesheets/stylesheets/components/_card_index.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f15eb97[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_card_index.scss[m
+[36m@@ -0,0 +1,59 @@[m
+[32m+[m[32m.card-product{[m
+[32m+[m[32m  overflow: hidden;[m
+[32m+[m[32m  background:black;[m
+[32m+[m[32m  border-radius: 4px;[m
+[32m+[m[32m}[m
+[32m+[m[32m.card-listing{[m
+[32m+[m[32m  //box-shadow: 10px 10px 10px #817988;[m
+[32m+[m[32m  transition: 0.4s;[m
+[32m+[m[32m  border-radius: 4px;[m
+[32m+[m[32m  border: 3px solid rgb(72, 70, 70);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.card-product > img {[m
+[32m+[m[32m  height: 250px;[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  object-fit: cover;[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m[32m.card-listing:hover {[m
+[32m+[m	[32mtransform: scale(1.1);[m
+[32m+[m[32m  box-shadow: 0 0  10px #af21b9;[m
+[32m+[m[32m  border: 3px solid #af21b9;[m
+[32m+[m[32m}[m
+[32m+[m[32m.card-product-infos {[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(34, 16, 16));[m
+[32m+[m[32m  padding: 16px;[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  color: #00e011;[m
+[32m+[m[32m  justify-content: space-between;[m
+[32m+[m
+[32m+[m[32m  h2 {[m
+[32m+[m[32m  font-size: 18px;[m
+[32m+[m[32m  font-weight: bold;[m
+[32m+[m[32m}[m
+[32m+[m[32m  p {[m
+[32m+[m[32m    font-size: 14px;[m
+[32m+[m[32m    opacity: .7;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  .price {[m
+[32m+[m[32m    font-size: 18px;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.card-listing {[m
+[32m+[m[32m  .avatar-card{[m
+[32m+[m[32m    position: absolute;[m
+[32m+[m[32m    width: 80px;[m
+[32m+[m[32m    right: 20px;[m
+[32m+[m[32m    bottom: 80px;[m
+[32m+[m[32m    border: 3px solid white;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-cards{[m
+[32m+[m[32m  margin-top: 3px;[m
+[32m+[m[32m  margin-left: 14px;[m
+[32m+[m[32m  color:white;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_circle.scss b/app/assets/stylesheets/stylesheets/components/_circle.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..79c85af[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_circle.scss[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32m.circle {[m[41m[m
+[32m+[m[32m    width: 20px;[m[41m[m
+[32m+[m[32m    height: 20px;[m[41m[m
+[32m+[m[32m    border-radius: 50%;[m[41m[m
+[32m+[m[32m  }[m[41m[m
+[32m+[m[41m  [m
+[32m+[m[32m  .circle-pending {[m[41m[m
+[32m+[m[32m    background-color: yellow;[m[41m[m
+[32m+[m[32m  }[m[41m[m
+[32m+[m[41m  [m
+[32m+[m[32m  .circle-accepted {[m[41m[m
+[32m+[m[32m    background-color: green;[m[41m[m
+[32m+[m[32m  }[m[41m[m
+[32m+[m[41m  [m
+[32m+[m[32m  .circle-rejected {[m[41m[m
+[32m+[m[32m    background-color: red;[m[41m[m
+[32m+[m[32m  }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_edit.scss b/app/assets/stylesheets/stylesheets/components/_edit.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cfad8f4[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_edit.scss[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32m.card-edit {[m
+[32m+[m[32m  box-shadow: 0 0 15px #af21b9;[m
+[32m+[m[32m  padding: 30px;[m
+[32m+[m[32m  border: 3px solid #af21b9;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.card-product-edit{[m
+[32m+[m[32m  margin: 50px 0;[m
+[32m+[m[32m  background: none;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m.card-product-edit img {[m
+[32m+[m[32m  margin: 20px 0;[m
+[32m+[m[32m  border: 3px solid #af21b9;[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  box-shadow: 0 0 15px #af21b9;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_flash.scss b/app/assets/stylesheets/stylesheets/components/_flash.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..190dbd3[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_flash.scss[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m.flash {[m[41m[m
+[32m+[m[32m    padding: 16px 24px;[m[41m[m
+[32m+[m[32m    display: flex;[m[41m[m
+[32m+[m[32m    justify-content: space-between;[m[41m[m
+[32m+[m[32m    align-items: center;[m[41m[m
+[32m+[m[32m    background: white;[m[41m[m
+[32m+[m[32m    box-shadow: 0 0 8px rgba(0,0,0,0.2);[m[41m[m
+[32m+[m[32m    border-radius: 4px;[m[41m[m
+[32m+[m[32m    margin: 8px;[m[41m[m
+[32m+[m[32m  }[m[41m[m
+[32m+[m[41m  [m
+[32m+[m[32m  .flash-success {[m[41m[m
+[32m+[m[32m    border: 2px solid #1EDD88;[m[41m[m
+[32m+[m[32m  }[m[41m[m
+[32m+[m[41m  [m
+[32m+[m[32m  .flash-warning {[m[41m[m
+[32m+[m[32m    border: 2px solid #FFC65A;[m[41m[m
+[32m+[m[32m  }[m[41m[m
+[32m+[m[41m  [m
+[32m+[m[32m  .flash-danger {[m[41m[m
+[32m+[m[32m    border: 2px solid #FD1015;[m[41m[m
+[32m+[m[32m  }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_footer.scss b/app/assets/stylesheets/stylesheets/components/_footer.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0d2c4c8[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_footer.scss[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32m.footer {[m[41m[m
+[32m+[m[32m    background: #000000;[m[41m[m
+[32m+[m[32m    display: flex;[m[41m[m
+[32m+[m[32m    align-items: center;[m[41m[m
+[32m+[m[32m    justify-content: space-between;[m[41m[m
+[32m+[m[32m    height: 150px; /* increase the height */[m[41m[m
+[32m+[m[32m    padding: 0px 100px; /* add more padding to the sides */[m[41m[m
+[32m+[m[32m    color: rgb(255, 255, 255);[m[41m[m
+[32m+[m[32m    margin-top: auto;[m[41m[m
+[32m+[m[32m  }[m[41m[m
+[32m+[m[32m  .text-logo {[m[41m[m
+[32m+[m[32m    font-size: 24px;[m[41m[m
+[32m+[m[32m    font-weight: bold;[m[41m[m
+[32m+[m[32m    color: #fff;[m[41m[m
+[32m+[m[32m    text-transform: uppercase;[m[41m[m
+[32m+[m[32m    font-family: 'Monomaniac One', cursive;[m[41m[m
+[32m+[m[32m  }[m[41m[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_form_legend_clear.scss b/app/assets/stylesheets/stylesheets/components/_form_legend_clear.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a2c5300[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_form_legend_clear.scss[m
+[36m@@ -0,0 +1,10 @@[m
+[32m+[m[32m// In bootstrap 5 legend floats left and requires the following element[m
+[32m+[m[32m// to be cleared. In a radio button or checkbox group the element after[m
+[32m+[m[32m// the legend will be the automatically generated hidden input; the fix[m
+[32m+[m[32m// in https://github.com/twbs/bootstrap/pull/30345 applies to the hidden[m
+[32m+[m[32m// input and has no visual effect. Here we try to fix matters by[m
+[32m+[m[32m// applying the clear to the div wrapping the first following radio button[m
+[32m+[m[32m// or checkbox.[m
+[32m+[m[32mlegend ~ div.form-check:first-of-type {[m
+[32m+[m[32m  clear: left;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_index.scss b/app/assets/stylesheets/stylesheets/components/_index.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d519bad[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_index.scss[m
+[36m@@ -0,0 +1,19 @@[m
+[32m+[m[32m// Import your components CSS files here.[m
+[32m+[m[32m@import "alert";[m
+[32m+[m[32m@import "avatar";[m
+[32m+[m[32m@import "banner";[m
+[32m+[m[32m@import "card_index";[m
+[32m+[m[32m@import "card";[m
+[32m+[m[32m@import "footer";[m
+[32m+[m[32m@import "edit";[m
+[32m+[m[32m@import "flash";[m
+[32m+[m[32m@import "footer";[m
+[32m+[m[32m@import "form_legend_clear";[m
+[32m+[m[32m@import "navbar";[m
+[32m+[m[32m@import "new";[m
+[32m+[m[32m@import "order";[m
+[32m+[m[32m@import "login";[m
+[32m+[m[32m@import "show";[m
+[32m+[m[32m@import "botoes";[m
+[32m+[m[32m@import "circle";[m
+[32m+[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_login.scss b/app/assets/stylesheets/stylesheets/components/_login.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b032282[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_login.scss[m
+[36m@@ -0,0 +1,23 @@[m
+[32m+[m[32m.card-border{[m
+[32m+[m[32m  box-shadow: 0 0  10px #af21b9;[m
+[32m+[m[32m  border: 3px solid #af21b9;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.btn-login{[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  color: white;[m
+[32m+[m[32m  border-radius: 10px;[m
+[32m+[m[32m  padding: 0 80px;[m
+[32m+[m[32m  text-align: center;[m
+[32m+[m[32m  box-shadow: 0 0  5px #af21b9;[m
+[32m+[m[32m  border: 1px solid #af21b9;[m
+[32m+[m[32m}[m
+[32m+[m[32m.btn-login:hover{[m
+[32m+[m[32m  background:#af21b9 ;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.link-singin{[m
+[32m+[m[32m  text-align: center;[m
+[32m+[m[32m  padding: 20px;[m
+[32m+[m[41m  [m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_navbar.scss b/app/assets/stylesheets/stylesheets/components/_navbar.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9890f66[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_navbar.scss[m
+[36m@@ -0,0 +1,83 @@[m
+[32m+[m[32m.navbar-brand {[m
+[32m+[m[32m  width: 140px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.navbar-lewagon {[m
+[32m+[m[32m  justify-content: space-between;[m
+[32m+[m[32m  background-color: transparent;[m
+[32m+[m[32m  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;[m
+[32m+[m[32m  position: fixed;[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  z-index: 999;[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m#navbar-lewagon::before {[m
+[32m+[m[32m  content: '';[m
+[32m+[m[32m  background-image: url("background_5.jpg");[m
+[32m+[m[32m  opacity: 0;[m
+[32m+[m[32m  transition: opacity 0.5s ease-in-out; /* adjust as needed */[m
+[32m+[m[32m  position: absolute;[m
+[32m+[m[32m  top: 0;[m
+[32m+[m[32m  right: 0;[m
+[32m+[m[32m  bottom: 0;[m
+[32m+[m[32m  left: 0;[m
+[32m+[m[32m  z-index: -1;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m#navbar-lewagon.scrolled::before {[m
+[32m+[m[32m  opacity: 1;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m.navbar-lewagon .navbar-collapse {[m
+[32m+[m[32m  flex-grow: 0;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.navbar-lewagon .navbar-brand img {[m
+[32m+[m[32m  width: 40px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.nav-item {[m
+[32m+[m[32m  margin: 10px 20px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.nav-link {[m
+[32m+[m[32m  color: #fff;[m
+[32m+[m[32m  text-decoration: none;[m
+[32m+[m[32m  font-size: 18px;[m
+[32m+[m[32m  position: relative;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.nav-link::after{[m
+[32m+[m[32m  content: '';[m
+[32m+[m[32m  width: 0;[m
+[32m+[m[32m  height: 3px;[m
+[32m+[m[32m  background: rgb(253, 254, 255);[m
+[32m+[m[32m  position: absolute;[m
+[32m+[m[32m  left: 0;[m
+[32m+[m[32m  bottom: -6px;[m
+[32m+[m[32m  transition: 0.5s;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.nav-link:hover::after{[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.nav-link:hover {[m
+[32m+[m[32m  color: #fff;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.container-fluid{[m
+[32m+[m[32m  background-image: image-url("logo1.png");[m
+[32m+[m[32m  background-size: 50px 50px;[m
+[32m+[m[32m  background-repeat: no-repeat;[m
+[32m+[m[32m  background-position: 25px center;[m
+[32m+[m[32m  height: 75px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.avatar {[m
+[32m+[m[32m  box-shadow: 0 0  20px #00ff0d;[m
+[32m+[m[32m  border: 2px solid #60bb54;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_new.scss b/app/assets/stylesheets/stylesheets/components/_new.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e18c57d[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_new.scss[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m.card-border{[m
+[32m+[m[32m  box-shadow: 0 0  10px #af21b9;[m
+[32m+[m[32m  border: 3px solid #af21b9;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_order.scss b/app/assets/stylesheets/stylesheets/components/_order.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6695f38[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_order.scss[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m.table-order{[m
+[32m+[m[32m  border: 3px solid #af21b9;[m
+[32m+[m[32m  box-shadow: 0 0 15px #af21b9;[m
+[32m+[m[32m  background: linear-gradient(to bottom, rgb(20, 19, 19), rgb(46, 23, 47));[m
+[32m+[m[32m  color: white;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/components/_show.scss b/app/assets/stylesheets/stylesheets/components/_show.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a860634[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/components/_show.scss[m
+[36m@@ -0,0 +1,27 @@[m
+[32m+[m[32m.card-show{[m
+[32m+[m[32m  overflow: hidden;[m
+[32m+[m[32m    background: #e9ecef;[m
+[32m+[m[32m    border-radius: 10px;[m
+[32m+[m[32m    width: 600px;[m
+[32m+[m[32m    height: 500px;[m
+[32m+[m[32m    box-shadow: 0 0 15px #af21b9;[m
+[32m+[m[32m    margin: 50px;[m
+[32m+[m[32m    }[m
+[32m+[m[32m.card-show > img {[m
+[32m+[m[32m  height: 100%;[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  object-fit: cover;[m
+[32m+[m[32m}[m
+[32m+[m[32m.card-show_body{[m
+[32m+[m[32m  box-shadow: 0 0 15px #af21b9;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.card-description, .list-group-item, .card-body, .card-fundo-description{[m
+[32m+[m
+[32m+[m[32m  background: linear-gradient(to bottom, rgb(20, 19, 19), rgb(46, 23, 47));[m
+[32m+[m[32m  color: white;[m
+[32m+[m[32m  border-radius: 10px;[m
+[32m+[m[32m}[m
+[32m+[m[32m.btn-show {[m
+[32m+[m[32m  color: rgb(9, 245, 36);[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/config/_bootstrap_variables.scss b/app/assets/stylesheets/stylesheets/config/_bootstrap_variables.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..021dfb7[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/config/_bootstrap_variables.scss[m
+[36m@@ -0,0 +1,42 @@[m
+[32m+[m[32m// This is where you override default Bootstrap variables[m
+[32m+[m[32m// 1. Find all Bootstrap variables that you can override at the end of each component's documentation under the `Sass variables` anchor[m
+[32m+[m[32m// e.g. here are the ones you can override for the navbar https://getbootstrap.com/docs/5.2/components/navbar/#sass-variables[m
+[32m+[m[32m// 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)[m
+[32m+[m[32m// 3. You can override them below![m
+[32m+[m
+[32m+[m[32m// General style[m
+[32m+[m[32m$font-family-sans-serif: $body-font;[m
+[32m+[m[32m$headings-font-family:   $headers-font;[m
+[32m+[m[32m$body-bg:                $light-gray;[m
+[32m+[m[32m$font-size-base:         1rem;[m
+[32m+[m
+[32m+[m[32m// Colors[m
+[32m+[m[32m$body-color: $gray;[m
+[32m+[m[32m$primary:    $blue;[m
+[32m+[m[32m$success:    $green;[m
+[32m+[m[32m$info:       $yellow;[m
+[32m+[m[32m$danger:     $red;[m
+[32m+[m[32m$warning:    $orange;[m
+[32m+[m
+[32m+[m[32m// Buttons & inputs' radius[m
+[32m+[m[32m$border-radius:    2px;[m
+[32m+[m[32m$border-radius-lg: 2px;[m
+[32m+[m[32m$border-radius-sm: 2px;[m
+[32m+[m
+[32m+[m[32m// Override other variables below![m
+[32m+[m
+[32m+[m[32m// // CSS Reset[m
+[32m+[m[32m// @import "reset.scss";[m
+[32m+[m
+[32m+[m[32m// // Core[m
+[32m+[m[32m// @import "variables.scss";[m
+[32m+[m[32m// @import "mixins.scss";[m
+[32m+[m
+[32m+[m[32m// // Grid system and page structure[m
+[32m+[m[32m// @import "scaffolding.scss";[m
+[32m+[m
+[32m+[m[32m// // Styled patterns and elements[m
+[32m+[m[32m// @import "type.scss";[m
+[32m+[m[32m// @import "forms.scss";[m
+[32m+[m[32m// @import "tables.scss";[m
+[32m+[m[32m// @import "patterns.scss";[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/config/_colors.scss b/app/assets/stylesheets/stylesheets/config/_colors.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4bd979b[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/config/_colors.scss[m
+[36m@@ -0,0 +1,10 @@[m
+[32m+[m[32m// Define variables for your color scheme[m
+[32m+[m
+[32m+[m[32m// For example:[m
+[32m+[m[32m$red: #FD1015;[m
+[32m+[m[32m$blue: #0D6EFD;[m
+[32m+[m[32m$yellow: #FFC65A;[m
+[32m+[m[32m$orange: #E67E22;[m
+[32m+[m[32m$green: #1EDD88;[m
+[32m+[m[32m$gray: #0E0000;[m
+[32m+[m[32m$light-gray: #F4F4F4;[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/config/_fonts.scss b/app/assets/stylesheets/stylesheets/config/_fonts.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d377fe9[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/config/_fonts.scss[m
+[36m@@ -0,0 +1,16 @@[m
+[32m+[m[32m// Import Google fonts[m
+[32m+[m[32m@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');[m
+[32m+[m
+[32m+[m[32m// Define fonts for body and headers[m
+[32m+[m[32m$body-font: "Work Sans", "Helvetica", "sans-serif";[m
+[32m+[m[32m$headers-font: "Nunito", "Helvetica", "sans-serif";[m
+[32m+[m
+[32m+[m[32m// To use a font file (.woff) uncomment following lines[m
+[32m+[m[32m// @font-face {[m
+[32m+[m[32m//   font-family: "Font Name";[m
+[32m+[m[32m//   src: font-url('FontFile.eot');[m
+[32m+[m[32m//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),[m
+[32m+[m[32m//        font-url('FontFile.woff') format('woff'),[m
+[32m+[m[32m//        font-url('FontFile.ttf') format('truetype')[m
+[32m+[m[32m// }[m
+[32m+[m[32m// $my-font: "Font Name";[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/pages/_home.scss b/app/assets/stylesheets/stylesheets/pages/_home.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d52ca6b[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/pages/_home.scss[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32m// Specific CSS for your home-page[m
+[32m+[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/pages/_index.scss b/app/assets/stylesheets/stylesheets/pages/_index.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0cd3e4d[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/pages/_index.scss[m
+[36m@@ -0,0 +1,5 @@[m
+[32m+[m[32m// Import page-specific CSS files here.[m
+[32m+[m[32m@import "home";[m
+[32m+[m[32m@import "index_products";[m
+[32m+[m[32m@import "../components/banner";[m
+[32m+[m[32m@import "landpage";[m
+[1mdiff --git a/app/assets/stylesheets/pages/_index_products.scss b/app/assets/stylesheets/stylesheets/pages/_index_products.scss[m
+[1msimilarity index 100%[m
+[1mrename from app/assets/stylesheets/pages/_index_products.scss[m
+[1mrename to app/assets/stylesheets/stylesheets/pages/_index_products.scss[m
+[1mdiff --git a/app/assets/stylesheets/stylesheets/pages/_landpage.scss b/app/assets/stylesheets/stylesheets/pages/_landpage.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..01d0360[m
+[1m--- /dev/null[m
+[1m+++ b/app/assets/stylesheets/stylesheets/pages/_landpage.scss[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32m.land-text {[m
+[32m+[m[32m  font-size: 1.3rem;[m
+[32m+[m[32m  font-weight: bold;[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m[32mp {[m
+[32m+[m[32m  font-size: 5rem;[m
+[32m+[m[32m  font-weight: bold;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.participate {[m
+[32m+[m[32m  margin-top: 3rem;[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/controllers/application_controller.rb b/app/controllers/application_controller.rb[m
+[1mindex ec2ea4f..a243491 100644[m
+[1m--- a/app/controllers/application_controller.rb[m
+[1m+++ b/app/controllers/application_controller.rb[m
+[36m@@ -9,11 +9,7 @@[m [mclass ApplicationController < ActionController::Base[m
+   end[m
+ [m
+   def current_user_offer_count[m
+[31m-    if request.path == offers_path[m
+[31m-      0[m
+[31m-    else[m
+[31m-      current_user.offers.count + Offer.where(product: current_user.products).count[m
+[31m-    end[m
+[32m+[m[32m    current_user.offers.count + Offer.where(product: current_user.products).count[m
+   end[m
+ [m
+   protected[m
+[1mdiff --git a/app/javascript/controllers/index.js b/app/javascript/controllers/index.js[m
+[1mindex 1528b30..9da15e5 100644[m
+[1m--- a/app/javascript/controllers/index.js[m
+[1m+++ b/app/javascript/controllers/index.js[m
+[36m@@ -2,12 +2,8 @@[m
+ // Run that command whenever you add a new controller or create them with[m
+ // ./bin/rails generate stimulus controllerName[m
+ [m
+[31m-[m
+ import { application } from "./application"[m
+ [m
+[31m-import OffersController from "./offers_controller"[m
+[31m-application.register("offers", OffersController)[m
+[31m-[m
+ import ChatroomSubscriptionController from "./chatroom_subscription_controller"[m
+ application.register("chatroom-subscription", ChatroomSubscriptionController)[m
+ [m
+[36m@@ -16,4 +12,3 @@[m [mapplication.register("hello", HelloController)[m
+ [m
+ import SortableController from "./sortable_controller"[m
+ application.register("sortable", SortableController)[m
+[31m-[m
+[1mdiff --git a/app/javascript/controllers/offers_controller.js b/app/javascript/controllers/offers_controller.js[m
+[1mindex a267549..3f05e8a 100644[m
+[1m--- a/app/javascript/controllers/offers_controller.js[m
+[1m+++ b/app/javascript/controllers/offers_controller.js[m
+[36m@@ -1,30 +1,39 @@[m
+ import { Controller } from "@hotwired/stimulus"[m
+ [m
+ export default class extends Controller {[m
+[31m-  static targets = [ "myOffers", "offersReceived", "myOffersTab", "offersReceivedTab" ][m
+[31m-  [m
+[32m+[m[32m  static targets = [ "myOffers", "offersReceived", "myCardDeck", "receivedCardDeck" ][m
+ [m
+   connect() {[m
+[32m+[m[32m    this.init();[m
+[32m+[m[32m    window.addEventListener("DOMContentLoaded", this.init.bind(this));[m
+   }[m
+ [m
+[31m-[m
+[31m-  showMyOffers(e) { [m
+[31m-    e.preventDefault();[m
+[31m-    this.myOffersTabTarget.classList.add("active");[m
+[31m-    this.offersReceivedTabTarget.classList.remove("active");[m
+[31m-    this.myOffersTarget.classList.remove("d-none");[m
+[31m-    this.offersReceivedTarget.classList.add("d-none");[m
+[32m+[m[32m  init() {[m
+[32m+[m[32m    const myOffersButton = this.myOffersTarget;[m
+[32m+[m[32m    myOffersButton.classList.add("active");[m
+   }[m
+ [m
+[31m-  showOffersReceived(e) { [m
+[31m-    e.preventDefault();[m
+[31m-    this.myOffersTabTarget.classList.remove("active");[m
+[31m-    this.offersReceivedTabTarget.classList.add("active");[m
+[31m-    this.myOffersTarget.classList.add("d-none");[m
+[31m-    this.offersReceivedTarget.classList.remove("d-none");[m
+[31m-[m
+[32m+[m[32m  updateCards(e) {[m
+[32m+[m[32m    e.preventDefault(); // Prevent the default action[m
+[32m+[m[41m  [m
+[32m+[m[32m    const myOffersButton = this.myOffersTarget;[m
+[32m+[m[32m    const offersReceivedButton = this.offersReceivedTarget;[m
+[32m+[m[41m  [m
+[32m+[m[32m    // Remove active class from both buttons[m
+[32m+[m[32m    myOffersButton.classList.remove("active");[m
+[32m+[m[32m    offersReceivedButton.classList.remove("active");[m
+[32m+[m[41m  [m
+[32m+[m[32m    // Add d-none class to both cardDecks[m
+[32m+[m[32m    this.myCardDeckTarget.classList.add("d-none");[m
+[32m+[m[32m    this.receivedCardDeckTarget.classList.add("d-none");[m
+[32m+[m[41m  [m
+[32m+[m[32m    if (e.currentTarget.id === "myOffersLink") {[m
+[32m+[m[32m      myOffersButton.classList.add("active"); // Add active class to clicked button[m
+[32m+[m[32m      this.myCardDeckTarget.classList.remove("d-none"); // Remove d-none from corresponding cardDeck[m
+[32m+[m[32m    } else if (e.currentTarget.id === "offersReceivedLink") {[m
+[32m+[m[32m      offersReceivedButton.classList.add("active"); // Add active class to clicked button[m
+[32m+[m[32m      this.receivedCardDeckTarget.classList.remove("d-none"); // Remove d-none from corresponding cardDeck[m
+[32m+[m[32m    }[m
+   }[m
+ [m
+ }[m
+[31m-[m
+[31m-[m
+[1mdiff --git a/app/views/layouts/application.html.erb b/app/views/layouts/application.html.erb[m
+[1mindex 7a76d1a..4c5711d 100644[m
+[1m--- a/app/views/layouts/application.html.erb[m
+[1m+++ b/app/views/layouts/application.html.erb[m
+[36m@@ -5,11 +5,16 @@[m
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">[m
+     <%= csrf_meta_tags %>[m
+     <%= csp_meta_tag %>[m
+[32m+[m
+     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>[m
+     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>[m
+[32m+[m[32m    <style>[m
+[32m+[m[32m      body {[m
+[32m+[m[32m        padding-top: 120px;[m
+[32m+[m[32m      }[m
+[32m+[m[32m    </style>[m
+   </head>[m
+ [m
+[31m-[m
+   <body>[m
+     <%= render partial: "shared/navbar" unless hide_navbar? %>[m
+     <%= render "shared/flashes" %>[m
+[1mdiff --git a/app/views/offers/index.html.erb b/app/views/offers/index.html.erb[m
+[1mindex 3e42ebe..ff931b4 100644[m
+[1m--- a/app/views/offers/index.html.erb[m
+[1m+++ b/app/views/offers/index.html.erb[m
+[36m@@ -4,16 +4,16 @@[m
+ <div class="container mt-5" data-controller="offers">[m
+   <ul class="nav nav-tabs">[m
+     <li class="nav-item">[m
+[31m-      <a class="nav-link active" href="#" data-action="click->offers#showMyOffers" data-offers-target="myOffersTab" >My Offers</a>[m
+[32m+[m[32m      <a class="nav-link active" href="#" data-action="click->offers#updateCards" data-offers-target="myOffers">My Offers</a>[m
+     </li>[m
+     <li class="nav-item">[m
+[31m-      <a class="nav-link" href="#" data-action="click->offers#showOffersReceived" data-offers-target="offersReceivedTab" >Offers Received</a>[m
+[32m+[m[32m      <a class="nav-link" href="#" data-action="click->offers#updateCards" data-offers-target="offersReceived">Offers Received</a>[m
+     </li>[m
+   </ul>[m
+ [m
+[31m-  <div id="my-offers" class="card-deck" data-offers-target="myOffers">[m
+[32m+[m[32m  <div id="my-offers" class="card-deck" data-offers-target="myCardDeck">[m
+     <% @offers.each do |my_offer| %>[m
+[31m-      <div class="card card-offerted">[m
+[32m+[m[32m      <div class="card">[m
+         <div class="card-header">[m
+           <h5 class="card-title">Offer for <%= my_offer.product.name %></h5>[m
+         </div>[m
+[36m@@ -31,7 +31,7 @@[m
+   </div>[m
+ [m
+ [m
+[31m-  <div id="offers-received" class="card-deck d-none" data-offers-target="offersReceived">[m
+[32m+[m[32m  <div id="offers-received" class="card-deck d-none" data-offers-target="receivedCardDeck">[m
+     <% @received_offers.each do |offer|%>[m
+       <a href="<%= offer_path(offer) %>" class="card">[m
+         <div class="card-header">[m
+[36m@@ -50,3 +50,24 @@[m
+     <% end %>[m
+   </div>[m
+ </div>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m<%# <script>[m
+[32m+[m[32m  function attachEventHandlers() {[m
+[32m+[m[32m    const links = document.querySelectorAll('.nav-link:not([data-events-attached])');[m
+[32m+[m[32m    const cardDecks = document.querySelectorAll('.card-deck');[m
+[32m+[m
+[32m+[m[32m    links.forEach((link, index) => {[m
+[32m+[m[32m      link.dataset.eventsAttached = 'true'; // Mark this element as having events attached[m
+[32m+[m[32m      link.addEventListener('click', (event) => {[m
+[32m+[m[32m        event.preventDefault();[m
+[32m+[m[32m        document.querySelectorAll('.nav-link').forEach((link) => link.classList.remove('active'));[m
+[32m+[m[32m        document.querySelectorAll('.card-deck').forEach((cardDeck) => cardDeck.classList.add('d-none'));[m
+[32m+[m[32m        link.classList.add('active');[m
+[32m+[m[32m        cardDecks.classList.remove('d-none');[m
+[32m+[m[32m      });[m
+[32m+[m[32m    });[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  attachEventHandlers();[m
+[32m+[m[32m</script> %>[m
+[1mdiff --git a/app/views/offers/new.html.erb b/app/views/offers/new.html.erb[m
+[1mindex c46b0b2..e4b0ced 100644[m
+[1m--- a/app/views/offers/new.html.erb[m
+[1m+++ b/app/views/offers/new.html.erb[m
+[36m@@ -1,63 +1,56 @@[m
+[31m-<div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/08/17/16/11/art-4412523_1280.jpg)">[m
+[31m-  OFFERED PRODUCTS[m
+[31m-</div>[m
+[31m-<div class="container">[m
+[31m-  <div class="products-grid " data-controller="sortable">[m
+[31m-    <%# Producs to Offer %>[m
+[31m-    <div class="card-sorteble">[m
+[31m-      <h2>Products to Offer</h2>[m
+[31m-      <div data-sortable-target="container">[m
+[31m-          <% @products.each do |product| %>[m
+[31m-        <div class="mini-card">[m
+[31m-            <div class="card mt-2" data-sortable-target="card" data-product-id="<%= product.id %>">[m
+[31m-              <% if product.photo.present? %>[m
+[31m-                <%= cl_image_tag product.photo.key, height: 100, width: 133, crop: :fill %>[m
+[31m-              <% else %>[m
+[31m-                <%= image_tag 'space_baazar.png', height: 100, width: 133, crop: :fill, class: "image" %>[m
+[31m-              <% end %>[m
+[31m-              <div>[m
+[31m-                <strong>Name:</strong> <%= product.name %>[m
+[31m-                <strong>Expiration:</strong> <%= product.expiration %>[m
+[31m-                <strong>Quantity:</strong> <%= product.quantity %>[m
+[31m-              </div>[m
+[31m-            </div>[m
+[31m-        </div>[m
+[31m-          <% end %>[m
+[31m-      </div>[m
+[31m-    </div>[m
+[31m-[m
+[31m-    <%# Products Offered %>[m
+[31m-    <div class="card-sorteble">[m
+[31m-      <h2 class="sortable-ignore">Products Offered</h2>[m
+[31m-      <div class="products-offered" data-sortable-target="container">[m
+[31m-      <%# lugar que os cards serao arrastados %>[m
+[31m-      </div>[m
+[31m-    </div>[m
+[31m-[m
+[31m-    <%# Product %>[m
+[31m-    <div class="card-sorteble">[m
+[31m-      <h2>Product</h2>[m
+[31m-      <ul>[m
+[31m-        <div>[m
+[31m-          <% if @product.photo.present? %>[m
+[31m-            <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>[m
+[32m+[m[32m<div class="products-grid" data-controller="sortable">[m
+[32m+[m[32m  <%# Producs to Offer %>[m
+[32m+[m[32m  <div>[m
+[32m+[m[32m    <h2>Products to Offer</h2>[m
+[32m+[m[32m    <div data-sortable-target="container">[m
+[32m+[m[32m      <% @products.each do |product| %>[m
+[32m+[m[32m        <div class="card mt-2" data-sortable-target="card" data-product-id="<%= product.id %>">[m
+[32m+[m[32m          <% if product.photo.present? %>[m
+[32m+[m[32m            <%= cl_image_tag product.photo.key, height: 100, width: 133, crop: :fill %>[m
+           <% else %>[m
+[31m-            <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill, class: "image" %>[m
+[32m+[m[32m            <%= image_tag 'space_baazar.png', height: 100, width: 133, crop: :fill, class: "image" %>[m
+           <% end %>[m
+[32m+[m[32m          <div><strong>Name:</strong> <%= product.name %></div>[m
+[32m+[m[32m          <div><strong>Expiration:</strong> <%= product.expiration %></div>[m
+[32m+[m[32m          <div><strong>Quantity:</strong> <%= product.quantity %></div>[m
+         </div>[m
+[31m-        <div class="card description">[m
+[31m-          <li><strong>Name: </strong> <%= @product.name %></li>[m
+[31m-          <li><strong>Expiration: </strong> <%= @product.expiration %></li>[m
+[31m-          <li><strong>Quantity: </strong> <%= @product.quantity %></li>[m
+[31m-        </div>[m
+[31m-      </ul>[m
+[32m+[m[32m      <% end %>[m
+     </div>[m
+   </div>[m
+ [m
+[32m+[m[32m  <%# Products Offered %>[m
+[32m+[m[32m  <div>[m
+[32m+[m[32m    <h2 class="sortable-ignore">Products Offered</h2>[m
+[32m+[m[32m    <div class="products-offered" data-sortable-target="container">[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m  </div>[m
+ [m
+[31m-  <%= simple_form_for [@product, @offer] do |f| %>[m
+[31m-    <%= f.label :products, "Products to Offer" %>[m
+[31m-    <%= f.input_field :product_ids, collection: @products, as: :check_boxes %>[m
+[31m-    <%= f.button :submit, "Create Offer" %>[m
+[31m-  <% end %>[m
+[32m+[m[32m  <%# Product %>[m
+[32m+[m[32m  <div>[m
+[32m+[m[32m    <h2>Product</h2>[m
+[32m+[m[32m    <ul>[m
+[32m+[m[32m      <div>[m
+[32m+[m[32m        <% if @product.photo.present? %>[m
+[32m+[m[32m          <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>[m
+[32m+[m[32m        <% else %>[m
+[32m+[m[32m          <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill, class: "image" %>[m
+[32m+[m[32m        <% end %>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m      <div class="card description">[m
+[32m+[m[32m        <li><strong>Name: </strong> <%= @product.name %></li>[m
+[32m+[m[32m        <li><strong>Expiration: </strong> <%= @product.expiration %></li>[m
+[32m+[m[32m        <li><strong>Quantity: </strong> <%= @product.quantity %></li>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m    </ul>[m
+[32m+[m[32m  </div>[m
+ </div>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m<%= simple_form_for [@product, @offer] do |f| %>[m
+[32m+[m[32m  <%= f.label :products, "Products to Offer" %>[m
+[32m+[m[32m  <%= f.input_field :product_ids, collection: @products, as: :check_boxes %>[m
+[32m+[m[32m  <%= f.button :submit, "Create Offer" %>[m
+[32m+[m[32m<% end %>[m
+[41m+[m
+[41m+[m
+[41m+[m
+[1mdiff --git a/app/views/pages/landpage.html.erb b/app/views/pages/landpage.html.erb[m
+[1mindex 04e857b..914bd44 100644[m
+[1m--- a/app/views/pages/landpage.html.erb[m
+[1m+++ b/app/views/pages/landpage.html.erb[m
+[36m@@ -1,33 +1,25 @@[m
+[31m-<div class="bg-landing-page">[m
+ [m
+[31m-  <div class="container">[m
+[31m-    <div class="d-flex align-items-center">[m
+[31m-      <div>[m
+[31m-        <%= image_tag 'stock_flow_blue.png', class: "logo-land" %>[m
+[31m-        <%= image_tag 'caixas_img.png', class: "box-land" %>[m
+[31m-      </div>[m
+[31m-      <h2 class="text-center land-text">Simplify inventory management and avoid unnecessary losses with our revolutionary platform for goods exchange between small businesses.</h2>[m
+[31m-    </div>[m
+[31m-[m
+[31m-    <div class="d-flex mt-6 mb-5 align-items-center justify-content-around">[m
+[31m-      <p class="text-way">Connect with other entrepreneurs in the same industry.</p>[m
+[31m-      <%= image_tag 'network.png', class: "network-land" %>[m
+[31m-    </div>[m
+[31m-    <div class="d-flex align-items-center justify-content-around  mb-5">[m
+[31m-      <%= image_tag 'setas_caixa.png', class: "arrow-box-land" %>[m
+[31m-      <p class="text-way">Exchange surplus products and enjoy the benefits of efficient inventory management.</p>[m
+[31m-    </div>[m
+[31m-    <h2 class="text-center participate">How to participate?</h2>[m
+[31m-    <div class="d-flex justify-content-around tex-center align-items-center gap-4">[m
+[31m-      <p class="text-way">Simply create an account, list the products you want to exchange, and explore the available options. Our advanced search tools ensure that you find the best trade combinations that meet your specific needs.</p>[m
+[31m-      <%= image_tag 'handshake.png', class: "handshake" %>[m
+[31m-    </div>[m
+[31m-    <div class="text-center">[m
+[31m-      <p>Register right now and transform your business experience.</p>[m
+[31m-      <div class="d-flex justify-content-center gap-3">[m
+[31m-        <%= link_to "Register", new_user_registration_path, class: "btn-blue " %>[m
+[31m-        <%= link_to "Back", :back, class: "btn-blue" %>[m
+[31m-      </div>[m
+[31m-    </div>[m
+[32m+[m[32m<div class="container mt-5">[m
+[32m+[m[32m    <%= image_tag 'stock_flow_withe.png', class: "logo-land" %>[m
+[32m+[m[32m  <div class="d-flex mt-5 mb-5">[m
+[32m+[m[32m    <%= image_tag 'caixas_img.png', class: "box-land" %>[m
+[32m+[m[32m    <h2 class="text-center">Simplify inventory management and avoid unnecessary losses with our revolutionary platform for goods exchange between small businesses.</h2>[m
+[32m+[m[32m  </div>[m
+[32m+[m[32m  <div class="d-flex mt-6 mb-5 align-items-center justify-content-around">[m
+[32m+[m[32m    <p class="h3">Connect with other entrepreneurs in the same industry.</p>[m
+[32m+[m[32m    <%= image_tag 'network.png', class: "network-land" %>[m
+[32m+[m[32m  </div>[m
+[32m+[m[32m  <div class="d-flex align-items-center justify-content-around land-text mb-5">[m
+[32m+[m[32m    <%= image_tag 'setas_caixa.png', class: "arrow-box-land" %>[m
+[32m+[m[32m    <p class="h3">Exchange surplus products and enjoy the benefits of efficient inventory management.</p>[m
+[32m+[m[32m  </div>[m
+[32m+[m[32m  <h2 class="text-center participate">How to participate?</h2>[m
+[32m+[m[32m  <div class="d-flex justify-content-around tex-center align-items-center gap-4">[m
+[32m+[m[32m    <p class="h3">Simply create an account, list the products you want to exchange, and explore the available options. Our advanced search tools ensure that you find the best trade combinations that meet your specific needs.</p>[m
+[32m+[m[32m    <%= image_tag 'handshake.png', class: "handshake" %>[m
+[32m+[m[32m  </div>[m
+[32m+[m[32m  <div class="text-center mb-5">[m
+[32m+[m[32m    <p>Register right now and transform your business experience.</p>[m
+[32m+[m[32m    <%= link_to "Register", new_user_registration_path, class: "btn-blue " %>[m
+   </div>[m
+ </div>[m
+[1mdiff --git a/app/views/products/index.html.erb b/app/views/products/index.html.erb[m
+[1mindex ac34bd6..a1b06e9 100644[m
+[1m--- a/app/views/products/index.html.erb[m
+[1m+++ b/app/views/products/index.html.erb[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-<div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/08/17/16/11/art-4412523_1280.jpg)">[m
+[32m+[m[32m<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/08/17/16/11/art-4412523_1280.jpg)">[m
+   HOME[m
+ </div>[m
+ <div class="container mt-5">[m
+[1mdiff --git a/app/views/products/new.html.erb b/app/views/products/new.html.erb[m
+[1mindex ad39d8c..f15b2ec 100644[m
+[1m--- a/app/views/products/new.html.erb[m
+[1m+++ b/app/views/products/new.html.erb[m
+[36m@@ -25,7 +25,6 @@[m
+     </div>[m
+   </div>[m
+   <%= f.button :submit %>[m
+[31m-  <%= link_to "Back", :back, class: "btn-blue" %>[m
+ </div>[m
+ <% end %>[m
+ [m
+[1mdiff --git a/app/views/shared/_bg_landing_page.html.erb b/app/views/shared/_bg_landing_page.html.erb[m
+[1mdeleted file mode 100644[m
+[1mindex 3a6ca9f..0000000[m
+[1m--- a/app/views/shared/_bg_landing_page.html.erb[m
+[1m+++ /dev/null[m
+[36m@@ -1,2 +0,0 @@[m
+[31m-<div class="bg-landing-page">[m
+[31m-</div>[m
+[1mdiff --git a/app/views/shared/_navbar.html.erb b/app/views/shared/_navbar.html.erb[m
+[1mindex 3618560..99070e4 100644[m
+[1m--- a/app/views/shared/_navbar.html.erb[m
+[1m+++ b/app/views/shared/_navbar.html.erb[m
+[36m@@ -62,40 +62,40 @@[m
+ </div>[m
+ [m
+ <div class="navbar navbar-expand-sm navbar-light bg-light navbar-list" style="position: fixed; top: 70px; left: 0; right: 0; z-index: 9999;">[m
+[31m-  <ul class="navbar-van2 me-auto">[m
+[31m-    <% if user_signed_in? %>[m
+[31m-      <%= link_to products_path do%>[m
+[31m-        <li class="nav-item nav-item-li">HOME</li>[m
+[31m-      <% end %>[m
+[31m-      <%= link_to my_products_products_path do%>[m
+[31m-        <li class="nav-item nav-item-li">YOUR PRODUCTS</li>[m
+[31m-      <% end %>[m
+[31m-      <%= link_to new_product_path do%>[m
+[31m-        <li class="nav-item nav-item-li">ADD PRODUCT</li>[m
+[31m-      <% end %>[m
+[31m-      <%= link_to offers_path do%>[m
+[31m-        <li class="nav-item nav-item-li">OFFERS</li>[m
+[31m-      <% end %>[m
+[31m-      <%= link_to landpage_path do%>[m
+[31m-        <li class="nav-item nav-item-li">ABOUT</li>[m
+[31m-      <% end %>[m
+[31m-    <% else %>[m
+[31m-      <%= link_to products_path do%>[m
+[31m-        <li class="nav-item nav-item-li">HOME</li>[m
+[31m-      <% end %>[m
+[31m-      <%= link_to new_user_session_path do%>[m
+[31m-        <li class="nav-item nav-item-li">YOUR PRODUCTS</li>[m
+[31m-      <% end %>[m
+[31m-      <%= link_to new_user_session_path do%>[m
+[31m-        <li class="nav-item nav-item-li">ADD PRODUCT</li>[m
+[31m-      <% end %>[m
+[31m-      <%= link_to new_user_session_path do%>[m
+[31m-        <li class="nav-item nav-item-li">OFFERS</li>[m
+[31m-      <% end %>[m
+[31m-      <%= link_to landpage_path do%>[m
+[31m-        <li class="nav-item nav-item-li">ABOUT</li>[m
+[31m-      <% end %>[m
+[32m+[m[32m*  <ul class="navbar-van2 me-auto">[m
+[32m+[m[32m  <% if user_signed_in? %>[m
+[32m+[m[32m    <%= link_to products_path do%>[m
+[32m+[m[32m      <li class="nav-item nav-item-li">HOME</li>[m
+[32m+[m[32m    <% end %>[m
+[32m+[m[32m    <%= link_to my_products_products_path do%>[m
+[32m+[m[32m      <li class="nav-item nav-item-li">YOUR PRODUCTS</li>[m
+[32m+[m[32m    <% end %>[m
+[32m+[m[32m    <%= link_to new_product_path do%>[m
+[32m+[m[32m      <li class="nav-item nav-item-li">ADD PRODUCT</li>[m
+[32m+[m[32m    <% end %>[m
+[32m+[m[32m    <%= link_to offers_path do%>[m
+[32m+[m[32m      <li class="nav-item nav-item-li">OFFERS</li>[m
+[32m+[m[32m    <% end %>[m
+[32m+[m[32m    <%= link_to landpage_path do%>[m
+[32m+[m[32m      <li class="nav-item nav-item-li">ABOUT</li>[m
+[32m+[m[32m    <% end %>[m
+[32m+[m[32m  <% else %>[m
+[32m+[m[32m    <%= link_to products_path do%>[m
+[32m+[m[32m      <li class="nav-item nav-item-li">HOME</li>[m
+[32m+[m[32m    <% end %>[m
+[32m+[m[32m    <%= link_to new_user_session_path do%>[m
+[32m+[m[32m      <li class="nav-item nav-item-li">YOUR PRODUCTS</li>[m
+[32m+[m[32m    <% end %>[m
+[32m+[m[32m    <%= link_to new_user_session_path do%>[m
+[32m+[m[32m      <li class="nav-item nav-item-li">ADD PRODUCT</li>[m
+[32m+[m[32m    <% end %>[m
+[32m+[m[32m    <%= link_to new_user_session_path do%>[m
+[32m+[m[32m      <li class="nav-item nav-item-li">OFFERS</li>[m
+[32m+[m[32m    <% end %>[m
+[32m+[m[32m     <%= link_to landpage_path do%>[m
+[32m+[m[32m      <li class="nav-item nav-item-li">ABOUT</li>[m
+     <% end %>[m
+[32m+[m[32m  <% end %>[m
+   </ul>[m
+ </div>[m
+ [m
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mindex e875936..d6cd199 100644[m
+[1m--- a/package-lock.json[m
+[1m+++ b/package-lock.json[m
+[36m@@ -9,7 +9,6 @@[m
+         "@hotwired/stimulus": "^3.2.1",[m
+         "@hotwired/turbo-rails": "^7.3.0",[m
+         "@popperjs/core": "^2.11.8",[m
+[31m-        "@rails/actioncable": "^7.0.5",[m
+         "bootstrap": "^5.3.0",[m
+         "jquery": "^3.7.0",[m
+         "jquery-ui": "^1.13.2",[m
+[1mdiff --git a/yarn.lock b/yarn.lock[m
+[1mindex 3132248..ddde055 100644[m
+[1m--- a/yarn.lock[m
+[1m+++ b/yarn.lock[m
+[36m@@ -77,7 +77,7 @@[m
+ [m
+ "@rails/actioncable@^7.0", "@rails/actioncable@^7.0.5":[m
+   version "7.0.5"[m
+[31m-  resolved "https://registry.npmjs.org/@rails/actioncable/-/actioncable-7.0.5.tgz"[m
+[32m+[m[32m  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.5.tgz#bbc11203e0d3d5084002abfcf01d621fdf5f3a9d"[m
+   integrity sha512-SOBA2heB9lTw0VYIx8M/ed7inSf4I9sR8OIlJprhgkfQ3WJtrxPJ6DDATR1Z3RYaIR7HlT2Olj08v1lfGIGuHA==[m
+ [m
+ "@types/eslint-scope@^3.7.3":[m

@@ -1,63 +1,61 @@
 <div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/08/17/16/11/art-4412523_1280.jpg)">
   OFFERED PRODUCTS
 </div>
-<div class="container">
-  <div class="products-grid " data-controller="sortable">
-    <%# Producs to Offer %>
-    <div class="card-sorteble">
-      <h2>Products to Offer</h2>
-      <div data-sortable-target="container">
-          <% @products.each do |product| %>
-        <div class="mini-card">
-            <div class="card mt-2" data-sortable-target="card" data-product-id="<%= product.id %>">
-              <% if product.photo.present? %>
-                <%= cl_image_tag product.photo.key, height: 100, width: 133, crop: :fill %>
-              <% else %>
-                <%= image_tag 'space_baazar.png', height: 100, width: 133, crop: :fill, class: "image" %>
-              <% end %>
-              <div>
-                <strong>Name:</strong> <%= product.name %>
-                <strong>Expiration:</strong> <%= product.expiration %>
-                <strong>Quantity:</strong> <%= product.quantity %>
-              </div>
-            </div>
-        </div>
-          <% end %>
-      </div>
-    </div>
-
-    <%# Products Offered %>
-    <div class="card-sorteble">
-      <h2 class="sortable-ignore">Products Offered</h2>
-      <div class="products-offered" data-sortable-target="container">
-      <%# lugar que os cards serao arrastados %>
-      </div>
-    </div>
-
-    <%# Product %>
-    <div class="card-sorteble">
-      <h2>Product</h2>
-      <ul>
-        <div>
-          <% if @product.photo.present? %>
-            <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="products-grid" data-controller="sortable">
+  <%# Producs to Offer %>
+  <div>
+    <h2>Products to Offer</h2>
+    <div data-sortable-target="container">
+      <% @products.each do |product| %>
+        <div class="card mt-2" data-sortable-target="card" data-product-id="<%= product.id %>">
+          <% if product.photo.present? %>
+            <%= cl_image_tag product.photo.key, height: 100, width: 133, crop: :fill %>
           <% else %>
-            <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill, class: "image" %>
+            <%= image_tag 'space_baazar.png', height: 100, width: 133, crop: :fill, class: "image" %>
           <% end %>
+          <div><strong>Name:</strong> <%= product.name %></div>
+          <div><strong>Expiration:</strong> <%= product.expiration %></div>
+          <div><strong>Quantity:</strong> <%= product.quantity %></div>
         </div>
-        <div class="card description">
-          <li><strong>Name: </strong> <%= @product.name %></li>
-          <li><strong>Expiration: </strong> <%= @product.expiration %></li>
-          <li><strong>Quantity: </strong> <%= @product.quantity %></li>
-        </div>
-      </ul>
+      <% end %>
     </div>
   </div>
 
+  <%# Products Offered %>
+  <div>
+    <h2 class="sortable-ignore">Products Offered</h2>
+    <div class="products-offered" data-sortable-target="container">
+    </div>
+  </div>
 
-  <%= simple_form_for [@product, @offer] do |f| %>
-    <%= f.label :products, "Products to Offer" %>
-    <%= f.input_field :product_ids, collection: @products, as: :check_boxes %>
-    <%= f.button :submit, "Create Offer" %>
-  <% end %>
+  <%# Product %>
+  <div>
+    <h2>Product</h2>
+    <ul>
+      <div>
+        <% if @product.photo.present? %>
+          <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill, class: "image" %>
+        <% end %>
+      </div>
+      <div class="card description">
+        <li><strong>Name: </strong> <%= @product.name %></li>
+        <li><strong>Expiration: </strong> <%= @product.expiration %></li>
+        <li><strong>Quantity: </strong> <%= @product.quantity %></li>
+      </div>
+    </ul>
+  </div>
 </div>
+
+
+<%= simple_form_for [@product, @offer] do |f| %>
+  <%= f.label :products, "Products to Offer" %>
+  <%= f.input_field :product_ids, collection: @products, as: :check_boxes %>
+  <%= f.button :submit, "Create Offer" %>
+<% end %>
+
+
+
+
+
