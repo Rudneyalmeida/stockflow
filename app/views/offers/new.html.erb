@@ -1,5 +1,8 @@
-<div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/08/17/16/11/art-4412523_1280.jpg)">
-  OFFERED PRODUCTS
+<div class="card-category bg-offerted" >
+  <div  class="int-banner d-flex justify-content-around">
+  <%= image_tag 'stock_flow_blue.png', class: "logo-card-category" %>
+    TRADES
+  </div>
 </div>
 <div class="container">
   <div class="products-grid " data-controller="sortable">
@@ -9,13 +12,13 @@
       <div data-sortable-target="container">
           <% @products.each do |product| %>
         <div class="mini-card">
-            <div class="card mt-2" data-sortable-target="card" data-product-id="<%= product.id %>">
+            <div class="card  mt-2 " data-sortable-target="card" data-product-id="<%= product.id %>">
               <% if product.photo.present? %>
-                <%= cl_image_tag product.photo.key, height: 100, width: 133, crop: :fill %>
+                <%= cl_image_tag product.photo.key, height: 100, width: 133, crop: :fill, class: "image-card-offers" %>
               <% else %>
-                <%= image_tag 'space_baazar.png', height: 100, width: 133, crop: :fill, class: "image" %>
+                <%= image_tag 'stock_flow.png', height: 100, width: 133, crop: :fill, class: "image-card-offers" %>
               <% end %>
-              <div>
+              <div class="card-inter">
                 <strong>Name:</strong> <%= product.name %>
                 <strong>Expiration:</strong> <%= product.expiration %>
                 <strong>Quantity:</strong> <%= product.quantity %>
@@ -42,7 +45,7 @@
           <% if @product.photo.present? %>
             <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
           <% else %>
-            <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill, class: "image" %>
+            <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill, class: "image" %>
           <% end %>
         </div>
         <div class="card description">
