@@ -2,3 +2,34 @@
   <h1>Products#edit</h1>
   <p>Find me in app/views/products/edit.html.erb</p>
 </div>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(	https://cdn.pixabay.com/photo/2020/12/10/20/40/color-5821297_1280.jpg)">
+  EDIT PRODUCT
+  <i class="fa-solid fa-pen-to-square"></i>
+</div>
+
+<%= form_for @product, html: { multipart: true } do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :expiration %>
+    <%= f.date_field :expiration, class: "form-control", min: 1.month.from_now %>
+  </div>
+  <div class="form-group">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :photo %>
+    <%= f.file_field :photo, class: "form-control", onchange: "previewFile(this);" %>
+    <img id="preview" src="<%= @product.photo.url %>" alt="Preview" style="max-width: 100%; max-height: 300px;">
+  </div>
+  <%= f.submit "Update Product", class: "btn-blue" %>
+<% end %>
+
+<%= link_to "Back", products_path, class: "btn-blue" %>

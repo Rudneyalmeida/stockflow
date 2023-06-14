@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   def index
     accepted_offers_product_ids = Offer.accepted.pluck(:product_id)
-    
+
     if params[:query].present?
       @products = Product.search_by_name_and_category(params[:query])
       @products = @products.where.not(id: accepted_offers_product_ids)
@@ -31,6 +31,14 @@ class ProductsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to @product, notice: "Product was successfully updated."
+    else
+      render :edit
+    end
   end
 
   def my_products
