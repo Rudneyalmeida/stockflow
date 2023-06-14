@@ -2,7 +2,11 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
+
 import { application } from "./application"
+
+import OffersController from "./offers_controller"
+application.register("offers", OffersController)
 
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
@@ -12,3 +16,4 @@ application.register("hello", HelloController)
 
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
+
