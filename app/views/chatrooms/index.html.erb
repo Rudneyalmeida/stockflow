@@ -1,15 +1,11 @@
-<div class="container mt-5">
-  <div class="row justify-content-center card-">
-    <% @chatrooms.each do |chatroom| %>
-      <div class="col-md-2 col-5 border-card">
-        <%= link_to chatroom_path(chatroom), class: "card-listing " do %>
-          <div class="d-flex justify-content-between align-items-center position-relative">
-            <div class="card-product-infos">
-              <h2><%= chatroom.name %></h2>
-            </div>
-          </div>
-        <% end %>
-      </div>
+<div class="d-flex">
+  <div class="d-flex flex-column">
+    <% @chatrooms.each do |chat| %>
+      <% if chat.user_two_id == current_user.id %>
+        <%= link_to chat.name2, chatroom_path(chat) %>
+      <% else %>
+        <%= link_to chat.name, chatroom_path(chat) %>
+      <% end %>
     <% end %>
   </div>
 </div>
