@@ -1,57 +1,55 @@
-<div class="bg-landing-page">
-  <div class="card-category bg-offer" >
-    <div  class="int-banner d-flex justify-content-around">
-    <%= image_tag 'stock_flow_withe.png', class: "logo-card-category" %>
-      OFFERS
-    </div>
+<div class="card-category bg-offer" >
+  <div  class="int-banner d-flex justify-content-around">
+  <%= image_tag 'stock_flow_withe.png', class: "logo-card-category" %>
+    <i class="fa-solid fa-dolly"></i>
   </div>
-  <div class="container mt-5" data-controller="offers">
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="#" data-action="click->offers#showMyOffers" data-offers-target="myOffersTab" >My Offers</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" data-action="click->offers#showOffersReceived" data-offers-target="offersReceivedTab" >Offers Received</a>
-      </li>
-    </ul>
+</div>
+<div class="container mt-5" data-controller="offers">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="#" data-action="click->offers#showMyOffers" data-offers-target="myOffersTab" >My Offers</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" data-action="click->offers#showOffersReceived" data-offers-target="offersReceivedTab" >Offers Received</a>
+    </li>
+  </ul>
 
-    <div id="my-offers" class="card-deck" data-offers-target="myOffers">
-      <% @offers.each do |my_offer| %>
-        <div class="card card-offerted">
-          <div class="card-header rounded">
-            <h5 class="card-title">Offer for <%= my_offer.product.name %></h5>
-          </div>
-          <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
-            <ul>
-              <% my_offer.trades.each do |trade| %>
-                <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
-              <% end %>
-            </ul>
-            <p class="card-text">Status: <%= my_offer.status.capitalize %></p>
-          </div>
+  <div id="my-offers" class="card-deck" data-offers-target="myOffers">
+    <% @offers.each do |my_offer| %>
+      <div class="card card-offerted">
+        <div class="card-header">
+          <h5 class="card-title">Offer for <%= my_offer.product.name %></h5>
         </div>
-      <% end %>
-    </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
+          <ul>
+            <% my_offer.trades.each do |trade| %>
+              <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
+            <% end %>
+          </ul>
+          <p class="card-text">Status: <%= my_offer.status.capitalize %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
 
-    <div id="offers-received" class="card-deck d-none" data-offers-target="offersReceived">
-      <% @received_offers.each do |offer|%>
-        <a href="<%= offer_path(offer) %>" class="card">
-          <div class="card-header ">
-            <h5 class="card-title">Offer from <%= offer.user.name %> for <%= offer.product.name %></h5>
-          </div>
-          <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
-            <ul>
-              <% offer.trades.each do |trade| %>
-                <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
-              <% end %>
-            </ul>
-            <p class="card-text">Status: <%= offer.status.capitalize %></p>
-          </div>
-        </a>
-      <% end %>
-    </div>
+  <div id="offers-received" class="card-deck d-none" data-offers-target="offersReceived">
+    <% @received_offers.each do |offer|%>
+      <a href="<%= offer_path(offer) %>" class="card">
+        <div class="card-header">
+          <h5 class="card-title">Offer from <%= offer.user.name %> for <%= offer.product.name %></h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
+          <ul>
+            <% offer.trades.each do |trade| %>
+              <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
+            <% end %>
+          </ul>
+          <p class="card-text">Status: <%= offer.status.capitalize %></p>
+        </div>
+      </a>
+    <% end %>
   </div>
 </div>
