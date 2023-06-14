@@ -14,6 +14,7 @@ export default class extends Controller {
         group: 'products', // set all lists to same group (to change columns)
         animation: 300,
         filter: '.sortable-ignore', // any elements matching this CSS selector will not be draggable
+        distance: 1, // distance in pixels to start the drag sequence
         onEnd: (event) => this.handleEnd(event) // fires after an item has been moved
       });
     });
