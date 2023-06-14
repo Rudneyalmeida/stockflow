@@ -1,10 +1,6 @@
-<div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/08/17/16/11/art-4412523_1280.jpg)">
-  CHATROOMS
-</div>
-
-<div class="container mt-5">
+<div class="container chatroom-margin"> <%# remove "chatroom-margin" if youre going to use a card --fernanda %>
   <div class="d-flex">
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column chatroom-list flex-grow-2">
       <% @chatrooms.each do |chat| %>
         <% if chat.user_two_id == current_user.id %>
           <%= link_to chat.name2, chatroom_path(chat) %>
@@ -36,13 +32,13 @@
       </div>
       <%= simple_form_for [@chatroom, @message],
       html: {class: "d-flex", data: { action: "turbo:submit-end->chatroom-subscription#resetForm"}} do |f|
-    %>
+      %>
       <%= f.input :content,
         label: false,
-        placeholder: "Message ##{@chatroom.name}",
-        wrapper_html: {class: "flex-grow-1"}
+        placeholder: "Message #{@chatroom.name}",
+        wrapper_html: {class: "margin-bottom-wrapper flex-grow-1"}
       %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+      <%= f.submit "Send", class: "btn btn-primary" %>
     <% end %>
     </div>
   </div>
