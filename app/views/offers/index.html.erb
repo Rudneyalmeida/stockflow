@@ -14,7 +14,6 @@
         <a class="nav-link" href="#" data-action="click->offers#showOffersReceived" data-offers-target="offersReceivedTab" >Offers Received</a>
       </li>
     </ul>
-
     <div id="my-offers" class="card-deck" data-offers-target="myOffers">
       <% @offers.each do |my_offer| %>
         <div class="card card-offerted">
@@ -33,8 +32,6 @@
         </div>
       <% end %>
     </div>
-
-
     <div id="offers-received" class="card-deck d-none" data-offers-target="offersReceived">
       <% @received_offers.each do |offer|%>
         <a href="<%= offer_path(offer) %>" class="card">
