@@ -1,6 +1,13 @@
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
+    h2 {
+      font-weight: bold;
+      font-style: italic;
+      text-align: center;
+      font-size: 1.5rem;
+    }
 }
 
 .offer-form {
@@ -12,46 +19,71 @@
     padding: 10px;
     margin-bottom: 10px;
   }
-  
+
   .image {
+    padding: 4px;
+    border: 1px solid rgb(86, 86, 86);
     object-fit: cover;
     object-position: center;
     margin-bottom: 10px;
+
   }
-  
+
   .sortable-ignore {
     cursor: default;
   }
-  
+
   .card-deck {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  
+
   .card {
-    width: calc(33.33% - 10px);
-    margin-bottom: 20px;
+      margin-bottom: 20px;
+      border-radius: 0.5rem;
+      margin-bottom: 20px;
+      padding: 1rem;
+      box-shadow: 0 0 2rem #b3b2b2
   }
-  
+
   .card-header {
     background-color: #f8f9fa;
     padding: 10px;
   }
-  
+
   .card-title {
     margin-bottom: 0;
   }
-  
+
   .card-body {
     padding: 10px;
   }
-  
+
   .card-subtitle {
     margin-bottom: 5px;
     font-weight: bold;
   }
-  
+
   .card-text {
     margin-bottom: 0;
+
   }
+
+  .my-prod {
+    background: white;
+    border: 1px solid #d1cbcb;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0 1rem;
+  }
+
+  .product-soarteable {
+    padding-left: 0;
+  }
+  .soarteable-btn {
+    margin-bottom: 3rem;
+  }
+
+  
+
