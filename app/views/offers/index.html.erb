@@ -4,14 +4,14 @@
 <div class="container mt-5" data-controller="offers">
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" href="#" data-action="click->offers#updateCards" data-offers-target="myOffers">My Offers</a>
+      <a class="nav-link active" href="#" data-action="click->offers#showMyOffers" data-offers-target="myOffersTab" >My Offers</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" data-action="click->offers#updateCards" data-offers-target="offersReceived">Offers Received</a>
+      <a class="nav-link" href="#" data-action="click->offers#showOffersReceived" data-offers-target="offersReceivedTab" >Offers Received</a>
     </li>
   </ul>
 
-  <div id="my-offers" class="card-deck" data-offers-target="myCardDeck">
+  <div id="my-offers" class="card-deck" data-offers-target="myOffers">
     <% @offers.each do |my_offer| %>
       <div class="card card-offerted">
         <div class="card-header">
@@ -31,7 +31,7 @@
   </div>
 
 
-  <div id="offers-received" class="card-deck d-none" data-offers-target="receivedCardDeck">
+  <div id="offers-received" class="card-deck d-none" data-offers-target="offersReceived">
     <% @received_offers.each do |offer|%>
       <a href="<%= offer_path(offer) %>" class="card">
         <div class="card-header">
