@@ -1,14 +1,13 @@
 <div class="bg-landing-page">
   <div class="card-category bg-my-products" >
     <div  class="int-banner d-flex justify-content-around">
-    <%= image_tag 'stock_flow_blue.png', class: "logo-card-category" %>
-      <i class="fa-solid fa-boxes-packing"></i>
+    <%= image_tag 'stock_flow_withe.png', class: "logo-card-category" %>
     </div>
   </div>
   <div class="container mt-5">
     <div class="row justify-content-center">
       <% @products.each do |product| %>
-        <div class="col-md-2 col-5 border-card">
+        <div  class="col-12 col-lg-3 border-card">
           <%= link_to product_path(product), class: "card-listing" do %>
             <div class="card-product">
               <% if product.photo.present? %>
@@ -19,8 +18,9 @@
             </div>
             <div class="d-flex justify-content-between align-items-center position-relative">
               <div class="card-product-infos">
-                <h2 class="ellipsis"><%= product.name %></h2>
-                <span class="qtd">Qty <%= product.quantity %></span>
+                <h2 class="ellipsis"><i class="fa-solid fa-dolly"></i> <%= product.name %></h2>
+                <hr>
+                <span class="qtd"><i class="fa-solid fa-boxes-stacked"> </i> Quantity <%= product.quantity %></span>
               </div>
             </div>
           <% end %>

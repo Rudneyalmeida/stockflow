@@ -1,7 +1,8 @@
 <div class="bg-landing-page">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(	https://cdn.pixabay.com/photo/2018/10/01/13/53/droplet-3716288_1280.jpg)">
-    NEW PRODUCT
-    <i class="fa-solid fa-plus"></i>
+  <div class="card-category bg-my-new" >
+    <div  class="int-banner d-flex justify-content-center">
+      <%= image_tag 'stock_flow_withe.png', class: "logo-card-category" %>
+    </div>
   </div>
   <div class="container p-5 mt-5">
     <%= simple_form_for @product do |f| %>
