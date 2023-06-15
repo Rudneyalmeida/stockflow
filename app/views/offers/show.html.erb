@@ -1,41 +1,46 @@
 <div class="bg-landing-page">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/08/17/16/11/art-4412523_1280.jpg)">
-    OFFERS DETAILS
+  <div class="card-category bg-offerted" >
+    <div  class="int-banner d-flex justify-content-around">
+    <%= image_tag 'stock_flow_blue.png', class: "logo-card-category" %>
+      <i class="fa-solid fa-people-carry-box"></i>
+    </div>
   </div>
   <div class="container mt-5">
-    <h2>Offer details</h2>
-    <div class="offer-details">
-      <div class="d-flex">
-        <div class="user-details">
-          <strong>User:</strong>
-          <%= @offer.user.name %>
-        </div>
-        <div class="product-details">
-        <strong>Product to offer for:</strong>
-          <div class="product-image">
-            <% if @offer.product.photo.present? %>
-              <%= cl_image_tag @offer.product.photo.key, height: 300, width: 400, crop: :fill %>
-            <% else %>
-              <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill %>
-            <% end %>
+    <div class="offer-details d-flex justify-content-around" >
+      <div class="offer-prod">
+        <h2>Offer details</h2>
+        <div class="card d-flex offer-card-details">
+          <div class="user-details">
+            <strong>User:</strong>
+            <%= @offer.user.name %>
           </div>
-          <div class="product-info">
-            <p><strong>Name:</strong> <%= @offer.product.name %></p>
-            <p><strong>Quantity:</strong> <%= @offer.product.quantity %></p>
+          <div class="product-details">
+            <strong>Product to offer for:</strong>
+            <div class="product-image">
+              <% if @offer.product.photo.present? %>
+                <%= cl_image_tag @offer.product.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill %>
+              <% end %>
+            </div>
+            <div class="product-info">
+              <p><strong>Name:</strong> <%= @offer.product.name %></p>
+              <p><strong>Quantity:</strong> <%= @offer.product.quantity %></p>
+            </div>
           </div>
         </div>
       </div>
 
       <div>
         <h2>Products offered:</h2>
-        <div class="products-offered d-flex flex-wrap gap-3 justify-content-betwenn">
+        <div class=" card offer-card-details products-offered d-flex flex-wrap gap-3 justify-content-betwenn">
           <% @offer.trades.each do |trade| %>
             <div class="product-offered">
-              <div class="product-image">
+              <div class="product-image prod-image-offered">
                 <% if trade.product.photo.present? %>
                   <%= cl_image_tag trade.product.photo.key, height: 300, width: 400, crop: :fill %>
                 <% else %>
-                  <%= image_tag 'space_baazar.png', height: 300, width: 400, crop: :fill %>
+                  <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill %>
                 <% end %>
               </div>
               <div class="product-info">
