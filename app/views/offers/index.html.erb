@@ -13,36 +13,37 @@
         <a class="nav-link" href="#" data-action="click->offers#showOffersReceived" data-offers-target="offersReceivedTab" >Offers Received</a>
       </li>
     </ul>
-    <div id="my-offers" class="card-deck" data-offers-target="myOffers">
-      <% @offers.each do |my_offer| %>
-        <div class="card card-offerted">
-          <div class="card-header rounded">
-            <h5 class="card-title">Offered Products for <span class="fw-bold"> <%= my_offer.product.name %></span></h5>
-          </div>
-          <div class="card-body">           
-            <ul>
-              <% my_offer.trades.each do |trade| %>
-                <li><span class="fw-bold"><%= trade.product.name %></span> <span class="text-secondary">• Quantity: <%= trade.product.quantity %></span></li>
-                <hr>
-              <% end %>
-            </ul>
-            <p class="fw-bold">Status:
-              <span class="mr-2 card-text">
-                <% if my_offer.status == "accepted" %>
-                  <span class="text-green"><%= my_offer.status.capitalize %></span>
-                <% elsif my_offer.status == "pending" %>
-                  <span class="text-yellow"><%= my_offer.status.capitalize %></span>
-                <% elsif my_offer.status == "rejected" %>
-                  <span class="text-red"><%= my_offer.status.capitalize %></span>
-                <% else %>
-                  <%= my_offer.status.capitalize %>
-                <% end %>
-              </span>
-            </p>
-          </div>
-        </div>
-      <% end %>
-    </div>
+<div id="my-offers" class="card-deck" data-offers-target="myOffers">
+  <% @offers.each do |my_offer| %>
+    <a href="<%= offer_path(my_offer) %>" class="card card-offerted">
+      <div class="card-header rounded">
+        <h5 class="card-title">Offered Products for <span class="fw-bold"> <%= my_offer.product.name %></span></h5>
+      </div>
+      <div class="card-body">           
+        <ul>
+          <% my_offer.trades.each do |trade| %>
+            <li><span class="fw-bold"><%= trade.product.name %></span> <span class="text-secondary">• Quantity: <%= trade.product.quantity %></span></li>
+            <hr>
+          <% end %>
+        </ul>
+        
+        <p class="fw-bold"><span class="fw-bold">User:</span> <%= my_offer.user.name %><br>
+          Status:<span class="mr-2 card-text">
+            <% if my_offer.status == "accepted" %>
+              <span class="text-green"><%= my_offer.status.capitalize %></span>
+            <% elsif my_offer.status == "pending" %>
+              <span class="text-yellow"><%= my_offer.status.capitalize %></span>
+            <% elsif my_offer.status == "rejected" %>
+              <span class="text-red"><%= my_offer.status.capitalize %></span>
+            <% else %>
+              <%= my_offer.status.capitalize %>
+            <% end %>
+          </span><br>
+        </p>
+      </div>
+    </a>
+  <% end %>
+</div>
     <div id="offers-received" class="card-deck d-none" data-offers-target="offersReceived">
       <% @received_offers.each do |offer|%>
         <a href="<%= offer_path(offer) %>" class="card">
