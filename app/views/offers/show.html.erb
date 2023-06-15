@@ -7,15 +7,15 @@
   </div>
   <div class="container mt-5">
     <div class="offer-details d-flex justify-content-around" >
-      <div class="offer-prod">
+      <div class="my-prod">
         <div>
-          <h2>Offer details</h2>
+          <h2 class="offer_font">Offer details</h2>
         </div>
-        <div class="user-details">
+        <div class=" card user-details">
           <strong>User:</strong>
           <%= @offer.user.name %>
         </div>
-        <div class="product-details">
+        <div class="product-details card ">
           <strong>Product to offer for:</strong>
           <div class="product-image">
             <% if @offer.product.photo.present? %>
@@ -31,11 +31,11 @@
         </div>
       </div>
 
-      <div class="offer-prod">
-        <h2>Products offered:</h2>
-        <div class=" card offer-card-details products-offered d-flex flex-wrap gap-3 justify-content-betwenn">
+      <div class="my-prod">
+        <h2 class="offer_font">Products offered:</h2>
+        <div class="  offer-card-details products-offered d-flex flex-wrap gap-3 justify-content-betwenn">
           <% @offer.trades.each do |trade| %>
-            <div class="product-offered">
+            <div class="product-offered card">
               <div class="product-image prod-image-offered">
                 <% if trade.product.photo.present? %>
                   <%= cl_image_tag trade.product.photo.key, height: 300, width: 400, crop: :fill %>
@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="actions">
+    <div class="actions  mt-4 mb-4 d-flex justify-content-center gap-4 flex-wrap">
       <% if @offer.status == "pending" %>
       <div class="d-flex justify-content-center gap-3">
         <%= button_to 'Accept', accept_offer_path(@offer), method: :patch, class: 'btn-blue' %>
