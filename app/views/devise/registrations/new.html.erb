@@ -1,58 +1,60 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2018/10/01/13/53/droplet-3716288_1280.jpg)">
-  SIGN UP
-  <i class="fa-solid fa-right-to-bracket"></i>
-</div>
-<div class="container mt-5 p-5">
-  <h2 class="text-center">Sign up</h2>
-  <div class="d-flex flex-column align-items-center">
-    <div class="signup">
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-        <%= f.error_notification %>
+<div class="bg-landing-page">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2018/10/01/13/53/droplet-3716288_1280.jpg)">
+    SIGN UP
+    <i class="fa-solid fa-right-to-bracket"></i>
+  </div>
+  <div class="container mt-5 p-5">
+    <h2 class="text-center">Sign up</h2>
+    <div class="d-flex flex-column align-items-center">
+      <div class="signup">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+          <%= f.error_notification %>
 
-        <div class="form-inputs">
-          <%= f.input :cpnj,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "off", id: "cpnj" } %>
-          <%= f.input :name,
-                      required: true,
-                      autofocus: true,
-                      label: "Razão Social",
-                      input_html: { class: "form-control", id: "name" } %>
+          <div class="form-inputs">
+            <%= f.input :cpnj,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "off", id: "cpnj" } %>
+            <%= f.input :name,
+                        required: true,
+                        autofocus: true,
+                        label: "Razão Social",
+                        input_html: { class: "form-control", id: "name" } %>
 
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email", id: "email" } %>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email", id: "email" } %>
 
 
-          <%= f.input :phone,
-                      required: true,
-                      autofocus: true,
-                      input_html: { type: "phone", autocomplete: "tel", id: "phone" } %>
+            <%= f.input :phone,
+                        required: true,
+                        autofocus: true,
+                        input_html: { type: "phone", autocomplete: "tel", id: "phone" } %>
 
-          <%= f.input :address,
-                      required: true,
-                      autofocus: true,
-                      input_html: { type: "text", autocomplete: "address", id: "address" } %>
+            <%= f.input :address,
+                        required: true,
+                        autofocus: true,
+                        input_html: { type: "text", autocomplete: "address", id: "address" } %>
 
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" } %>
 
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
 
-          <%= f.input :photo, as: :file %>
-        </div>
+            <%= f.input :photo, as: :file %>
+          </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
-        </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up" %>
+          </div>
 
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
