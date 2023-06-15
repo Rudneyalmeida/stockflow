@@ -1,25 +1,44 @@
-<div class="container chatroom-margin"> <%# remove "chatroom-margin" if youre going to use a card --fernanda %>
-  <div class="d-flex">
-    <div class="d-flex flex-column chatroom-list flex-grow-2">
+<div class="container chatroom-margin" <%# remove "chatroom-margin" if youre going to use a card --fernanda %>
+data-controller="chatroom-subscription"
+data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+
+  <div class="row">
+    <div class="d-flex flex-column chatroom-list col-3">
       <% @chatrooms.each do |chat| %>
-        <% if chat.user_two_id == current_user.id %>
-          <%= link_to chat.name2, chatroom_path(chat) %>
-        <% else %>
-          <%= link_to chat.name, chatroom_path(chat) %>
-        <% end %>
+        <div class="chat-card">
+
+          <% if chat.user_two_id == current_user.id %>
+            <% if chat.user_two.photo.present? %>
+              <%= cl_image_tag chat.user_two.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% else %>
+              <%= image_tag 'stock_flow.png', crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% end %>
+            <div class="chat-card-info" data-chatroom-subscription-target="lastMessage_<%= chat.id %>">
+              <%= link_to chat.name2&.split(" ")&.first, chatroom_path(chat) %>
+              <p class="overflow-ellipsis" data-chatroom-subscription-target="lastMessage" data-chatroomId-value="<%= chat.id %>"><%= chat.messages.last&.content || "" %></p>
+            </div>
+          <% else %>
+            <% if chat.user_two.photo.present? %>
+              <%= cl_image_tag chat.user_two.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% else %>
+              <%= image_tag 'stock_flow.png', crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% end %>
+            <div class="chat-card-info" data-chatroom-subscription-target="lastMessage_<%= chat.id %>">
+              <%= link_to chat.name&.split(" ")&.first, chatroom_path(chat) %>
+              <p class="overflow-ellipsis" data-chatroom-subscription-target="lastMessage" data-chatroomId-value="<%= chat.id %>"><%= chat.messages.last&.content || "" %></p>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
 
-    <div class="container chatroom"
-    data-controller="chatroom-subscription"
-    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
-    data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+    <div class="container chatroom col-9">
       <% if @chatroom.user_two_id == current_user.id %>
         <h1>#<%= @chatroom.name2 %></h1>
       <% else %>
         <h1>#<%= @chatroom.name %></h1>
       <% end %>
-
 
       <div class="messages" data-chatroom-subscription-target="messages">
         <% @chatroom.messages.each do |message| %>
@@ -34,11 +53,14 @@
       html: {class: "d-flex", data: { action: "turbo:submit-end->chatroom-subscription#resetForm"}} do |f|
       %>
       <%= f.input :content,
+        # data: { emojiable: true },
         label: false,
-        placeholder: "Message #{@chatroom.name}",
+        placeholder: @chatroom.user_two_id == current_user.id ? "Message #{@chatroom.name2}" : "Message #{@chatroom.name}",
         wrapper_html: {class: "margin-bottom-wrapper flex-grow-1"}
       %>
-      <%= f.submit "Send", class: "btn btn-primary" %>
+      <%= button_tag type: 'submit', class: "button postfix" do %>
+        <i class="fa-solid fa-paper-plane fa-2x" style="color: #212A3E";></i>
+      <% end %>
     <% end %>
     </div>
   </div>

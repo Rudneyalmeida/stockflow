@@ -3,14 +3,16 @@ import { createConsumer } from "@rails/actioncable"
 
 // Connects to data-controller="chatroom-subscription"
 export default class extends Controller {
-  static targets = ["messages"]
+  static targets = ["messages", "lastMessage"]
   static values = { chatroomId: Number, currentUserId: Number }
 
   connect() {
+    //console.log(this.lastMessageTarget);
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: (data) => { this.#insertMessageAndScrollDown(data) } }
     )
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
   disconnect() {
@@ -33,6 +35,8 @@ export default class extends Controller {
     // Inserting the `message` in the DOM
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    // console.log(this.messageTarget.innerText)
+   // this.messageTarget.innerText = messageElement // encontrar o card com o msm id do chat e atualizar a ultima msg do card
   }
 
   #buildMessageElement(currentUserIsSender, message) {

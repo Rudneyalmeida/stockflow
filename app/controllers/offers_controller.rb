@@ -18,6 +18,7 @@ class OffersController < ApplicationController
   def accept
     @offer = Offer.find(params[:id])
     @offer.accepted!
+    @offer.product.update(offered: true)
     @offer.trades.each { |trade| trade.product.update(offered: true) } # Update the offered attribute of all associated products
     # Reject all other offers for the same product
     Offer.where(product: @offer.product).where.not(id: @offer.id).update_all(status: "rejected")

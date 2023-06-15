@@ -4,12 +4,12 @@ class ProductsController < ApplicationController
 
   def index
     accepted_offers_product_ids = Offer.accepted.pluck(:product_id)
-
+  
     if params[:query].present?
       @products = Product.search_by_name_and_category(params[:query])
       @products = @products.where.not(id: accepted_offers_product_ids)
     else
-      @products = Product.all.where.not(id: accepted_offers_product_ids)
+      @products = Product.where.not(offered: true).where.not(id: accepted_offers_product_ids)
     end
   end
 
