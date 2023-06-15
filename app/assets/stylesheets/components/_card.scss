@@ -152,5 +152,11 @@
   }
 }
 .offer-prod {
-  width: 34%;
+  flex-direction: column;
+  display: flex;
+  padding: 1.5rem;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  width: 45%;
+  background: #f9f9f9ad;
 }

@@ -7,31 +7,31 @@
   </div>
   <div class="container mt-5">
     <div class="offer-details d-flex justify-content-around" >
-      <div class="offer-prod card">
-        <h2>Offer details</h2>
-        <div class="card d-flex offer-card-details">
-          <div class="user-details">
-            <strong>User:</strong>
-            <%= @offer.user.name %>
+      <div class="offer-prod">
+        <div>
+          <h2>Offer details</h2>
+        </div>
+        <div class="user-details">
+          <strong>User:</strong>
+          <%= @offer.user.name %>
+        </div>
+        <div class="product-details">
+          <strong>Product to offer for:</strong>
+          <div class="product-image">
+            <% if @offer.product.photo.present? %>
+              <%= cl_image_tag @offer.product.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill %>
+            <% end %>
           </div>
-          <div class="product-details">
-            <strong>Product to offer for:</strong>
-            <div class="product-image">
-              <% if @offer.product.photo.present? %>
-                <%= cl_image_tag @offer.product.photo.key, height: 300, width: 400, crop: :fill %>
-              <% else %>
-                <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill %>
-              <% end %>
-            </div>
-            <div class="product-info">
-              <p><strong>Name:</strong> <%= @offer.product.name %></p>
-              <p><strong>Quantity:</strong> <%= @offer.product.quantity %></p>
-            </div>
+          <div class="product-info">
+            <p><strong>Name:</strong> <%= @offer.product.name %></p>
+            <p><strong>Quantity:</strong> <%= @offer.product.quantity %></p>
           </div>
         </div>
       </div>
 
-      <div class="card">
+      <div class="offer-prod">
         <h2>Products offered:</h2>
         <div class=" card offer-card-details products-offered d-flex flex-wrap gap-3 justify-content-betwenn">
           <% @offer.trades.each do |trade| %>
