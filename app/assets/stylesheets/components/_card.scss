@@ -78,8 +78,6 @@
 .border-card:hover {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgb(93, 92, 92);
-
-
 }
 
 .description{
@@ -129,4 +127,30 @@
   overflow: hidden;
   text-overflow: ellipsis;
   width: 68%;
+}
+
+.offer-card-details {
+  width: 100%;
+}
+
+.product-image {
+
+  img {
+    border-radius: 1rem;
+    width: 100%;
+  }
+
+}
+.prod-image-offered {
+  width: 100%;
+}
+.prod-image-offered {
+
+  img {
+    border-radius: 1rem;
+    width: 100%;
+  }
+}
+.offer-prod {
+  width: 34%;
 }
