@@ -1,13 +1,47 @@
-<div class="container chatroom-margin"> <%# remove "chatroom-margin" if youre going to use a card --fernanda%>
-  <div class="d-flex">
-    <div class="d-flex flex-column">
+<div class="container chatroom-margin"> <%# remove "chatroom-margin" if youre going to use a card --fernanda %>
+
+  <div class="row">
+    <div class="d-flex flex-column chatroom-list col-3">
       <% @chatrooms.each do |chat| %>
-        <% if chat.user_two_id == current_user.id %>
-          <%= link_to chat.name2, chatroom_path(chat) %>
-        <% else %>
-          <%= link_to chat.name, chatroom_path(chat) %>
-        <% end %>
+        <div class="chat-card">
+
+          <% if chat.user_two_id == current_user.id %>
+            <% if chat.user_two.photo.present? %>
+              <%= cl_image_tag chat.user_two.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% else %>
+              <%= image_tag 'stock_flow.png', crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% end %>
+            <div class="chat-card-info" data-chatroom-subscription-target="lastMessage_<%= chat.id %>">
+              <%= link_to chat.name2&.split(" ")&.first, chatroom_path(chat) %>
+              <p class="overflow-ellipsis" data-chatroom-subscription-target="lastMessage" data-chatroomId-value="<%= chat.id %>"><%= chat.messages.last&.content || "" %></p>
+            </div>
+          <% else %>
+            <% if chat.user_two.photo.present? %>
+              <%= cl_image_tag chat.user_two.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% else %>
+              <%= image_tag 'stock_flow.png', crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% end %>
+            <div class="chat-card-info" data-chatroom-subscription-target="lastMessage_<%= chat.id %>">
+              <%= link_to chat.name&.split(" ")&.first, chatroom_path(chat) %>
+              <p class="overflow-ellipsis" data-chatroom-subscription-target="lastMessage" data-chatroomId-value="<%= chat.id %>"><%= chat.messages.last&.content || "" %></p>
+            </div>
+          <% end %>
+        </div>
       <% end %>
+    </div>
+
+    <div class="container chatroom chat-empty col-9">
+    <% if @chatrooms.present? %>
+    <ul>
+      <%= image_tag 'stock_flow_blue.png'%>
+    </ul>
+    <% else %>
+    <ul>
+      <%= image_tag 'stock_flow_blue.png'%>
+      <li><h4>You've got no chatrooms yet.</h4> </li>
+      <li><p>Contact a seller by clicking the "Chat" button from one of their products.</p> </li>
+    </ul>
+    <% end %>
     </div>
   </div>
 </div>
