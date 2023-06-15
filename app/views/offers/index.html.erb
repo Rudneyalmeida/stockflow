@@ -2,7 +2,6 @@
   <div class="card-category bg-offer" >
     <div  class="int-banner d-flex justify-content-around">
     <%= image_tag 'stock_flow_withe.png', class: "logo-card-category" %>
-      OFFERS
     </div>
   </div>
   <div class="container mt-5" data-controller="offers">
@@ -18,16 +17,28 @@
       <% @offers.each do |my_offer| %>
         <div class="card card-offerted">
           <div class="card-header rounded">
-            <h5 class="card-title">Offer for <%= my_offer.product.name %></h5>
+            <h5 class="card-title">Offered Products for <span class="fw-bold"> <%= my_offer.product.name %></span></h5>
           </div>
-          <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
+          <div class="card-body">           
             <ul>
               <% my_offer.trades.each do |trade| %>
-                <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
+                <li><span class="fw-bold"><%= trade.product.name %></span> <span class="text-secondary">• Quantity: <%= trade.product.quantity %></span></li>
+                <hr>
               <% end %>
             </ul>
-            <p class="card-text">Status: <%= my_offer.status.capitalize %></p>
+            <p class="fw-bold">Status:
+              <span class="mr-2 card-text">
+                <% if my_offer.status == "accepted" %>
+                  <span class="text-green"><%= my_offer.status.capitalize %></span>
+                <% elsif my_offer.status == "pending" %>
+                  <span class="text-yellow"><%= my_offer.status.capitalize %></span>
+                <% elsif my_offer.status == "rejected" %>
+                  <span class="text-red"><%= my_offer.status.capitalize %></span>
+                <% else %>
+                  <%= my_offer.status.capitalize %>
+                <% end %>
+              </span>
+            </p>
           </div>
         </div>
       <% end %>
@@ -36,16 +47,37 @@
       <% @received_offers.each do |offer|%>
         <a href="<%= offer_path(offer) %>" class="card">
           <div class="card-header ">
-            <h5 class="card-title">Offer from <%= offer.user.name %> for <%= offer.product.name %></h5>
+            <h5 class="card-title">Offer from</h5>
           </div>
           <div class="card-body">
+             <div class="d-flex align-items-center mb-4">
+               <div class="border p-4">
+                  <%= offer.user.name.titleize %>
+               </div>
+               <i class="fa-solid fa-arrow-right-arrow-left px-4"></i>
+               <div class="border p-4">
+                  <%= offer.product.name.titleize %>
+               </div>
+             </div>
             <h6 class="card-subtitle mb-2 text-muted">Offered Products:</h6>
             <ul>
               <% offer.trades.each do |trade| %>
-                <li><%= trade.product.name %> (<%= trade.product.quantity %>)</li>
+                <li><span class="fw-bold"><%= trade.product.name %></span> <span class="text-secondary">• Quantity: <%= trade.product.quantity %></span></li>
               <% end %>
             </ul>
-            <p class="card-text">Status: <%= offer.status.capitalize %></p>
+            <p class="fw-bold">Status:
+              <span class="mr-2 card-text">
+                <% if offer.status == "accepted" %>
+                  <span class="text-green"><%= offer.status.capitalize %></span>
+                <% elsif offer.status == "pending" %>
+                  <span class="text-yellow"><%= offer.status.capitalize %></span>
+                <% elsif offer.status == "rejected" %>
+                  <span class="text-red"><%= offer.status.capitalize %></span>
+                <% else %>
+                  <%= offer.status.capitalize %>
+                <% end %>
+              </span>
+            </p>
           </div>
         </a>
       <% end %>
