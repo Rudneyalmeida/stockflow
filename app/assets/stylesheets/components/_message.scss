@@ -3,19 +3,32 @@
   padding: 8px;
 }
 
-// To style the message itself
-.sender-style, .receiver-style {
+.sender-style {
   width: 70%;
   max-width: 400px;
   border-radius: 1rem;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 20px;
   min-height: 73px;
   background-color: #DDDDDD;
+  /* Define additional sender-specific styles if needed */
+}
 
-  p {
-    margin-bottom: 0;
-  }
+.receiver-style {
+  width: 70%;
+  max-width: 400px;
+  border-radius: 1rem;
+  padding: 10px 20px;
+  min-height: 73px;
+  background-color: #DDDDDD;
+  /* Define additional receiver-specific styles if needed */
+}
+
+.message-row .sender-style p,
+.message-row .receiver-style p {
+  margin-bottom: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }

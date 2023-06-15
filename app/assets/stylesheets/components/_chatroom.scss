@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100% !important;
   padding-left: 0;
   padding-right: 0;
 
@@ -49,4 +48,62 @@
 
 .chatroom-list {
   background-color: #DDDDDD;
+  margin-top: 9px;
+  .chat-card {
+    width: 100%;
+    border-radius: 1rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 73px;
+    background-color: #394867;
+    display: flex;
+    gap: 15px;
+    margin-top: calc(var(--bs-gutter-x) * .5);
+
+    p {
+      margin-bottom: 0;
+      color: rgba($color: #ffffff, $alpha: 0.5);
+      font-size: 15px;
+      font-weight: lighter !important;
+    }
+
+    a {
+      font-size: 18px !important;
+      color: white;
+    }
+
+    .avatar {
+      border-style: none;
+    }
+  }
+}
+
+.chat-card-info {
+  justify-content: center;
+  padding: 5px 0;
+  overflow: hidden;
+  white-space: nowrap;
+
+
+  p {
+    line-height: 70%;
+    text-overflow: ellipsis !important;
+
+    // overflow: hidden;
+    // white-space: nowrap;
+  }
+  // .overflow-ellipsis {
+  //   text-overflow: ellipsis !important;
+  // }
+}
+
+.button, .postfix {
+  margin-left: 10px;
+  border-style: none;
+  background-color: rgba($color: #000000, $alpha: 0);
+  width: 35px;
+  height: 35px;
+  padding: 0 !important;
 }

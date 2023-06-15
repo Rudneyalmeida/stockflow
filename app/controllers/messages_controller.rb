@@ -4,7 +4,10 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.chatroom = @chatroom
     @message.user = current_user
-    if @message.save
+
+    if @message.content.blank?
+      redirect_to chatroom_path(@chatroom), alert: "Message cannot be empty."
+    elsif @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
         message: render_to_string(partial: "message", locals: {message: @message}),
