@@ -59,9 +59,9 @@
         <%= button_to 'Accept', accept_offer_path(@offer), method: :patch, class: 'btn-blue' %>
         <%= button_to 'Reject', reject_offer_path(@offer), method: :patch, class: 'btn-blue' %>
       <% elsif @offer.status == 'accepted' %>
-        <p class="accepted">Accepted</p>
+        
       <% else %>
-        <p class="rejected">Rejected</p>
+        
       <% end %>
       <%= link_to "Chat", product_chatrooms_path(@product, user_ids: [@offer.user_id, current_user.id]), data: {turbo_method: :post}, class: "btn-blue" %>
       <%= link_to 'Back to Offers', offers_path, class: 'btn-blue' %>
