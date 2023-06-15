@@ -35,9 +35,9 @@ data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
     <div class="container chatroom col-9">
       <% if @chatroom.user_two_id == current_user.id %>
-        <h1>#<%= @chatroom.name2 %></h1>
+        <h1><%= @chatroom.name2 %></h1>
       <% else %>
-        <h1>#<%= @chatroom.name %></h1>
+        <h1><%= @chatroom.name %></h1>
       <% end %>
 
       <div class="messages" data-chatroom-subscription-target="messages">

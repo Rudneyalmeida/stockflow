@@ -7,6 +7,8 @@
   justify-content: space-between;
   padding-left: 0;
   padding-right: 0;
+  box-shadow: 0 0 1.1rem rgba(71, 71, 71, 0.4);
+
 
   h1 {
     border-bottom: 1px solid $gray-200;
@@ -29,7 +31,29 @@
       margin-bottom: 0;
     }
   }
+
 }
+
+.chat-empty {
+  justify-content: center;
+
+
+  ul {
+    opacity: 0.5;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  img {
+    width: 80%;
+    color: #000000;
+    filter: saturate(0%);
+  }
+}
+
 
 .chatroom-margin{
   margin-top: 7.5rem;
@@ -44,11 +68,14 @@
   border-style: none;
   box-shadow: none;
   background: #F7F7F7;
+
 }
 
 .chatroom-list {
   background-color: #DDDDDD;
   margin-top: 9px;
+  box-shadow: 0 0 1.1rem rgba(71, 71, 71, 0.4), 0 0 1.1rem rgba(71, 71, 71, 0.4);
+
   .chat-card {
     width: 100%;
     border-radius: 1rem;
@@ -76,9 +103,12 @@
 
     .avatar {
       border-style: none;
+      width: contain;
+      height: contain;
     }
   }
 }
+
 
 .chat-card-info {
   justify-content: center;
