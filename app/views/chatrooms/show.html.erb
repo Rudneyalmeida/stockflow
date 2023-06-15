@@ -7,6 +7,7 @@ data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
     <div class="d-flex flex-column chatroom-list col-3">
       <% @chatrooms.each do |chat| %>
         <div class="chat-card">
+
           <% if chat.user_two_id == current_user.id %>
             <% if chat.user_two.photo.present? %>
               <%= cl_image_tag chat.user_two.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
@@ -18,8 +19,8 @@ data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
               <p class="overflow-ellipsis" data-chatroom-subscription-target="lastMessage" data-chatroomId-value="<%= chat.id %>"><%= chat.messages.last&.content || "" %></p>
             </div>
           <% else %>
-            <% if chat.user.photo.present? %>
-              <%= cl_image_tag chat.user.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
+            <% if chat.user_two.photo.present? %>
+              <%= cl_image_tag chat.user_two.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
             <% else %>
               <%= image_tag 'stock_flow.png', crop: :fill, class: "avatar", alt: "dropdown menu" %>
             <% end %>

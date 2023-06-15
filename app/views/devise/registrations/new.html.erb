@@ -1,11 +1,7 @@
 <div class="bg-landing-page">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2018/10/01/13/53/droplet-3716288_1280.jpg)">
-    SIGN UP
-    <i class="fa-solid fa-right-to-bracket"></i>
-  </div>
-  <div class="container mt-5 p-5">
-    <h2 class="text-center">Sign up</h2>
-    <div class="d-flex flex-column align-items-center">
+  <div id="login-page" class="container p-5">
+      <%= image_tag 'stock_flow_blue.png', class: "img-login-signup" %>  
+    <div class="d-flex registration-box">
       <div class="signup">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
           <%= f.error_notification %>
