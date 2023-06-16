@@ -7,35 +7,35 @@
   </div>
   <div class="container mt-5">
     <div class="offer-details d-flex justify-content-around" >
-      <div class="offer-prod card">
-        <h2>Offer details</h2>
-        <div class="card d-flex offer-card-details">
-          <div class="user-details">
-            <strong>User:</strong>
-            <%= @offer.user.name %>
+      <div class="my-prod">
+        <div>
+          <h2 class="offer_font">Offer details</h2>
+        </div>
+        <div class=" card user-details">
+          <strong>User:</strong>
+          <%= @offer.user.name %>
+        </div>
+        <div class="product-details card ">
+          <strong>Product to offer for:</strong>
+          <div class="product-image">
+            <% if @offer.product.photo.present? %>
+              <%= cl_image_tag @offer.product.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill %>
+            <% end %>
           </div>
-          <div class="product-details">
-            <strong>Product to offer for:</strong>
-            <div class="product-image">
-              <% if @offer.product.photo.present? %>
-                <%= cl_image_tag @offer.product.photo.key, height: 300, width: 400, crop: :fill %>
-              <% else %>
-                <%= image_tag 'stock_flow.png', height: 300, width: 400, crop: :fill %>
-              <% end %>
-            </div>
-            <div class="product-info">
-              <p><strong>Name:</strong> <%= @offer.product.name %></p>
-              <p><strong>Quantity:</strong> <%= @offer.product.quantity %></p>
-            </div>
+          <div class="product-info">
+            <p><strong>Name:</strong> <%= @offer.product.name %></p>
+            <p><strong>Quantity:</strong> <%= @offer.product.quantity %></p>
           </div>
         </div>
       </div>
 
-      <div class="card">
-        <h2>Products offered:</h2>
-        <div class=" card offer-card-details products-offered d-flex flex-wrap gap-3 justify-content-betwenn">
+      <div class="my-prod">
+        <h2 class="offer_font">Products offered:</h2>
+        <div class="  offer-card-details products-offered d-flex flex-wrap gap-3 justify-content-betwenn">
           <% @offer.trades.each do |trade| %>
-            <div class="product-offered">
+            <div class="product-offered card">
               <div class="product-image prod-image-offered">
                 <% if trade.product.photo.present? %>
                   <%= cl_image_tag trade.product.photo.key, height: 300, width: 400, crop: :fill %>
@@ -53,15 +53,15 @@
       </div>
     </div>
 
-    <div class="actions">
+    <div class="actions  mt-4 mb-4 d-flex justify-content-center gap-4 flex-wrap">
       <% if @offer.status == "pending" %>
       <div class="d-flex justify-content-center gap-3">
         <%= button_to 'Accept', accept_offer_path(@offer), method: :patch, class: 'btn-blue' %>
         <%= button_to 'Reject', reject_offer_path(@offer), method: :patch, class: 'btn-blue' %>
       <% elsif @offer.status == 'accepted' %>
-        <p class="accepted">Accepted</p>
+        
       <% else %>
-        <p class="rejected">Rejected</p>
+        
       <% end %>
       <%= link_to "Chat", product_chatrooms_path(@product, user_ids: [@offer.user_id, current_user.id]), data: {turbo_method: :post}, class: "btn-blue" %>
       <%= link_to 'Back to Offers', offers_path, class: 'btn-blue' %>

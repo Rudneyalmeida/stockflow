@@ -162,5 +162,22 @@
   }
 }
 .offer-prod {
-  width: 34%;
+  flex-direction: column;
+  display: flex;
+  padding: 1.5rem;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  width: 45%;
+  background: #f9f9f9ad;
+}
+.offer_font {
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.footer-copy {
+  color: #727070;
+  font-size: 10px;
 }
