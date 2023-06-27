@@ -5,3 +5,6 @@ export default class extends Controller {
     this.element.textContent = "Hello World!"
   }
 }
+
+
+// Path: app\javascript\packs\application.js
